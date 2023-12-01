@@ -1,0 +1,173 @@
+body {
+  background-color: rgb(255 204 1) !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.BigBox {
+  width: 800px;
+}
+.big-container {
+  height: 190px;
+  width: 1200px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.first-container {
+  width: 500px;
+  height: 100px;
+}
+
+.second-container {
+  width: 160px;
+  display: flex;
+  height: 1px;
+}
+
+.thrid-container {
+  width: 1200px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.container {
+  justify-content: center;
+  margin-top: 40px;
+  width: 1200px;
+}
+
+#logo2 {
+  width: 150px;
+  background-color: rgb(255, 255, 255);
+}
+/* navBar */
+#navbarBig {
+  height: 60px;
+  align-items: center;
+  width: 1205;
+  padding: 0px;
+  flex-wrap: wrap;
+}
+.navbar-nav {
+  font-size: 12px;
+  margin-left: 15px;
+}
+
+.nav-item :hover {
+  background-color: rgb(119, 115, 115);
+}
+
+.nav-item :hover .nav-link {
+  color: white;
+}
+/* photos */
+
+.img-fluid {
+  border: solid;
+  border-color: white;
+  border-width: 10px;
+}
+
+#photoBox {
+  width: 10px;
+}
+
+.twelvecolumns {
+  flex-wrap: wrap;
+  width: 2000px;
+  height: 100px;
+}
+
+.pair-title {
+  font-size: 14px;
+}
+
+.pair-sub {
+  font-size: 14px;
+}
+
+#button2 {
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  position: relative;
+  top: 50px;
+}
+
+.widget-title {
+  font-size: 15px;
+}
+
+.img-fluid2 {
+  width: 590px;
+}
+
+.post-copy {
+  width: 590px;
+  font-size: 20px;
+  background-color: white;
+}
+
+.post-mid {
+  background-color: white;
+  width: 590px;
+}
+.post-meta {
+  background-color: white;
+  flex-wrap: wrap;
+  width: 580px;
+  font-size: 15px;
+  margin: 5px;
+}
+
+.carousel-inner > .carousel-item > img {
+  width: 640px;
+  height: 360px;
+}
+
+.card {
+  border: solid 10px rgb(255, 255, 255);
+  border-radius: 0;
+
+  height: 280px;
+  font-size: 12px;
+}
+.row {
+  width: 1200px;
+  flex-wrap: wrap;
+  height: 250px;
+}
+.col {
+  width: 150px;
+  height: 300px;
+}
+
+.btn {
+  font-size: 9px;
+  background-color: rgb(255 204 1);
+  border-radius: 0;
+  border: solid 0px;
+  color: black;
+  font-weight: bold;
+  margin-right: 39px;
+}
+
+.card-body {
+  padding: 0;
+  width: 120px;
+}
+
+.card-title {
+  font-size: 13px;
+  width: 120px;
+  height: 15px;
+  margin: 5px;
+  align-items: last baseline;
+  display: flex;
+}
+
+..text-center {
+  text-align: left !important;
+}
