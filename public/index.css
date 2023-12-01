@@ -137,6 +137,6 @@ body {
   display: flex;
 }
 
-..text-center {
+.text-center {
   text-align: left !important;
 }
