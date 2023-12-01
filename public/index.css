@@ -1,67 +1,36 @@
 body {
-  background-color: rgb(255 204 1) !important;
+  background-color: rgb(238, 238, 238) !important;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
 }
-.BigBox {
-  width: 800px;
-}
-.big-container {
-  height: 190px;
+
+#mobile-bar {
   width: 1200px;
   display: flex;
-  align-items: center;
   flex-wrap: wrap;
-  justify-content: space-between;
-}
-.first-container {
-  width: 500px;
-  height: 100px;
 }
 
-.second-container {
-  width: 160px;
+#navbarBig {
   display: flex;
-  height: 1px;
-}
-
-.thrid-container {
-  width: 1200px;
-  flex-wrap: wrap;
   justify-content: center;
-}
-.container {
-  justify-content: center;
-  margin-top: 40px;
   width: 1200px;
 }
 
+#carouselExampleIndicators {
+  display: flex;
+  justify-content: center;
+  width: 1200px;
+  height: 500px;
+}
+#sliderPhoto {
+}
 #logo2 {
   width: 150px;
   background-color: rgb(255, 255, 255);
 }
-/* navBar */
-#navbarBig {
-  height: 60px;
-  align-items: center;
-  width: 1205;
-  padding: 0px;
-  flex-wrap: wrap;
-}
-.navbar-nav {
-  font-size: 12px;
-  margin-left: 15px;
-}
 
-.nav-item :hover {
-  background-color: rgb(119, 115, 115);
-}
-
-.nav-item :hover .nav-link {
-  color: white;
-}
 /* photos */
 
 .img-fluid {
@@ -146,7 +115,7 @@ body {
 
 .btn {
   font-size: 9px;
-  background-color: rgb(255 204 1);
+  background-color: rgb(187, 187, 187);
   border-radius: 0;
   border: solid 0px;
   color: black;
