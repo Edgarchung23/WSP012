@@ -4,6 +4,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  font-weight: bold;
 }
 
 #mobile-bar {
@@ -11,11 +12,16 @@ body {
   display: flex;
   flex-wrap: wrap;
 }
-
-#navbarBig {
+#searchBar {
+  background-color: rgb(238, 238, 238) !important;
+  width: 1500px;
+  justify-content: space-between;
+}
+.navbar {
+  width: 2000px;
+  background-color: rgb(238, 238, 238) !important;
+  font-weight: bold;
   display: flex;
-  justify-content: center;
-  width: 1200px;
 }
 
 #carouselExampleIndicators {
@@ -23,8 +29,30 @@ body {
   justify-content: center;
   width: 1200px;
   height: 500px;
+  margin-bottom: 100px;
 }
+
+#sliderPhotoOutside {
+  margin-right: 90%;
+  width: 0%;
+  justify-content: center;
+}
+
 #sliderPhoto {
+  height: 500px;
+  width: 1100px;
+}
+
+.TextCenter {
+  width: 1000px;
+  align-items: center;
+  display: flex;
+}
+
+.carousel-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 #logo2 {
   width: 150px;
@@ -91,15 +119,9 @@ body {
   margin: 5px;
 }
 
-.carousel-inner > .carousel-item > img {
-  width: 640px;
-  height: 360px;
-}
-
 .card {
   border: solid 10px rgb(255, 255, 255);
   border-radius: 0;
-
   height: 280px;
   font-size: 12px;
 }
