@@ -1,6 +1,6 @@
 import express from "express";
-// import { Request, Response } from "express";
-// import { resolve } from "path";
+import { Request, Response } from "express";
+import { resolve } from "path";
 // import { loggerMiddleware, uploadFile } from "./middleware";
 // import expressSession from "express-session";
 // import jsonfile from "jsonfile";
@@ -20,15 +20,13 @@ app.listen(port, () => {
   console.log(`Example app listening on http://localhost:${port}`);
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
+//<----------------------404--------------------------------------------------------->
+app.use((req: Request, res: Response) => {
+  res
+    .status(404)
+    .sendFile(
+      resolve(
+        "/Users/EdgarChung/Documents/Coding/Project/c29-tw-grp2/public/html/404.html"
+      )
+    );
+});
