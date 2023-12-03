@@ -21,10 +21,8 @@ body {
   width: 2000px;
   background-color: rgb(238, 238, 238) !important;
   font-weight: bold;
-  flex-direction: row !important;
-}
-.navbar-nav {
-  flex-direction: ;
+  display: flex;
+  justify-content: center;
 }
 
 #carouselExampleIndicators {
@@ -35,15 +33,15 @@ body {
   margin-bottom: 100px;
 }
 
-#sliderPhotoOutside {
-  margin-right: 90%;
-  width: 0%;
+#textTittle {
+  align-items: center;
+  display: flex;
   justify-content: center;
+  width: 1200px;
 }
 
 #sliderPhoto {
   height: 500px;
-  width: 1100px;
 }
 
 .TextCenter {
