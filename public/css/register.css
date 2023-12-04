@@ -99,11 +99,10 @@ form .button input {
   letter-spacing: 1px;
   cursor: pointer;
   transition: all 0.3s ease;
-  background: linear-gradient(135deg, #c0604f, #ffffff);
 }
 form .button input:hover {
   /* transform: scale(0.99); */
-  background: linear-gradient(-135deg, #c0604f, #ffffff);
+  background: linear-gradient(-135deg, #ffffff, #ffffff);
 }
 @media (max-width: 584px) {
   .container {
