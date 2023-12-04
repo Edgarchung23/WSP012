@@ -17,7 +17,7 @@ body {
   width: 1200px;
 }
 #mobile-bar {
-  width: 1900px;
+  width: 1800px;
   /* height: 900px; */
   display: flex;
   flex-wrap: wrap;
@@ -66,7 +66,7 @@ body {
   align-items: center;
   display: flex;
   justify-content: center;
-  font-size: 50px;
+  font-size: 30px;
 }
 
 .Comment {
@@ -77,7 +77,7 @@ body {
   align-items: center;
   display: flex;
   justify-content: center;
-  font-size: 50px;
+  font-size: 30px;
 }
 
 #logo2 {
