@@ -12,8 +12,15 @@ app.use(express.urlencoded());
 app.use(express.json());
 app.use(express.static("public"));
 
-app.get("/", (req, res) => {
-  res.send("Welcome to WSP012");
+app.get("/product", (req, res) => {
+  res.redirect("/product.html");
+});
+
+app.get("/aboutus", (req, res) => {
+  res.redirect("/aboutus.html");
+});
+app.get("/login", (req, res) => {
+  res.redirect("/login.html");
 });
 
 app.listen(port, () => {
