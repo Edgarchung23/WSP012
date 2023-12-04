@@ -20,7 +20,7 @@ body {
   width: 1200px;
 }
 #mobile-bar {
-  width: 100%;
+  width: 1900px;
   /* height: 900px; */
   display: flex;
   flex-wrap: wrap;
