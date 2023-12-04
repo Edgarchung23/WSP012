@@ -138,3 +138,12 @@ body {
   color: black;
   display: block;
 }
+
+.text141 {
+  display: flex;
+  justify-content: center;
+  font-size: 25px;
+  font-weight: 300;
+  margin-bottom: 20px;
+  background-color: #c5d3d6;
+}
