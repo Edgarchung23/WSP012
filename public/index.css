@@ -13,12 +13,8 @@ body {
   letter-spacing: 3rem;
 }
 
-.containerText-center {
-  width: 1200px;
-}
 #mobile-bar {
-  width: 1800px;
-  /* height: 900px; */
+  width: 1300px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -29,7 +25,7 @@ body {
   justify-content: space-between;
 }
 .navbar {
-  width: 5000px;
+  width: 3000px;
   background-color: #c0604f !important;
   font-weight: bold;
   display: flex;
@@ -87,10 +83,6 @@ body {
 }
 
 /* photos */
-
-#photoBox {
-  width: 10px;
-}
 
 .twelvecolumns {
   flex-wrap: wrap;
@@ -157,13 +149,8 @@ body {
 }
 
 .btn {
-  font-size: 9px;
-  background-color: rgb(187, 187, 187);
-  border-radius: 0;
-  border: solid 0px;
+  border: solid 1px;
   color: black;
-  font-weight: bold;
-  margin-right: 39px;
 }
 
 .card-body {
