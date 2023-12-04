@@ -23,6 +23,10 @@ app.get("/login", (req, res) => {
   res.redirect("/login.html");
 });
 
+app.get("/register", (req, res) => {
+  res.redirect("/register.html");
+});
+
 app.listen(port, () => {
   console.log(`Example app listening on http://localhost:${port}`);
 });
