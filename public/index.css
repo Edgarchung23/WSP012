@@ -36,6 +36,7 @@ body {
   justify-content: center;
   height: 50px;
   border-radius: 0%;
+  margin-bottom: 50px;
 }
 #carouselExampleIndicators {
   display: flex;
@@ -86,12 +87,6 @@ body {
 }
 
 /* photos */
-
-.img-fluid {
-  border: solid;
-  border-color: #ffffff;
-  border-width: 10px;
-}
 
 #photoBox {
   width: 10px;
