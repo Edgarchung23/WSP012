@@ -19,7 +19,7 @@ type UserType = {
 
 async function main() {
   await client.connect();
-  
+
   const usersData: UserType[] = xlsx.utils.sheet_to_json<UserType>(userSheet);
 
   for (let entry of usersData) {

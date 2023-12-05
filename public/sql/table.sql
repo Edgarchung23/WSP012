@@ -73,6 +73,7 @@ create table receipt_subitem(
 );
 
 create table test (
+    id serial primary key,
     Fullname varchar(255),
     Username varchar(255),
     Email varchar(255),

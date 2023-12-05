@@ -4,7 +4,7 @@ import { Request, Response } from "express";
 import { resolve } from "path";
 import pg from "pg";
 // import expressSession from "express-session";
-import { checkPassword } from "./hash";
+import { checkPassword, hashPassword } from "./hash";
 export type UserListType = Array<{ username: string; password: string }>;
 dotenv.config();
 //<-------------------------------------------------------------------------------------------------------------------->
@@ -15,6 +15,7 @@ const yoClient = new pg.Client({
   user: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
 });
+yoClient.connect();
 //<-------------------------------------------------------------------------------------------------------------------->
 declare module "express-session" {
   interface SessionData {
@@ -23,7 +24,6 @@ declare module "express-session" {
   }
 }
 //<-------------------------------------------------------------------------------------------------------------------->
-yoClient.connect();
 
 //<---APP.USE--------------------------------------------------------------------------------------------------------->
 // app.use(loggerMiddleware);
@@ -58,9 +58,48 @@ app.get("/register", (req, res) => {
 });
 
 //<------------------------------------------------------------------------------------------------------------------>
-app.post("/register", (req, res) => {
-  res.send(req.body);
+app.post("/register", async (req, res) => {
+  console.log(req.body.email, req.body.passwordInput1, req.body.passwordInput2);
+
+  // if (req.body.email == undefined || req.body.email == "") {
+  //   res.status(400).json({ message: "email can not be null" });
+  // } else if (
+  //   req.body.passwordInput1 == undefined ||
+  //   req.body.passwordInput1 == ""
+  // ) {
+  //   res.status(400).json({ message: "password can not be null" });
+  // } else if (
+  //   req.body.passwordInput2 == undefined ||
+  //   req.body.passwordInput2 == ""
+  // ) {
+  //   res.status(400).json({ message: "password verification can not be null" });
+  // } else if (req.body.passwordInput1 != req.body.passwordInput2) {
+  //   res.status(400).json({ message: "Both passwords are not the same" });
+  // } else {
+  let queryResult = await yoClient.query(
+    "SELECT username from users WHERE username = $1",
+    [req.body.username]
+  );
+
+  if (queryResult.rowCount != 0) {
+    res.status(400).json({ message: "username already exists" });
+  } else {
+    let hashed = await hashPassword(req.body.passwordInput1);
+    await yoClient.query(
+      "INSERT INTO users (fullname,username,email,phonenumber,password) VALUES ($1,$2,$3,$4,$5)",
+      [
+        req.body.fullname,
+        req.body.username,
+        req.body.email,
+        req.body.phonenumber,
+        hashed,
+      ]
+    );
+
+    res.json({ message: "register success" });
+  }
 });
+// });
 app.post("/login", async (req, res) => {
   console.log(req.body.emailaddress, req.body.password);
 
