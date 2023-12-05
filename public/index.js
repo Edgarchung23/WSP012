@@ -19,6 +19,9 @@ function showSlides() {
   dots[slideIndex - 1].className += " active";
   setTimeout(showSlides, 6000); // Change image every 2 seconds
 }
+document.querySelector("#registerbutton").addEventListener("submit", (e) => {
+  e.preventDefault();
+});
 
 //<---------------------------------------------------------->
 // window.onload = async () => {
@@ -48,7 +51,7 @@ function showSlides() {
 //     </div>`
 //         : ""
 //     }
-    
+
 //     ${
 //       entry.image
 //         ? `<img class="uploadImage" src="/image/${entry.image}" />`
