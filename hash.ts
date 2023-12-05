@@ -24,3 +24,4 @@ export async function checkPassword(options: {
   );
   return isMatched;
 }
+

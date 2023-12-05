@@ -67,7 +67,7 @@ app.post("/login", async (req, res) => {
   // see if the username exist , and get its hashed password
   let queryResult = await yoClient.query(
     "SELECT password from users WHERE username = $1",
-    [req.body.emailaddress]
+    [req.body.email]
   );
 
   if (queryResult.rowCount != 0) {

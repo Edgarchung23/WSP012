@@ -10,29 +10,33 @@ const client = new Client({
   password: process.env.DB_PASSWORD,
 });
 type UserType = {
-  emailaddress: string;
+  fullname: string;
+  username: string;
+  email: string;
+  phonenumber: number;
   password: string;
 };
 
 async function main() {
   await client.connect();
-
-  const filePath = "dummy-data/course-0480629867024-WSP009-exercise.xlsx";
-
-  const workbook = xlsx.readFile(filePath);
-
-  const userSheet = workbook.Sheets["user"];
-
+  
   const usersData: UserType[] = xlsx.utils.sheet_to_json<UserType>(userSheet);
 
   for (let entry of usersData) {
-    console.log(entry.emailaddress, entry.password);
+    console.log(entry.email, entry.password);
 
     let hashed = await hashPassword(entry.password);
-    await client.query(`INSERT INTO users (username,password) values ($1,$2)`, [
-      entry.emailaddress,
-      hashed,
-    ]);
+    await client.query(
+      `INSERT INTO users (fullname,username,email,phonenumber,password) values ($1,$2)`,
+      [
+        entry.fullname,
+        entry.username,
+        entry.email,
+        entry.phonenumber,
+        entry.password,
+        hashed,
+      ]
+    );
   }
 }
 

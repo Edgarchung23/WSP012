@@ -109,6 +109,10 @@ body {
   width: 290px;
 }
 
+#footer_payment {
+  width: 1000px; height:100px;display:flex;justify-content: center; margin-top: 20px;
+}
+
 .btn {
   border: solid 1px;
   color: black;
