@@ -21,43 +21,40 @@ function showSlides() {
 }
 
 //<---------------------------------------------------------->
-window.onload = async () => {
-  overrideFormDefaultSubmitAction();
-  overrideLoginDefaultAction();
+// window.onload = async () => {
+//   let data = await getMemos();
+//   let getUsernameRes = await fetch("/username");
+//   let getUsernameResult = await getUsernameRes.json();
 
-  let data = await getMemos();
-  let getUsernameRes = await fetch("/username");
-  let getUsernameResult = await getUsernameRes.json();
+//   if (getUsernameResult.message == "success") {
+//     document.querySelector(
+//       ".Logout-button-area"
+//     ).innerHTML = `<button id="Logout-button"> 登出  </button>`;
 
-  if (getUsernameResult.message == "success") {
-    document.querySelector(
-      ".Logout-button-area"
-    ).innerHTML = `<button id="Logout-button"> 登出  </button>`;
+//     addLogoutEventListener();
+//   }
 
-    addLogoutEventListener();
-  }
+//   let finalHTML = "";
 
-  let finalHTML = "";
-
-  for (let entry of data) {
-    finalHTML += `<div id="memos-${entry.id}">
-    <div class="memo" >
-    ${entry.description}
-    ${
-      getUsernameResult.message == "success"
-        ? `<div class="control-button-area">
-    <i class="fa-solid fa-trash-can" onclick="deleteMemo(${entry.id})" ></i>
-    <i class="fa-solid fa-pen-to-square" onclick="triggerEdit(${entry.id},'${entry.description}')" ></i>
-    </div>`
-        : ""
-    }
+//   for (let entry of data) {
+//     finalHTML += `<div id="memos-${entry.id}">
+//     <div class="memo" >
+//     ${entry.description}
+//     ${
+//       getUsernameResult.message == "success"
+//         ? `<div class="control-button-area">
+//     <i class="fa-solid fa-trash-can" onclick="deleteMemo(${entry.id})" ></i>
+//     <i class="fa-solid fa-pen-to-square" onclick="triggerEdit(${entry.id},'${entry.description}')" ></i>
+//     </div>`
+//         : ""
+//     }
     
-    ${
-      entry.image
-        ? `<img class="uploadImage" src="/image/${entry.image}" />`
-        : ""
-    }
-      </div></div>`;
-  }
-  document.querySelector(".memo-area").innerHTML = finalHTML;
-};
+//     ${
+//       entry.image
+//         ? `<img class="uploadImage" src="/image/${entry.image}" />`
+//         : ""
+//     }
+//       </div></div>`;
+//   }
+//   document.querySelector(".memo-area").innerHTML = finalHTML;
+// };
