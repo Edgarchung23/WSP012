@@ -21,6 +21,7 @@ function showSlides() {
 }
 document.querySelector("#registerbutton").addEventListener("submit", (e) => {
   e.preventDefault();
+  
 });
 
 //<---------------------------------------------------------->

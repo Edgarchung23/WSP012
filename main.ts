@@ -52,7 +52,7 @@ app.get("/about_us", (req, res) => {
   res.redirect("/about_us.html");
 });
 app.get("/login", async (req, res) => {
-  res.redirect("/login.html");
+  res.redirect("/login.htm");
 });
 
 app.get("/register", (req, res) => {
