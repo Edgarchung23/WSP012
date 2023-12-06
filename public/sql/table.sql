@@ -1,9 +1,12 @@
--- create table Test(
---     username varchar(255),
---     password varchar(255),
---     email varchar(255)
--- );
-
+create table test (
+    id serial primary key,
+    Fullname varchar(255),
+    Username varchar(255) UNIQUE,
+    Email varchar(255) UNIQUE,
+    PhoneNumber varchar(255),
+    Password varchar(255),
+    confirmPassword varchar(255)
+);
 
 create table users(
     id SERial primary key,
@@ -72,14 +75,5 @@ create table receipt_subitem(
     updated_at timestamp default NOW()
 );
 
-create table test (
-    id serial primary key,
-    Fullname varchar(255),
-    Username varchar(255),
-    Email varchar(255),
-    PhoneNumber varchar(255),
-    Password varchar(255),
-    confirmPassword varchar(255)
-);
 
 insert into test (username, password, email) values ('peter chan', '000', 'peterchan@gmail.com');

@@ -63,6 +63,7 @@ app.get("/register", (req, res) => {
 //<---APP.POST------------------------------------------------------------------------------------------------------------>
 app.post("/register", async (req, res) => {
   console.log(req.body.email, req.body.passwordInput1, req.body.passwordInput2);
+
   if (req.body.email == undefined || req.body.email == "") {
     res.status(400).json({ message: "email can not be null" });
   } else if (
@@ -82,28 +83,35 @@ app.post("/register", async (req, res) => {
       "SELECT username from test WHERE username = $1",
       [req.body.username]
     );
-
     if (queryResult.rowCount != 0) {
       res.status(400).json({ message: "username already exists" });
     } else {
-      let hashed = await hashPassword(req.body.passwordInput1);
-      await pgClient.query(
-        "INSERT INTO test (fullname,username,email,phonenumber,password) VALUES ($1,$2,$3,$4,$5)",
-        [
-          req.body.fullname,
-          req.body.username,
-          req.body.email,
-          req.body.phonenumber,
-          hashed,
-        ]
+      let checkEmail = await pgClient.query(
+        `SELECT email FROM test WHERE email= $1`,
+        [req.body.email]
       );
+      if (checkEmail.rows[0].email == req.body.email) {
+        // console.log("email already exists");
+        res.json({ message: "email already exists" });
+      } else if (checkEmail.rows[0].email != req.body.email) {
+        let hashed = await hashPassword(req.body.passwordInput1);
+        await pgClient.query(
+          "INSERT INTO test (fullname,username,email,phonenumber,password) VALUES ($1,$2,$3,$4,$5)",
+          [
+            req.body.fullname,
+            req.body.username,
+            req.body.email,
+            req.body.phonenumber,
+            hashed,
+          ]
+        );
 
-      // res.redirect("/register");
-      res.json({ message: "register success" });
+        // res.redirect("/register");
+        res.json({ message: "register success" });
+      }
     }
   }
 });
-// });
 app.post("/login", async (req, res) => {
   console.log(req.body.email, req.body.password);
   // see if the username exist , and get its hashed password

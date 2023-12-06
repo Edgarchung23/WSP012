@@ -1,6 +1,6 @@
 let slideIndex = 0;
 showSlides();
-
+registercheckemailAction();
 function showSlides() {
   let i;
   let slides = document.getElementsByClassName("mySlides");
@@ -23,14 +23,14 @@ document.querySelector("#registerbutton").addEventListener("submit", (e) => {
   e.preventDefault();
 });
 
-function overrideLoginDefaultAction() {
-  let target = document.querySelector("#login-form");
+function registercheckemailAction() {
+  let target = document.querySelector("#register-form");
 
   target.addEventListener("submit", async (e) => {
     console.log("login submit triggered");
     e.preventDefault();
 
-    const res = await fetch("/login", {
+    const res = await fetch("/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -40,21 +40,41 @@ function overrideLoginDefaultAction() {
         password: target.password.value,
       }),
     });
-
-    if (res.status == 200) {
-      const result = await res.json();
-      console.log(result);
-
-      window.location.href = "/";
-    } else {
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Login Failed",
-      });
-    }
   });
 }
+
+// function overrideLoginDefaultAction() {
+//   let target = document.querySelector("#login-form");
+
+//   target.addEventListener("submit", async (e) => {
+//     console.log("login submit triggered");
+//     e.preventDefault();
+
+//     const res = await fetch("/login", {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify({
+//         email: target.email.value,
+//         password: target.password.value,
+//       }),
+//     });
+
+//     if (res.status == 200) {
+//       const result = await res.json();
+//       console.log(result);
+
+//       window.location.href = "/";
+//     } else {
+//       Swal.fire({
+//         icon: "error",
+//         title: "Oops...",
+//         text: "Login Failed",
+//       });
+//     }
+//   });
+// }
 //<---------------------------------------------------------->
 // window.onload = async () => {
 //   let data = await getMemos();
