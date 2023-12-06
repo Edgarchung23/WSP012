@@ -90,10 +90,11 @@ app.post("/register", async (req, res) => {
         `SELECT email FROM test WHERE email= $1`,
         [req.body.email]
       );
-      if (checkEmail.rows[0].email == req.body.email) {
+      if (checkEmail.rowCount != 0) {
+        // console.log("hihihi", checkEmail.rowCount);
         // console.log("email already exists");
         res.json({ message: "email already exists" });
-      } else if (checkEmail.rows[0].email != req.body.email) {
+      } else {
         let hashed = await hashPassword(req.body.passwordInput1);
         await pgClient.query(
           "INSERT INTO test (fullname,username,email,phonenumber,password) VALUES ($1,$2,$3,$4,$5)",
