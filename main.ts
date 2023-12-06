@@ -51,6 +51,7 @@ app.get("/product", (req, res) => {
 app.get("/about_us", (req, res) => {
   res.redirect("/about_us.html");
 });
+
 app.get("/login", async (req, res) => {
   res.redirect("/login.htm");
 });
@@ -62,9 +63,7 @@ app.get("/register", (req, res) => {
 //<---APP.POST------------------------------------------------------------------------------------------------------------>
 app.post("/register", async (req, res) => {
   console.log(req.body.email, req.body.passwordInput1, req.body.passwordInput2);
-
   if (req.body.email == undefined || req.body.email == "") {
-    console.log("check ts67");
     res.status(400).json({ message: "email can not be null" });
   } else if (
     req.body.passwordInput1 == undefined ||
@@ -99,8 +98,8 @@ app.post("/register", async (req, res) => {
         ]
       );
 
-      res.redirect("/register");
-      // res.json({ message: "register success" });
+      // res.redirect("/register");
+      res.json({ message: "register success" });
     }
   }
 });
