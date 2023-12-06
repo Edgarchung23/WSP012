@@ -62,7 +62,7 @@ app.get("/register", (req, res) => {
 
 //<---APP.POST------------------------------------------------------------------------------------------------------------>
 app.post("/register", async (req, res) => {
-  console.log(req.body.email, req.body.passwordInput1, req.body.passwordInput2);
+  console.log(req.body.email, req.body.hash);
 
   if (req.body.email == undefined || req.body.email == "") {
     res.status(400).json({ message: "email can not be null" });
@@ -79,6 +79,7 @@ app.post("/register", async (req, res) => {
   } else if (req.body.passwordInput1 != req.body.passwordInput2) {
     res.status(400).json({ message: "Both passwords are not the same" });
   } else {
+    // check username ? duplicate
     let queryResult = await pgClient.query(
       "SELECT username from test WHERE username = $1",
       [req.body.username]
@@ -86,6 +87,7 @@ app.post("/register", async (req, res) => {
     if (queryResult.rowCount != 0) {
       res.status(400).json({ message: "username already exists" });
     } else {
+      // check email ? duplicate
       let checkEmail = await pgClient.query(
         `SELECT email FROM test WHERE email= $1`,
         [req.body.email]
