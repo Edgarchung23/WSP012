@@ -1,14 +1,17 @@
+
+\c project
+
 create table Test(
     username varchar(255),
     password varchar(255),
     email varchar(255)
 );
 
-insert into test (username, password, email) values ('peter chan', '000', 'peterchan@gmail.com');
+-- insert into test (username, password, email) values ('peter chan', '000', 'peterchan@gmail.com');
 
 create table users(
     id SERial primary key,
-    username varchar(255)not null,
+    username varchar(255)not null ,
     password varchar(255)not null,
     email varchar(255)not null,
     created_at timestamp default NOW(),
