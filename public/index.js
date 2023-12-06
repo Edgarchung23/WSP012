@@ -1,6 +1,5 @@
 let slideIndex = 0;
 showSlides();
-registercheckemailAction();
 function showSlides() {
   let i;
   let slides = document.getElementsByClassName("mySlides");
@@ -22,26 +21,9 @@ function showSlides() {
 document.querySelector("#registerbutton").addEventListener("submit", (e) => {
   e.preventDefault();
 });
+// <----------------------------------------------------------------------------------------------------------------------->
 
-function registercheckemailAction() {
-  let target = document.querySelector("#register-form");
-
-  target.addEventListener("submit", async (e) => {
-    console.log("login submit triggered");
-    e.preventDefault();
-
-    const res = await fetch("/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email: target.email.value,
-        password: target.password.value,
-      }),
-    });
-  });
-}
+// <----------------------------------------------------------------------------------------------------------------------->
 
 // function overrideLoginDefaultAction() {
 //   let target = document.querySelector("#login-form");
