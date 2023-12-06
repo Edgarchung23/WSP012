@@ -34,6 +34,10 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// app.get("/login", (req, res) =>
+//   res.sendFile(__dirname + "/public/html/login.html")
+// );
+
 //<---APP.GET--------------------------------------------------------------------------------------------------------->
 app.get("/", (req, res) => {
   res.send("hello world");
@@ -95,7 +99,7 @@ app.post("/register", async (req, res) => {
       if (checkEmail.rowCount != 0) {
         // console.log("hihihi", checkEmail.rowCount);
         // console.log("email already exists");
-        res.json({ message: "email already exists" });
+        res.status(400).json({ message: "email already exists" });
       } else {
         let hashed = await hashPassword(req.body.passwordInput1);
         await pgClient.query(
@@ -110,6 +114,7 @@ app.post("/register", async (req, res) => {
         );
 
         // res.redirect("/register");
+        // res.redirect("/login");
         res.json({ message: "register success" });
       }
     }

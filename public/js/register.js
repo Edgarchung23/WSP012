@@ -1,26 +1,39 @@
-let slideIndex = 0;
-showSlides();
-function showSlides() {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  let dots = document.getElementsByClassName("dot");
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  slideIndex++;
-  if (slideIndex > slides.length) {
-    slideIndex = 1;
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex - 1].style.display = "block";
-  dots[slideIndex - 1].className += " active";
-  setTimeout(showSlides, 6000); // Change image every 2 seconds
-}
-document.querySelector("#registerbutton").addEventListener("submit", (e) => {
-  e.preventDefault();
-});
+document
+  .querySelector("#register-form")
+  .addEventListener("submit", async (e) => {
+    e.preventDefault();
+    let formData = new FormData(e.target);
+
+    let res = await fetch("/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(Object.fromEntries(formData)),
+    });
+
+    if (res.status == 200) {
+      Swal.fire({
+        icon: "success",
+        title: "Login Success.",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          console.log("redirect to login page");
+          window.location.href = "/login.html";
+        }
+      });
+    } else {
+      let result = await res.json();
+
+      console.log(result);
+
+      Swal.fire({
+        icon: "error",
+        title: "Login Failed.",
+        text: result.message,
+      });
+    }
+  });
 // <----------------------------------------------------------------------------------------------------------------------->
 
 // <----------------------------------------------------------------------------------------------------------------------->
