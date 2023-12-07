@@ -1,11 +1,14 @@
+drop database project;
+create database project;
+\c project
+
 create table test (
     id serial primary key,
-    Fullname varchar(255),
-    Username varchar(255) UNIQUE,
-    Email varchar(255) UNIQUE,
-    PhoneNumber varchar(255),
-    Password varchar(255),
-    confirmPassword varchar(255)
+    fullname varchar(255),
+    username varchar(255) UNIQUE,
+    email varchar(255) UNIQUE,
+    phoneNumber varchar(255),
+    password varchar(255)
 );
 
 create table users(
@@ -76,4 +79,4 @@ create table receipt_subitem(
 );
 
 
-insert into test (username, password, email) values ('peter chan', '000', 'peterchan@gmail.com');
+-- insert into test (username, password, email) values ('peter chan', '000', 'peterchan@gmail.com');

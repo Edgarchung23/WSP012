@@ -1,27 +1,23 @@
 import express from "express";
-import dotenv from "dotenv";
 import { Request, Response } from "express";
 import { resolve } from "path";
-import pg from "pg";
 // import expressSession from "express-session";
 import { checkPassword, hashPassword } from "./hash";
+import { pgClient } from "./pgClient";
+import expressSession from "express-session";
 // import grant from "grant";
 // import crypto from "crypto";
 export type UserListType = Array<{ username: string; password: string }>;
-dotenv.config();
+
 //<-------------------------------------------------------------------------------------------------------------------->
 const app = express();
 const port = 8080;
-const pgClient = new pg.Client({
-  database: process.env.DB_NAME,
-  user: process.env.DB_USERNAME,
-  password: process.env.DB_PASSWORD,
-});
+
 pgClient.connect();
 //<-------------------------------------------------------------------------------------------------------------------->
 declare module "express-session" {
   interface SessionData {
-    username?: string;
+    email?: string;
     grant?: any;
   }
 }
@@ -33,6 +29,13 @@ app.use(express.static("public/html/"));
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(
+  expressSession({
+    secret: "Tecky Academy teaches typescript",
+    resave: true,
+    saveUninitialized: true,
+  })
+);
 
 // app.get("/login", (req, res) =>
 //   res.sendFile(__dirname + "/public/html/login.html")
@@ -57,7 +60,7 @@ app.get("/about_us", (req, res) => {
 });
 
 app.get("/login", async (req, res) => {
-  res.redirect("/login.htm");
+  res.redirect("/login.html");
 });
 
 app.get("/register", (req, res) => {
@@ -121,15 +124,20 @@ app.post("/register", async (req, res) => {
   }
 });
 app.post("/login", async (req, res) => {
+  // req.body.username ,find matching row from db,extract the hashed
+  // use checkPassword  compare req.body.password with hashed
+  // on return true,login success
+  // on return false,login failed
+
   console.log(req.body.email, req.body.password);
-  // see if the username exist , and get its hashed password
+
   let queryResult = await pgClient.query(
-    "SELECT password from test WHERE username = $1",
+    "SELECT password from test WHERE email = $1",
     [req.body.email]
   );
 
   if (queryResult.rowCount != 0) {
-    // if exists, compare the hashed password to password input
+    console.log(queryResult.rows[0].password);
 
     let compareResult = await checkPassword({
       plainPassword: req.body.password,
@@ -137,20 +145,39 @@ app.post("/login", async (req, res) => {
     });
 
     if (compareResult) {
-      req.session.username = req.body.email;
+      console.log(req.body.email);
+      req.session["email"] = req.body.email;
       res.json({ message: "login success" });
     } else {
-      res.json({ message: "password is incorrect" });
+      res.status(400).json({ message: "password is incorrect" });
     }
   } else {
-    res.json({ message: "username is incorrect" });
+    res.status(400).json({ message: "username is incorrect" });
   }
 });
 
 //<------------------------------------------------------------------------------------------------------------------>
-app.listen(port, () => {
-  console.log(`Example app listening on http://localhost:${port}`);
+app.get("/username", (req, res) => {
+  console.log("hihihi", req.session.email);
+  if (req.session.email)
+    res.json({ message: "success", data: req.session.email });
+  else res.status(400).json({ message: "you are not logged in" });
 });
+
+app.get("/logout", async (req, res) => {
+  if (!req.session.email) {
+    res.status(401).json({ message: "your are not logged in" });
+  } else {
+    req.session.destroy((error) => {
+      if (error) {
+        res.status(500).json({ message: "logout failed" });
+      } else {
+        res.json({ message: "logout success" });
+      }
+    });
+  }
+});
+
 
 //<----404----------------------------------------------------------------------------------------------------------->
 app.use((req: Request, res: Response) => {
@@ -158,7 +185,13 @@ app.use((req: Request, res: Response) => {
     .status(404)
     .sendFile(
       resolve(
-        "/Users/EdgarChung/Documents/Coding/Project/c29-tw-grp2/public/html/404.html"
+        "/Users/NavyTong/Desktop/tecky/project/c29-tw-grp2/public/html/404.html"
       )
     );
+});
+
+
+//<------------------------------------------------------------------------------------------------------------------>
+app.listen(port, () => {
+  console.log(`Example app listening on http://localhost:${port}`);
 });
