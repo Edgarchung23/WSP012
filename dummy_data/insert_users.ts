@@ -31,12 +31,12 @@ async function insertUser() {
   for (let entry of UserArray) {
     let hashed = await hashPassword(entry.password);
     await pgClient.query(
-      "INSERT INTO test (fullname,username,email,phonenumber,password) VALUES ($1,$2,$3,$4,$5)",
+      "INSERT INTO users (fullname,username,email,phonenumber,password) VALUES ($1,$2,$3,$4,$5)",
       [entry.fullname, entry.username, entry.email, entry.phonenumber, hashed]
     );
   }
 
-  pgClient.end()
+  pgClient.end();
 }
 
 insertUser();

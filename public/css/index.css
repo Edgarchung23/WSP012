@@ -12,7 +12,12 @@ body {
   font-variant-caps: small-caps;
   letter-spacing: 3rem;
 }
-
+#username-display {
+  display: flex;
+  position: relative;
+  align-items: last baseline;
+  left: 200px;
+}
 #mobile-bar {
   width: 1300px;
   display: flex;
@@ -86,6 +91,10 @@ body {
 
 .pair-title {
   font-size: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .pair-sub {
@@ -110,7 +119,11 @@ body {
 }
 
 #footer_payment {
-  width: 1000px; height:100px;display:flex;justify-content: center; margin-top: 20px;
+  width: 1000px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 .btn {
