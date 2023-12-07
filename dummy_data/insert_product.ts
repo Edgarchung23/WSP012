@@ -50,7 +50,7 @@ async function insertProduct() {
       brand: "Booster",
       material: "矽膠",
       category_id: productCategory_Massagegun,
-      unit_price: 688,
+      unit_price: 888,
       image: "gun-1-blue.webp",
     },
     {
@@ -58,7 +58,7 @@ async function insertProduct() {
       brand: "Booster",
       material: "矽膠",
       category_id: productCategory_Massagegun,
-      unit_price: 588,
+      unit_price: 1688,
       image: "gun-2-grey.webp",
     },
     {
@@ -66,7 +66,7 @@ async function insertProduct() {
       brand: "GXA",
       material: "磨砂",
       category_id: productCategory_Massagegun,
-      unit_price: 488,
+      unit_price: 688,
       image: "gun-3-grey.webp",
     },
     {
@@ -74,7 +74,7 @@ async function insertProduct() {
       brand: "Booster",
       material: "磨砂",
       category_id: productCategory_Massagegun,
-      unit_price: 588,
+      unit_price: 688,
       image: "gun-4-black.webp",
     },
     {
