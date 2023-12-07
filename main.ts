@@ -132,7 +132,7 @@ app.post("/login", async (req, res) => {
   console.log(req.body.email, req.body.password);
 
   let queryResult = await pgClient.query(
-    "SELECT password from users WHERE username = $1",
+    "SELECT password from test WHERE username = $1",
     [req.body.email]
   );
 
