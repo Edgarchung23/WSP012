@@ -3,15 +3,15 @@ create database "wsp-012";
 
 \c "wsp-012"
 
-create table test (
-    id serial primary key,
-    Fullname varchar(255),
-    Username varchar(255) UNIQUE,
-    Email varchar(255) UNIQUE,
-    PhoneNumber varchar(255),
-    Password varchar(255),
-    confirmPassword varchar(255)
-);
+-- create table test (
+--     id serial primary key,
+--     Fullname varchar(255),
+--     Username varchar(255) UNIQUE,
+--     Email varchar(255) UNIQUE,
+--     PhoneNumber varchar(255),
+--     Password varchar(255),
+--     confirmPassword varchar(255)
+-- );
 
 create table users(
     id SERial primary key,
