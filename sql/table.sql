@@ -39,7 +39,7 @@ create table product_variant(
 
 create table category(
     id SERial primary key,
-    name varchar(255)not null, 
+    name varchar(255)not null UNIQUE, 
     created_at timestamp default NOW(),
     updated_at timestamp default NOW()
 );
