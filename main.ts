@@ -123,6 +123,7 @@ app.post("/register", async (req, res) => {
     }
   }
 });
+
 app.post("/login", async (req, res) => {
   // req.body.username ,find matching row from db,extract the hashed
   // use checkPassword  compare req.body.password with hashed
@@ -156,7 +157,7 @@ app.post("/login", async (req, res) => {
   }
 });
 
-//<------------------------------------------------------------------------------------------------------------------>
+//<---APP.GET--------------------------------------------------------------------------------------------------------->
 app.get("/username", (req, res) => {
   console.log("hihihi", req.session.email);
   if (req.session.email)
@@ -178,18 +179,23 @@ app.get("/logout", async (req, res) => {
   }
 });
 
+app.get("/product", async (req, res) => {
+  console.log(`check ts:182`, req.query.id);
+  let productDataResult = await pgClient.query(
+    `SELECT * FROM product WHERE product.id = $1`,
+    [req.query.id]
+  );
+  console.log(productDataResult);
+
+  let productStock = await pgClient.query(`SELECT size,stock`);
+  res.json({ result: req.query.id });
+  console.log(productStock);
+});
 
 //<----404----------------------------------------------------------------------------------------------------------->
 app.use((req: Request, res: Response) => {
-  res
-    .status(404)
-    .sendFile(
-      resolve(
-        "/Users/NavyTong/Desktop/tecky/project/c29-tw-grp2/public/html/404.html"
-      )
-    );
+  res.status(404).sendFile(resolve("public/html/404.html"));
 });
-
 
 //<------------------------------------------------------------------------------------------------------------------>
 app.listen(port, () => {

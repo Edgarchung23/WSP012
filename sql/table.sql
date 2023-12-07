@@ -71,9 +71,6 @@ create table receipt(
      FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
-
-
-
 create table receipt_subitem(
     id SERial primary key,
     product_variant_id integer not null,
@@ -85,7 +82,4 @@ create table receipt_subitem(
     updated_at timestamp default NOW(),
     FOREIGN KEY (receipt_id) REFERENCES receipt(id)
 );
-
-
-
 
