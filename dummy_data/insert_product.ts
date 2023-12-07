@@ -92,7 +92,7 @@ async function insertProduct() {
       material: "矽膠",
       category_id: productCategory_Massageball,
       unit_price: 388,
-      image: "ball-1-pink.webp",
+      image: "massage_ball_1_blue",
     },
     {
       name: "深層肌肉按摩筋膜球",
@@ -100,7 +100,7 @@ async function insertProduct() {
       material: "矽膠",
       category_id: productCategory_Massageball,
       unit_price: 168,
-      image: "ball-2-red.webp",
+      image: "massage_ball_2_red.webp",
     },
     {
       name: "深層肌肉按摩球",
@@ -108,7 +108,7 @@ async function insertProduct() {
       material: "矽膠",
       category_id: productCategory_Massageball,
       unit_price: 168,
-      image: "ball-3-yellow.webp",
+      image: "massage_ball_3_yellow.webp",
     },
     {
       name: "電動瑜伽肌肉按摩筋膜花生球",
@@ -116,7 +116,7 @@ async function insertProduct() {
       material: "矽膠",
       category_id: productCategory_Massageball,
       unit_price: 388,
-      image: "ball-4-blue.webp",
+      image: "massage_ball_4_blue.webp",
     },
     {
       name: "德國電動深層按摩球",
@@ -124,7 +124,7 @@ async function insertProduct() {
       material: "矽膠、ABS樹脂",
       category_id: productCategory_Massageball,
       unit_price: 588,
-      image: "ball-5-black.webp",
+      image: "massage_ball_5_black.webp",
     },
     //<---YOGA MAT------------------------------------------------------------------------------>
     {
@@ -133,7 +133,7 @@ async function insertProduct() {
       material: "環保TPE",
       category_id: productCategory_Yogamat,
       unit_price: 488,
-      image: "mat_1_grey.webp",
+      image: "yogamat_1.webp",
     },
     {
       name: "天然橡膠瑜伽墊 | 純淨版(紫色)",
@@ -141,7 +141,7 @@ async function insertProduct() {
       material: "天然橡膠、PU",
       category_id: productCategory_Yogamat,
       unit_price: 488,
-      image: "mat_2_purple.webp",
+      image: "yogamat_2.webp",
     },
     {
       name: "天然橡膠瑜伽墊 | 體位線版",
@@ -149,7 +149,7 @@ async function insertProduct() {
       material: "天然橡膠、PU",
       category_id: productCategory_Yogamat,
       unit_price: 588,
-      image: "mat_3_pink.webp",
+      image: "yogamat_3.webp",
     },
     {
       name: "天然橡膠瑜伽墊 | 水波狀紋理版",
@@ -157,7 +157,7 @@ async function insertProduct() {
       material: "純天然橡膠",
       category_id: productCategory_Yogamat,
       unit_price: 1688,
-      image: "mat_4_green.webp",
+      image: "yogamat_4.webp",
     },
     {
       name: "天然橡膠瑜伽墊 | 純淨版(綠色",
@@ -165,7 +165,7 @@ async function insertProduct() {
       material: "彩色純天然橡膠",
       category_id: productCategory_Yogamat,
       unit_price: 1588,
-      image: "mat_5_green.webp",
+      image: "yogamat_5.webp",
     },
     //<---YOGA MAT------------------------------------------------------------------------------>
     {
