@@ -5,7 +5,8 @@
   "main": "inxdex.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "data": "psql -f ./sql/table.sql && ts-node ./dummy_data/insert_product.ts"
+    "data": "psql -f ./sql/table.sql && ts-node ./dummy_data/insert_product.ts",
+    "start": "npx ts-node-dev main.ts"
   },
   "keywords": [],
   "author": "",

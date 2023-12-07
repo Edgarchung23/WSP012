@@ -1,8 +1,8 @@
 
-insert into category (name) values ('按摩槍');
-insert into category (name) values ('按摩波');
-insert into category (name) values ('瑜伽墊');
-insert into category (name) values ('瑜伽波');
+-- insert into category (name) values ('按摩槍');
+-- insert into category (name) values ('按摩波');
+-- insert into category (name) values ('瑜伽墊');
+-- insert into category (name) values ('瑜伽波');
 
 insert into product (name, brand, category_id, unit_price, material , image) values ('M2降噪筋膜按摩槍','Booster',(select id from category where name ='按摩槍'),'$688','磨砂', 'public/image/massage_gun/gun-1-blue.webp' );
 
