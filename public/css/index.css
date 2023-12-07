@@ -16,6 +16,11 @@ body {
 
 #logingButton {
   margin-right: 20px;
+  background-color: white;
+}
+
+#registerButton {
+  background-color: white;
 }
 #username-display {
   display: flex;
