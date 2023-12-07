@@ -28,7 +28,7 @@ document
 
       Swal.fire({
         icon: "error",
-        title: "Login Failed.",
+        title: "Failed.",
         text: result.message,
       });
     }

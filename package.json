@@ -4,7 +4,8 @@
   "description": "",
   "main": "inxdex.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "data": "psql -f ./sql/table.sql && ts-node ./dummy_data/insert_product.ts"
   },
   "keywords": [],
   "author": "",
