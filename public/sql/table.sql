@@ -20,10 +20,11 @@ create table users(
 );
 create table product (
     id SERial primary key,
-    name varchar(255)not null,
+    name varchar(255)not null UNIQUE,
     brand varchar(255)not null,
+    category_id varchar(255) not null,
+    unit_price varchar(255)not null,
     material varchar(255)not null,
-    category_id varchar(255)not null,
     image varchar(255)not null,
     created_at timestamp default NOW(),
     updated_at timestamp default NOW()
@@ -32,8 +33,8 @@ create table product_variant(
     id SERial primary key,
     color varchar(255)not null,
     size varchar(255)not null,
-    thickness varchar(255)not null,
     unit_price varchar(255)not null,
+    thickness varchar(255)not null,
     storage_count varchar(255)not null,
     product_id varchar(255)not null,
     image varchar(255)not null,
@@ -76,4 +77,5 @@ create table receipt_subitem(
 );
 
 
-insert into test (username, password, email) values ('peter chan', '000', 'peterchan@gmail.com');
+
+
