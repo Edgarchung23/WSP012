@@ -8,9 +8,14 @@ body {
 }
 
 .Title {
-  font-size: 70px;
-  font-variant-caps: small-caps;
-  letter-spacing: 3rem;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 15px;
+  width: 1300px;
+}
+
+#logingButton {
+  margin-right: 20px;
 }
 #username-display {
   display: flex;

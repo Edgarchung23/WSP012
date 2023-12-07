@@ -3,16 +3,16 @@ create database "wsp-012";
 
 \c "wsp-012"
 
-create table users(
-    id SERial primary key,
-    Fullname varchar(255) not null,
-    Username varchar(255)not null UNIQUE,
-    Email varchar(255) not null,
-    Phonenumber varchar(255) not null,
-    Password varchar(255)not null,
-    created_at timestamp default NOW(),
-    updated_at timestamp default NOW()
-);
+-- create table users(
+--     id SERial primary key,
+--     Fullname varchar(255) not null,
+--     Username varchar(255)not null UNIQUE,
+--     Email varchar(255) not null,
+--     Phonenumber varchar(255) not null,
+--     Password varchar(255)not null,
+--     created_at timestamp default NOW(),
+--     updated_at timestamp default NOW()
+-- );
 
 
 create table category(
