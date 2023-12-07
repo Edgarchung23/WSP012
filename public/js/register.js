@@ -3,7 +3,6 @@ document
   .addEventListener("submit", async (e) => {
     e.preventDefault();
     let formData = new FormData(e.target);
-
     let res = await fetch("/register", {
       method: "POST",
       headers: {
@@ -29,7 +28,7 @@ document
 
       Swal.fire({
         icon: "error",
-        title: "Login Failed.",
+        title: "Failed.",
         text: result.message,
       });
     }

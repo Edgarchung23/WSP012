@@ -88,25 +88,25 @@ app.post("/register", async (req, res) => {
   } else {
     // check username ? duplicate
     let queryResult = await pgClient.query(
-      "SELECT username from test WHERE username = $1",
+      "SELECT username from users WHERE username = $1",
       [req.body.username]
     );
     if (queryResult.rowCount != 0) {
-      res.status(400).json({ message: "username already exists" });
+      res.status(400).json({ message: "Username already exists" });
     } else {
       // check email ? duplicate
       let checkEmail = await pgClient.query(
-        `SELECT email FROM test WHERE email= $1`,
+        `SELECT email FROM users WHERE email= $1`,
         [req.body.email]
       );
       if (checkEmail.rowCount != 0) {
         // console.log("hihihi", checkEmail.rowCount);
         // console.log("email already exists");
-        res.status(400).json({ message: "email already exists" });
+        res.status(400).json({ message: "Email already exists" });
       } else {
         let hashed = await hashPassword(req.body.passwordInput1);
         await pgClient.query(
-          "INSERT INTO test (fullname,username,email,phonenumber,password) VALUES ($1,$2,$3,$4,$5)",
+          "INSERT INTO users (fullname,username,email,phonenumber,password) VALUES ($1,$2,$3,$4,$5)",
           [
             req.body.fullname,
             req.body.username,
@@ -132,7 +132,7 @@ app.post("/login", async (req, res) => {
   console.log(req.body.email, req.body.password);
 
   let queryResult = await pgClient.query(
-    "SELECT password from test WHERE email = $1",
+    "SELECT password from test WHERE username = $1",
     [req.body.email]
   );
 
