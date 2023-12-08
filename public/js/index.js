@@ -31,11 +31,11 @@ async function getUsername() {
   if (httpResponse.status == 200) {
     result = await httpResponse.json();
 
-    console.log("name", result);
+    console.log("username", result);
 
     document.querySelector(
       "#username-display"
-    ).innerHTML = `<button class=btn btn-out line-success" type="submit"> Welcome ${result.data} </buttons>`;
+    ).innerHTML = `<button class=btn btn-out line-success" type="submit"> Welcome ${result.data} </button>`;
 
     document.querySelector(
       "#logout-area"
@@ -53,7 +53,6 @@ async function logout() {
   console.log("trying logout");
 
   await fetch("/logout");
-  
 
   window.location.reload();
 }
