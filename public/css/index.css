@@ -14,11 +14,7 @@ body {
   width: 1300px;
 }
 
-#username-display{
-  margin-right: 10px;
-}
-
-#loginButton {
+#logingButton {
   margin-right: 20px;
   background-color: white;
 }
@@ -26,10 +22,9 @@ body {
 #registerButton {
   background-color: white;
 }
-
 #username-display {
   display: flex;
-  /* position: relative; */
+  position: relative;
   align-items: last baseline;
   left: 200px;
 }
