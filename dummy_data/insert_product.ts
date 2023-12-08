@@ -50,12 +50,10 @@ async function insertProductVariant() {
   const result = await client.query(`SELECT * FROM product WHERE name = $1`, [
     "天然橡膠瑜伽墊 | 體位線版",
   ]);
-  let target_product_id = result.rows[0].id;
-  console.log(result.rows[0]);
-
+  let productVariant_id = result.rows[0].id;
   const productVariantData: insertProductVariantType[] = [
     {
-      product_id: target_product_id,
+      product_id: productVariant_id,
       color: "粉紅色",
       size: "183 x 68cm",
       thickness: 5,
@@ -64,7 +62,7 @@ async function insertProductVariant() {
       image: "yoga_mat_3.webp",
     },
     {
-      product_id: target_product_id,
+      product_id: productVariant_id,
       color: "淺紫色",
       size: "183 x 68cm",
       thickness: 5,
@@ -73,7 +71,7 @@ async function insertProductVariant() {
       image: "yoga_mat_3_lightpurple.webp",
     },
     {
-      product_id: target_product_id,
+      product_id: productVariant_id,
       color: "淺紫色",
       size: "100 x 68cm",
       thickness: 5,
