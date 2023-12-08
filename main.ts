@@ -17,7 +17,7 @@ pgClient.connect();
 //<-------------------------------------------------------------------------------------------------------------------->
 declare module "express-session" {
   interface SessionData {
-    email?: string;
+    username?: string;
     grant?: any;
   }
 }
@@ -131,12 +131,12 @@ app.post("/login", async (req, res) => {
   console.log(req.body.email, req.body.password);
 
   let queryResult = await pgClient.query(
-    "SELECT password from test WHERE username = $1",
+    "SELECT username,password from test WHERE email = $1",
     [req.body.email]
   );
 
   if (queryResult.rowCount != 0) {
-    console.log(queryResult.rows[0].password);
+    console.log(queryResult.rows[0].password, queryResult.rows[0].username);
 
     let compareResult = await checkPassword({
       plainPassword: req.body.password,
@@ -145,7 +145,8 @@ app.post("/login", async (req, res) => {
 
     if (compareResult) {
       console.log(req.body.email);
-      req.session["email"] = req.body.email;
+
+      req.session["username"] = queryResult.rows[0].username;
       res.json({ message: "login success" });
     } else {
       res.status(400).json({ message: "password is incorrect" });
@@ -157,14 +158,14 @@ app.post("/login", async (req, res) => {
 
 //<------------------------------------------------------------------------------------------------------------------>
 app.get("/username", (req, res) => {
-  // console.log("hihihi", req.session.email);
-  if (req.session.email)
-    res.json({ message: "success", data: req.session.email });
+  console.log("hihihi", req.session.username);
+  if (req.session.username)
+    res.json({ message: "success", data: req.session.username });
   else res.status(400).json({ message: "you are not logged in" });
 });
 
 app.get("/logout", async (req, res) => {
-  if (!req.session.email) {
+  if (!req.session.username) {
     res.status(401).json({ message: "your are not logged in" });
   } else {
     req.session.destroy((error) => {
