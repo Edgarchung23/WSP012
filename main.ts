@@ -180,13 +180,7 @@ app.get("/logout", async (req, res) => {
 
 //<----404----------------------------------------------------------------------------------------------------------->
 app.use((req: Request, res: Response) => {
-  res
-    .status(404)
-    .sendFile(
-      resolve(
-        "/Users/NavyTong/Desktop/tecky/project/c29-tw-grp2/public/html/404.html"
-      )
-    );
+  res.status(404).sendFile(resolve("public/html/404.html"));
 });
 
 //<------------------------------------------------------------------------------------------------------------------>
