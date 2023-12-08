@@ -154,7 +154,7 @@ async function insertProduct() {
       material: "矽膠",
       category_id: productCategory_Massageball,
       unit_price: 388,
-      image: "massage_ball_1_blue",
+      image: "massage_ball_1_blue.webp",
     },
     {
       name: "深層肌肉按摩筋膜球",
@@ -195,7 +195,7 @@ async function insertProduct() {
       material: "環保TPE",
       category_id: productCategory_Yogamat,
       unit_price: 488,
-      image: "yogamat_1.webp",
+      image: "yoga_mat_1.webp",
     },
     {
       name: "天然橡膠瑜伽墊 | 純淨版(紫色)",
@@ -203,7 +203,7 @@ async function insertProduct() {
       material: "天然橡膠、PU",
       category_id: productCategory_Yogamat,
       unit_price: 488,
-      image: "yogamat_2.webp",
+      image: "yoga_mat_2.webp",
     },
     {
       name: "天然橡膠瑜伽墊 | 體位線版",
@@ -211,7 +211,7 @@ async function insertProduct() {
       material: "天然橡膠、PU",
       category_id: productCategory_Yogamat,
       unit_price: 588,
-      image: "yogamat_3.webp",
+      image: "yoga_mat_3.webp",
     },
     {
       name: "天然橡膠瑜伽墊 | 水波狀紋理版",
@@ -219,7 +219,7 @@ async function insertProduct() {
       material: "純天然橡膠",
       category_id: productCategory_Yogamat,
       unit_price: 1688,
-      image: "yogamat_4.webp",
+      image: "yoga_mat_4.webp",
     },
     {
       name: "天然橡膠瑜伽墊 | 純淨版(綠色",
@@ -227,7 +227,7 @@ async function insertProduct() {
       material: "彩色純天然橡膠",
       category_id: productCategory_Yogamat,
       unit_price: 1588,
-      image: "yogamat_5.webp",
+      image: "yoga_mat_5.webp",
     },
     //<---YOGA MAT------------------------------------------------------------------------------>
     {
@@ -236,7 +236,7 @@ async function insertProduct() {
       material: "PE環保物料",
       category_id: productCategory_Yogaball,
       unit_price: 688,
-      image: "yoga_ball_1webp",
+      image: "yoga_ball_1.webp",
     },
     {
       name: "防爆瑜伽普拉提球",
@@ -244,7 +244,7 @@ async function insertProduct() {
       material: "PVC",
       category_id: productCategory_Yogaball,
       unit_price: 388,
-      image: "yoga_ball_2webp",
+      image: "yoga_ball_2.webp",
     },
     {
       name: "防爆迷你瑜伽普拉提球",
@@ -252,7 +252,7 @@ async function insertProduct() {
       material: "PVC",
       category_id: productCategory_Yogaball,
       unit_price: 188,
-      image: "yoga_ball_3webp",
+      image: "yoga_ball_3.webp",
     },
   ];
   for (let entry of productDetails) {

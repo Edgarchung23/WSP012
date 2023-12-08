@@ -1,31 +1,28 @@
 async function getProducts() {
-  let res = await fetch("/category");
+  let res = await fetch("/product");
   let result = await res.json();
   console.log(result);
-  console.log(`check js-5`);
   return result;
 }
 
 window.onload = async (req, res) => {
-  console.log(`check js-10`);
+  //   console.log(`check js-10`);
   let data = await getProducts();
-  console.log("data", data);
-  let allCategory = "";
+  let allProduct = "";
   for (let entry of data) {
-    allCategory += `
+    allProduct += `
        <div class="productBox1">
-          <img src="image/{yoga_mat_1.webp}" class="product_img_1" alt="..." />
+          <img src="${entry.image}" class="product_img_1"/>
           <div class="productBoxBody">
-          <h5 class="product_title">$(entry.name)</h5>
-          <p class="product_text"> $(entry.brand)
-          $(entry.category_id)
-          $(entry.unit_price)
-          $(material)
-          $(image) </p>
+          <h5 class="product_title"> ${entry.name}</h5>
+          <p class="product_text"> ${entry.brand}
+          ${entry.category_id}
+          $${entry.unit_price}
+          ${entry.material}</p>
           <a href="/html/category.html" class="btn btn-primary">Go to order</a>
           </div>
           </div>
           `;
   }
-  document.querySelector(".product_Area").innerHTML = allCategory;
+  document.querySelector(".product_Area").innerHTML = allProduct;
 };

@@ -24,8 +24,11 @@ declare module "express-session" {
 //<---APP.USE--------------------------------------------------------------------------------------------------------->
 // app.use(loggerMiddleware);
 app.use(express.static("public/html/"));
+app.use(express.static("public/image/yoga_mat"));
+app.use(express.static("public/image/yoga_ball"));
+app.use(express.static("public/image/massage_gun"));
+app.use(express.static("public/image/massage_ball"));
 app.use(express.static("public"));
-app.use("/image", express.static("/image"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(
@@ -48,10 +51,6 @@ app.get("/", (req, res) => {
 app.get("/user", async (req, res) => {
   let queryResult = await pgClient.query("SELECT * FROM USER");
   res.json(queryResult.rows);
-});
-
-app.get("/product", (req, res) => {
-  res.redirect("/product.html");
 });
 
 app.get("/about_us", (req, res) => {
@@ -82,6 +81,10 @@ app.get("/register", (req, res) => {
 
 app.get("/category", async (req, res) => {
   let queryResult = await pgClient.query("SELECT * FROM category ");
+  res.json(queryResult.rows);
+});
+app.get("/product", async (req, res) => {
+  let queryResult = await pgClient.query("SELECT * FROM product ");
   res.json(queryResult.rows);
 });
 app.get("/product/image", async (req, res) => {

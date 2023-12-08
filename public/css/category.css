@@ -1,0 +1,18 @@
+.product_Area {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.product_img_1 {
+  width: 200px;
+  height: 200px;
+}
+
+.productBox1 {
+  display: flex;
+  flex-wrap: wrap;
+  width: 250px;
+  align-items: center;
+  margin: 10px;
+}
