@@ -5,8 +5,6 @@ import { resolve } from "path";
 import { checkPassword, hashPassword } from "./hash";
 import { pgClient } from "./pgClient";
 import expressSession from "express-session";
-// import grant from "grant";
-// import crypto from "crypto";
 export type UserListType = Array<{ username: string; password: string }>;
 
 //<-------------------------------------------------------------------------------------------------------------------->
@@ -27,6 +25,7 @@ declare module "express-session" {
 // app.use(loggerMiddleware);
 app.use(express.static("public/html/"));
 app.use(express.static("public"));
+app.use("/image", express.static("/image"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(
@@ -63,8 +62,38 @@ app.get("/login", async (req, res) => {
   res.redirect("/login.html");
 });
 
+app.get("/logout", async (req, res) => {
+  if (!req.session.username) {
+    res.status(401).json({ message: "your are not logged in" });
+  } else {
+    req.session.destroy((error) => {
+      if (error) {
+        res.status(500).json({ message: "logout failed" });
+      } else {
+        res.json({ message: "logout success" });
+      }
+    });
+  }
+});
+
 app.get("/register", (req, res) => {
   res.redirect("/register.html");
+});
+
+app.get("/category", async (req, res) => {
+  let queryResult = await pgClient.query("SELECT * FROM category ");
+  res.json(queryResult.rows);
+});
+app.get("/product/image", async (req, res) => {
+  let queryResult = await pgClient.query("SELECT * FROM product ");
+  res.json(queryResult.rows);
+});
+
+app.get("/username", (req, res) => {
+  // console.log("hihihi", req.session.username);
+  if (req.session.username)
+    res.json({ message: "success", data: req.session.username });
+  else res.status(400).json({ message: "you are not logged in" });
 });
 
 //<---APP.POST------------------------------------------------------------------------------------------------------------>
@@ -158,36 +187,10 @@ app.post("/login", async (req, res) => {
 });
 
 //<------------------------------------------------------------------------------------------------------------------>
-app.get("/username", (req, res) => {
-  console.log("hihihi", req.session.username);
-  if (req.session.username)
-    res.json({ message: "success", data: req.session.username });
-  else res.status(400).json({ message: "you are not logged in" });
-});
-
-app.get("/logout", async (req, res) => {
-  if (!req.session.username) {
-    res.status(401).json({ message: "your are not logged in" });
-  } else {
-    req.session.destroy((error) => {
-      if (error) {
-        res.status(500).json({ message: "logout failed" });
-      } else {
-        res.json({ message: "logout success" });
-      }
-    });
-  }
-});
 
 //<----404----------------------------------------------------------------------------------------------------------->
 app.use((req: Request, res: Response) => {
-  res
-    .status(404)
-    .sendFile(
-      resolve(
-        "/Users/NavyTong/Desktop/tecky/project/c29-tw-grp2/public/html/404.html"
-      )
-    );
+  res.status(404).sendFile(resolve("public/html/404.html"));
 });
 
 //<------------------------------------------------------------------------------------------------------------------>
