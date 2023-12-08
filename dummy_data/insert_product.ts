@@ -2,6 +2,7 @@ import { Client } from "pg";
 import dotenv from "dotenv";
 // import { hashPassword } from "./hash";
 dotenv.config();
+
 const client = new Client({
   database: process.env.DB_NAME,
   user: process.env.DB_USERNAME,
@@ -13,6 +14,7 @@ async function main() {
   await client.connect();
   await insertCategory();
   await insertProduct();
+  await insertProductVariant();
   await client.end();
 }
 // <--INSERT CATEGROY------------------------------------------------------------------------------------------->
@@ -34,6 +36,68 @@ type insertProductType = {
   unit_price: number;
   image: string;
 };
+type insertProductVariantType = {
+  color: string;
+  size: string;
+  thickness: number;
+  unit_price: number;
+  storage_count: number;
+  product_id: number;
+  image: string;
+};
+
+async function insertProductVariant() {
+  const result = await client.query(`SELECT * FROM product WHERE name = $1`, [
+    "天然橡膠瑜伽墊 | 體位線版",
+  ]);
+  let target_product_id = result.rows[0].id;
+  console.log(result.rows[0]);
+
+  const productVariantData: insertProductVariantType[] = [
+    {
+      product_id: target_product_id,
+      color: "粉紅色",
+      size: "183 x 68cm",
+      thickness: 5,
+      unit_price: 588,
+      storage_count: 8,
+      image: "yoga_mat_3.webp",
+    },
+    {
+      product_id: target_product_id,
+      color: "淺紫色",
+      size: "183 x 68cm",
+      thickness: 5,
+      unit_price: 590,
+      storage_count: 0,
+      image: "yoga_mat_3_lightpurple.webp",
+    },
+    {
+      product_id: target_product_id,
+      color: "淺紫色",
+      size: "100 x 68cm",
+      thickness: 5,
+      unit_price: 480,
+      storage_count: 10,
+      image: "yoga_mat_3_lightpurple.webp",
+    },
+  ];
+
+  for (let entry of productVariantData) {
+    await client.query(
+      `INSERT INTO product_variant (product_id,color,size,thickness,unit_price,storage_count,image) VALUES ($1,$2,$3,$4,$5,$6,$7)`,
+      [
+        entry.product_id,
+        entry.color,
+        entry.size,
+        entry.thickness,
+        entry.unit_price,
+        entry.storage_count,
+        entry.image,
+      ]
+    );
+  }
+}
 
 async function insertProduct() {
   const result = await client.query(
