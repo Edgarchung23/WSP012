@@ -40,8 +40,8 @@ async function getUsername() {
     document.querySelector(
       "#logout-area"
     ).innerHTML = `<button class="btn btn-outline-secondary" onclick="logout()">
-    Log out 
-    </button>`;
+        Log out 
+        </button>`;
 
     addLogoutEventListener();
   } else {
@@ -53,7 +53,7 @@ async function logout() {
   console.log("trying logout");
 
   await fetch("/logout");
-  
 
   window.location.reload();
 }
+//<------------------------------------------------------------------------------------------------------------------>

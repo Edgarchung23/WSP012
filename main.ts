@@ -157,7 +157,7 @@ app.post("/login", async (req, res) => {
 
 //<------------------------------------------------------------------------------------------------------------------>
 app.get("/username", (req, res) => {
-  console.log("hihihi", req.session.email);
+  // console.log("hihihi", req.session.email);
   if (req.session.email)
     res.json({ message: "success", data: req.session.email });
   else res.status(400).json({ message: "you are not logged in" });
@@ -179,13 +179,7 @@ app.get("/logout", async (req, res) => {
 
 //<----404----------------------------------------------------------------------------------------------------------->
 app.use((req: Request, res: Response) => {
-  res
-    .status(404)
-    .sendFile(
-      resolve(
-        "/Users/NavyTong/Desktop/tecky/project/c29-tw-grp2/public/html/404.html"
-      )
-    );
+  res.status(404).sendFile(resolve("public/html/404.html"));
 });
 
 //<------------------------------------------------------------------------------------------------------------------>
