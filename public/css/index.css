@@ -8,25 +8,22 @@ body {
 }
 
 .Title {
+  width: 1200px;
+  flex-wrap: wrap;
   display: flex;
   justify-content: flex-end;
-  margin-right: 15px;
-  width: 1300px;
 }
 
 #logingButton {
   margin-right: 20px;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
 }
 
 #registerButton {
   background-color: white;
 }
 #username-display {
-  display: flex;
-  position: relative;
-  align-items: last baseline;
-  left: 200px;
+  margin-right: 20px;
 }
 #mobile-bar {
   width: 1300px;
@@ -120,7 +117,7 @@ body {
 }
 
 .row {
-  width: 1200px;
+  width: 1500px;
   flex-wrap: wrap;
   height: 250px;
 }
