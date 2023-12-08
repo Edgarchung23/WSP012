@@ -1,7 +1,7 @@
-drop database "wsp-012";
-create database "wsp-012";
+drop database "project";
+create database "project";
 
-\c "wsp-012"
+\c "project"
 
 create table users(
     id SERial primary key,
