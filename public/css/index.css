@@ -8,25 +8,18 @@ body {
 }
 
 .Title {
-  width: 1200px;
+  width: 1300px;
   flex-wrap: wrap;
   display: flex;
   justify-content: flex-end;
 }
 
-#logingButton {
-  margin-right: 20px;
-  background-color: rgb(255, 255, 255);
-}
-
-#registerButton {
-  background-color: white;
-}
 #username-display {
-  margin-right: 20px;
+  margin-right: 10px;
 }
 #mobile-bar {
   width: 1300px;
+  height: auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -89,7 +82,9 @@ body {
 }
 
 /* photos */
-
+.photosBox {
+  width: 1300px;
+}
 .twelvecolumns {
   flex-wrap: wrap;
   width: 2000px;
@@ -117,8 +112,8 @@ body {
 }
 
 .row {
-  width: 1500px;
-  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
   height: 250px;
 }
 .productcol {
@@ -126,22 +121,27 @@ body {
 }
 
 #footer_payment {
-  width: 1000px;
   height: 100px;
   display: flex;
   justify-content: center;
   margin-top: 20px;
 }
-
+.containerText-center {
+  display: flex;
+  flex-wrap: wrap;
+}
 .btn {
   border: solid 1px;
-  color: black;
+  color: rgb(0, 0, 0);
+  background-color: white;
 }
 
 .card {
   border: solid 10px rgb(255, 255, 255);
   height: 320px;
   border-radius: 20px;
+  width: 300px;
+  margin: 10px;
 }
 
 .card-body {
