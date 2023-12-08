@@ -67,6 +67,30 @@ app.get("/register", (req, res) => {
   res.redirect("/register.html");
 });
 
+app.get("/category", (req, res) => {
+  res.redirect("/category.html");
+});
+
+app.get("/username", (req, res) => {
+  // console.log("hihihi", req.session.username);
+  if (req.session.username)
+    res.json({ message: "success", data: req.session.username });
+  else res.status(400).json({ message: "you are not logged in" });
+});
+
+app.get("/logout", async (req, res) => {
+  if (!req.session.username) {
+    res.status(401).json({ message: "your are not logged in" });
+  } else {
+    req.session.destroy((error) => {
+      if (error) {
+        res.status(500).json({ message: "logout failed" });
+      } else {
+        res.json({ message: "logout success" });
+      }
+    });
+  }
+});
 //<---APP.POST------------------------------------------------------------------------------------------------------------>
 app.post("/register", async (req, res) => {
   console.log(req.body.email, req.body.passwordInput1);
@@ -158,36 +182,10 @@ app.post("/login", async (req, res) => {
 });
 
 //<------------------------------------------------------------------------------------------------------------------>
-app.get("/username", (req, res) => {
-  console.log("hihihi", req.session.username);
-  if (req.session.username)
-    res.json({ message: "success", data: req.session.username });
-  else res.status(400).json({ message: "you are not logged in" });
-});
-
-app.get("/logout", async (req, res) => {
-  if (!req.session.username) {
-    res.status(401).json({ message: "your are not logged in" });
-  } else {
-    req.session.destroy((error) => {
-      if (error) {
-        res.status(500).json({ message: "logout failed" });
-      } else {
-        res.json({ message: "logout success" });
-      }
-    });
-  }
-});
 
 //<----404----------------------------------------------------------------------------------------------------------->
 app.use((req: Request, res: Response) => {
-  res
-    .status(404)
-    .sendFile(
-      resolve(
-        "/Users/NavyTong/Desktop/tecky/project/c29-tw-grp2/public/html/404.html"
-      )
-    );
+  res.status(404).sendFile(resolve("public/html/404.html"));
 });
 
 //<------------------------------------------------------------------------------------------------------------------>
