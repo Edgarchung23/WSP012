@@ -13,10 +13,27 @@
     <link rel="stylesheet" href="../css/index.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+
+   <!-- Fonts -->
+   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+   <!-- CSS -->
+   <link href="../css/product.css" rel="stylesheet">
+   <meta name="robots" content="noindex,follow" />
 </head>
 
 <body>
-
+     <!-- <-------------------------------login button area---------------------------------------------------------------- -->
+    <div id="mobile-bar">
+        <div class="Title">
+          <div id="username-display">
+            <a class="btn btn-outline-secondary" href="./login.html" role="button" id="logingButton">Login</a>
+          </div>
+    
+          <div id="logout-area">
+            <a class="btn btn-outline-secondary" href="./register.html" role="button" id="registerButton">Create Account</a>
+          </div>
+        </div>
+   <!-- <-------------------------------------------------------------------------------------------------- -->
     <div id="mobile-bar">
         <div class="Title">
 
@@ -62,11 +79,81 @@
 
         </div>
 
-        <div>
-            
+     <!-- <---------------------------Product content-------------------------------------------------------------------- -->
+     <main class="container">
+
+        <!-- Left Column / massageball Image -->
+        <div class="left-column">
+          <img data-image="black" src="../image/massage_ball/massage_ball_5_black.jpeg" alt="">
+          <img data-image="blue" src="../image/massage_ball/massage_ball_1_blue.jpeg" alt="">
+          <img data-image="red" class="active" src="../image/massage_ball/massage_ball_2_red.jpeg" alt="">
         </div>
+  
+  
+        <!-- Right Column -->
+        <div class="right-column">
+  
+          <!-- Product Description -->
+          <div class="product-description">
+            <span>按摩用品</span>
+            <h1>按摩球</h1>
+            <p>運動後需要放鬆肌肉（腳底、背部、腿部...）嗎？這款按摩球可輕鬆放入包包中，是一款小巧、理想的有效按摩工具。<br>
+                <br>
+                這款按摩球專為運動後自主按摩所設計。能對肌肉和激痛點進行深層按摩。</p>
+          </div>
+  
+          <!-- Product Configuration -->
+          <div class="product-configuration">
+  
+            <!-- Product Color -->
+            <div class="product-color">
+              <span>顏色</span>
+  
+              <div class="color-choose">
+                <div>
+                  <input data-image="red" type="radio" id="red" name="color" value="red" checked>
+                  <label for="red"><span></span></label>
+                </div>
+                <div>
+                  <input data-image="blue" type="radio" id="blue" name="color" value="blue">
+                  <label for="blue"><span></span></label>
+                </div>
+                <div>
+                  <input data-image="black" type="radio" id="black" name="color" value="black">
+                  <label for="black"><span></span></label>
+                </div>
+              </div>
+  
+            </div>
+  
+            <!-- Size Configuration -->
+            <div class="size-config">
+              <span>Size</span>
+  
+              <div class="size-choose">
+                <button>S</button>
+                <button>M</button>
+                <button>L</button>
+              </div>
+  
+              <a href="#">How to choose your size</a>
+            </div>
+          </div>
+  
+          <!-- Product Pricing -->
+          <div class="product-price">
+            <span>$148</span>
+            <a href="#" class="cart-btn">Add to cart</a>
+          </div>
+        </div>
+      </main>
+  
+      <!-- Scripts -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" charset="utf-8"></script>
+      <script src="../js/product.js" charset="utf-8"></script>
 
 
+     <!-- <----------------------------------------------------------------------------------------------- -->
 
         <div class="row" data-gutter="60">
             <div class="col-sm-3 footer-col">
