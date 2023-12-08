@@ -24,7 +24,6 @@ declare module "express-session" {
 //<-------------------------------------------------------------------------------------------------------------------->
 
 //<---APP.USE--------------------------------------------------------------------------------------------------------->
-// app.use(loggerMiddleware);
 app.use(express.static("public/html/"));
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
