@@ -5,8 +5,6 @@ import { resolve } from "path";
 import { checkPassword, hashPassword } from "./hash";
 import { pgClient } from "./pgClient";
 import expressSession from "express-session";
-// import grant from "grant";
-// import crypto from "crypto";
 export type UserListType = Array<{ username: string; password: string }>;
 
 //<-------------------------------------------------------------------------------------------------------------------->
@@ -27,6 +25,7 @@ declare module "express-session" {
 // app.use(loggerMiddleware);
 app.use(express.static("public/html/"));
 app.use(express.static("public"));
+app.use("/image", express.static("/image"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(
@@ -63,21 +62,6 @@ app.get("/login", async (req, res) => {
   res.redirect("/login.html");
 });
 
-app.get("/register", (req, res) => {
-  res.redirect("/register.html");
-});
-
-app.get("/category", (req, res) => {
-  res.redirect("/category.html");
-});
-
-app.get("/username", (req, res) => {
-  // console.log("hihihi", req.session.username);
-  if (req.session.username)
-    res.json({ message: "success", data: req.session.username });
-  else res.status(400).json({ message: "you are not logged in" });
-});
-
 app.get("/logout", async (req, res) => {
   if (!req.session.username) {
     res.status(401).json({ message: "your are not logged in" });
@@ -91,6 +75,27 @@ app.get("/logout", async (req, res) => {
     });
   }
 });
+
+app.get("/register", (req, res) => {
+  res.redirect("/register.html");
+});
+
+app.get("/category", async (req, res) => {
+  let queryResult = await pgClient.query("SELECT * FROM category ");
+  res.json(queryResult.rows);
+});
+app.get("/product/image", async (req, res) => {
+  let queryResult = await pgClient.query("SELECT * FROM product ");
+  res.json(queryResult.rows);
+});
+
+app.get("/username", (req, res) => {
+  // console.log("hihihi", req.session.username);
+  if (req.session.username)
+    res.json({ message: "success", data: req.session.username });
+  else res.status(400).json({ message: "you are not logged in" });
+});
+
 //<---APP.POST------------------------------------------------------------------------------------------------------------>
 app.post("/register", async (req, res) => {
   console.log(req.body.email, req.body.passwordInput1);
