@@ -24,6 +24,7 @@ declare module "express-session" {
 //<-------------------------------------------------------------------------------------------------------------------->
 
 //<---APP.USE--------------------------------------------------------------------------------------------------------->
+// app.use(loggerMiddleware);
 app.use(express.static("public/html/"));
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
@@ -180,7 +181,13 @@ app.get("/logout", async (req, res) => {
 
 //<----404----------------------------------------------------------------------------------------------------------->
 app.use((req: Request, res: Response) => {
-  res.status(404).sendFile(resolve("public/html/404.html"));
+  res
+    .status(404)
+    .sendFile(
+      resolve(
+        "/Users/NavyTong/Desktop/tecky/project/c29-tw-grp2/public/html/404.html"
+      )
+    );
 });
 
 //<------------------------------------------------------------------------------------------------------------------>
