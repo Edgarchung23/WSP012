@@ -14,10 +14,10 @@ document
     if (res.status == 200) {
       Swal.fire({
         icon: "success",
-        title: "Login Success.",
+        title: "registration Success.",
       }).then((result) => {
         if (result.isConfirmed) {
-          console.log("redirect to login page");
+          // console.log("redirect to login page");
           window.location.href = "/login.html";
         }
       });

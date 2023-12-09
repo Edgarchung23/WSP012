@@ -36,18 +36,10 @@ function submitEventHandle() {
         Swal.fire({
           icon: "success",
           title: "Login Success",
-          text: "Login Success"
-
-        }).then(()=>{
-            window.location.href = "/"
+          text: "Login Success",
+        }).then(() => {
+          window.location.href = "/";
         });
       }
     });
 }
-
-
-
-
-
-
-

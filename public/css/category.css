@@ -7,12 +7,12 @@
 .product_img_1 {
   width: 200px;
   height: 200px;
+  border-radius: 20px;
 }
 
 .productBox1 {
   display: flex;
   flex-wrap: wrap;
   width: 250px;
-  align-items: center;
   margin: 10px;
 }

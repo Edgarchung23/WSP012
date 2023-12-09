@@ -19,7 +19,7 @@ window.onload = async (req, res) => {
           ${entry.category_id}
           $${entry.unit_price}
           ${entry.material}</p>
-          <a href="/html/category.html" class="btn btn-primary">Go to order</a>
+          <a href="/product.html" class="btn btn-primary">Go to order</a>
           </div>
           </div>
           `;

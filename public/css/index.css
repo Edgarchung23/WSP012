@@ -115,6 +115,8 @@ body {
   display: flex;
   justify-content: center;
   height: 250px;
+  width: 1500px;
+  align-items: center;
 }
 .productcol {
   width: 290px;

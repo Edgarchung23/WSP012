@@ -104,17 +104,17 @@ app.post("/register", async (req, res) => {
   console.log(req.body.email, req.body.passwordInput1);
 
   if (req.body.email == undefined || req.body.email == "") {
-    res.status(400).json({ message: "email can not be null" });
+    res.status(400).json({ message: "Email can not be null" });
   } else if (
     req.body.passwordInput1 == undefined ||
     req.body.passwordInput1 == ""
   ) {
-    res.status(400).json({ message: "password can not be null" });
+    res.status(400).json({ message: "Password can not be null" });
   } else if (
     req.body.passwordInput2 == undefined ||
     req.body.passwordInput2 == ""
   ) {
-    res.status(400).json({ message: "password verification can not be null" });
+    res.status(400).json({ message: "Password verification can not be null" });
   } else if (req.body.passwordInput1 != req.body.passwordInput2) {
     res.status(400).json({ message: "Both passwords are not the same" });
   } else {
