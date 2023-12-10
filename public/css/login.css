@@ -40,9 +40,6 @@ a {
   box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
   text-align: center;
 }
-#loginbutton {
-  color: black;
-}
 
 #formFooter {
   background-color: #000000;
@@ -213,4 +210,22 @@ input[type="text"]:placeholder {
 
 #icon {
   width: 60%;
+}
+
+#loginRegisterbutton {
+  font-size: 20px;
+  display: flex;
+  margin-top: 20px;
+  color: black;
+  width: 150px;
+  height: 40px;
+  align-items: center;
+}
+
+.btn-dark:hover {
+  background-color: #c0604f !important;
+}
+
+.btn-outline-secondary:hover {
+  background-color: white;
 }

@@ -21,17 +21,17 @@
 <body>
   <div id="mobile-bar">
     <div class="Title">
-      <div id="username-display">
-        <a class="btn btn-outline-secondary" href="./login.html" role="button" id="logingButton">Login</a>
+      <!-- <div id="username-display">
+        <a href="./login.html"><img src="../image/login.png" ; id="loginButton"></a></p>
+      </div> -->
+      <div id="cart-display">
+        <a href=""><img src="../image//shopping-cart.png" id="shoppingCart" ;></a></p>
       </div>
-
-      <div id="logout-area">
+      <!-- <div id="logout-area">
         <a class="btn btn-outline-secondary" href="./register.html" role="button" id="registerButton">Create Account</a>
-      </div>
+      </div> -->
     </div>
     <!-- <div id="logout-area"></div> -->
-
-
     <div class="shopName" href="http://localhost:8080/">
       <p style="
           font-size: 70px;
@@ -111,15 +111,16 @@
 
           <div class="pt-1 mb-4">
             <button class="btn btn-dark btn-block" type="submit" id="loginbutton"
-              style="background-color: white; font-size: 15px">
+              style="background-color: white; font-size: 15px;font-weight: bold;">
               Login
             </button>
           </div>
 
-          <a class="small text-muted" href="/">Forgot password?</a>
-          <p class="mb-5 pb-lg-2" style="color: #393f81">
-            Don't have an account? <a href="" style="color: #393f81"></a>
-            <a href="/register" class="small text-muted">Register here</a>
+          <a class="forgotPassword" href="/">Forgot password?</a>
+          <p class="dontHaveAccount" style="color: #393f81; margin-top:15px;">
+            Don't have an account?
+            <a id="loginRegisterbutton" href="./register.html">Register
+              here</a>
           </p>
         </form>
       </div>
