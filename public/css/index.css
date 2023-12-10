@@ -7,6 +7,13 @@ body {
   font-weight: bold;
 }
 
+/* a {
+  color: black;
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 400;
+} */
+
 .Title {
   width: 1300px;
   flex-wrap: wrap;
@@ -232,7 +239,7 @@ img {
 #loginButton {
   width: 43px;
   height: 43px;
-  margin-top: 25px;
+  margin-top: 2px;
   margin-right: 10px;
 }
 

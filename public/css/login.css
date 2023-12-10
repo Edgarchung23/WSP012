@@ -4,15 +4,15 @@ body {
   justify-content: center;
 }
 
-a {
-  color: black;
-  display: inline-block;
-  text-decoration: none;
-  font-weight: 400;
-}
-
 .loginForm {
   margin: 50px;
+}
+
+a {
+  color: black;
+}
+a:hover {
+  color: #c0604f;
 }
 
 /* STRUCTURE */
@@ -213,13 +213,17 @@ input[type="text"]:placeholder {
 }
 
 #loginRegisterbutton {
-  font-size: 20px;
+  font-size: 30px;
   display: flex;
   margin-top: 20px;
   color: black;
-  width: 150px;
+  width: 200px;
   height: 40px;
   align-items: center;
+}
+
+#loginRegisterbutton:hover {
+  color: #c0604f;
 }
 
 .btn-dark:hover {
