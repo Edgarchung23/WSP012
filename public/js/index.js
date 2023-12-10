@@ -35,11 +35,11 @@ async function getUsername() {
 
     document.querySelector(
       "#username-display"
-    ).innerHTML = `<button class=btn btn-out line-success" type="submit"> Welcome ${result.data} </button>`;
+    ).innerHTML = `<button class=btn btn-out line-success" type="submit"><img src="../image/user-interface.png" id="user-logo" ;> Welcome ${result.data} </button>`;
 
     document.querySelector(
       "#logout-area"
-    ).innerHTML = `<button class="btn btn-outline-secondary" onclick="logout()">
+    ).innerHTML = `<button class="btn btn-outline-secondary" onclick="logout()"><img src="../image/logout.png" id="logout-logo" ;>
     Log out 
     </button>`;
 
@@ -56,5 +56,3 @@ async function logout() {
 
   window.location.reload();
 }
-
-

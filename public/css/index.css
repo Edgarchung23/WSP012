@@ -135,9 +135,16 @@ body {
 .btn {
   border: solid 1px;
   color: rgb(0, 0, 0);
-  background-color: white;
+  background-color: #ece9e6;
 }
 
+.btn:hover {
+  background-color: #e3e3e3;
+}
+.btn-outline-secondary:hover {
+  background-color: e3e3e;
+  color: black;
+}
 .card {
   border: solid 10px rgb(255, 255, 255);
   height: 320px;
@@ -218,10 +225,6 @@ img {
   }
 }
 
-.btn-outline-secondary:hover {
-  background-color: white;
-}
-
 #loginButton {
   width: 40px;
   height: 40px;
@@ -238,4 +241,15 @@ img {
 .Title {
   display: flex;
   align-items: center;
+}
+
+#user-logo {
+  width: 30px;
+  height: 30px;
+}
+
+#logout-logo {
+  width: 30px;
+  height: 30px;
+  background-color: #ece9e6;
 }
