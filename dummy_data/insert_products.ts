@@ -17,17 +17,8 @@ async function main() {
   await insertProductVariant();
   await client.end();
 }
-// <--INSERT CATEGROY------------------------------------------------------------------------------------------->
 
-async function insertCategory() {
-  await client.query(
-    `INSERT INTO category (name)
-    VALUES ($1),($2),($3),($4)
-    `,
-    ["按摩槍", "按摩波", "瑜伽墊", "瑜伽波"]
-  );
-}
-// <--INSERT PRODUCT------------------------------------------------------------------------------------------->
+// <--INSERT PRODUCT & PRODUCT VARIANT ***TYPE****------------------------------------------------------------------------------------------->
 type insertProductType = {
   name: string;
   brand: string;
@@ -46,57 +37,7 @@ type insertProductVariantType = {
   image: string;
 };
 
-async function insertProductVariant() {
-  const result = await client.query(`SELECT * FROM product WHERE name = $1`, [
-    "天然橡膠瑜伽墊 | 體位線版",
-  ]);
-  let productVariant_id = result.rows[0].id;
-  const productVariantData: insertProductVariantType[] = [
-    {
-      product_id: productVariant_id,
-      color: "粉紅色",
-      size: "183 x 68cm",
-      thickness: 5,
-      unit_price: 588,
-      storage_count: 8,
-      image: "yoga_mat_3.webp",
-    },
-    {
-      product_id: productVariant_id,
-      color: "淺紫色",
-      size: "183 x 68cm",
-      thickness: 5,
-      unit_price: 590,
-      storage_count: 0,
-      image: "yoga_mat_3_lightpurple.webp",
-    },
-    {
-      product_id: productVariant_id,
-      color: "淺紫色",
-      size: "100 x 68cm",
-      thickness: 5,
-      unit_price: 480,
-      storage_count: 10,
-      image: "yoga_mat_3_lightpurple.webp",
-    },
-  ];
-
-  for (let entry of productVariantData) {
-    await client.query(
-      `INSERT INTO product_variant (product_id,color,size,thickness,unit_price,storage_count,image) VALUES ($1,$2,$3,$4,$5,$6,$7)`,
-      [
-        entry.product_id,
-        entry.color,
-        entry.size,
-        entry.thickness,
-        entry.unit_price,
-        entry.storage_count,
-        entry.image,
-      ]
-    );
-  }
-}
-
+//<--INSERT PRODUCT------------------------------------------------------------------------------------------->
 async function insertProduct() {
   const result = await client.query(
     `SELECT * FROM category WHERE name = $1 OR name = $2 OR name = $3 OR name = $4`,
@@ -106,7 +47,7 @@ async function insertProduct() {
   const productCategory_Massageball = result.rows[1].id;
   const productCategory_Yogamat = result.rows[2].id;
   const productCategory_Yogaball = result.rows[3].id;
-  const productDetails: insertProductType[] = [
+  const allProduct: insertProductType[] = [
     {
       name: "M2降噪筋膜按摩槍",
       brand: "Booster",
@@ -255,7 +196,7 @@ async function insertProduct() {
       image: "yoga_ball_3.png",
     },
   ];
-  for (let entry of productDetails) {
+  for (let entry of allProduct) {
     await client.query(
       `INSERT INTO product(category_id,name,brand,material,image,unit_price)VALUES($1,$2,$3,$4,$5,$6)`,
       [
@@ -265,6 +206,58 @@ async function insertProduct() {
         entry.material,
         entry.image,
         entry.unit_price,
+      ]
+    );
+  }
+}
+
+//<--INSERT PRODUCT & PRODUCT VARIANT------------------------------------------------------------------------------------------->
+async function insertProductVariant() {
+  const result = await client.query(`SELECT * FROM product WHERE name = $1`, [
+    "天然橡膠瑜伽墊 | 體位線版",
+  ]);
+  let productVariant_id = result.rows[0].id;
+  const productVariantData: insertProductVariantType[] = [
+    {
+      product_id: productVariant_id,
+      color: "粉紅色",
+      size: "183 x 68cm",
+      thickness: 5,
+      unit_price: 588,
+      storage_count: 8,
+      image: "yoga_mat_3.png",
+    },
+    {
+      product_id: productVariant_id,
+      color: "淺紫色",
+      size: "183 x 68cm",
+      thickness: 5,
+      unit_price: 590,
+      storage_count: 0,
+      image: "yoga_mat_3_lightpurple.png",
+    },
+    {
+      product_id: productVariant_id,
+      color: "淺紫色",
+      size: "100 x 68cm",
+      thickness: 5,
+      unit_price: 480,
+      storage_count: 10,
+      image: "yoga_mat_3_lightpurple.png",
+    },
+  ];
+
+  for (let entry of productVariantData) {
+    await client.query(
+      `INSERT INTO product_variant (product_id,color,size,thickness,unit_price,storage_count,image) VALUES ($1,$2,$3,$4,$5,$6,$7)`,
+      [
+        entry.product_id,
+        entry.color,
+        entry.size,
+        entry.thickness,
+        entry.unit_price,
+        entry.storage_count,
+        entry.image,
       ]
     );
   }

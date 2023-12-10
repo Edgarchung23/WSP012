@@ -278,7 +278,26 @@
       </div>
     </div>
 
-    <script src="./js/index.js"></script>
+
+    <button class="open-button" onclick="openForm()"><img src="../image/chat (1).png" id="chatLogo"></button>
+
+    <div class="chat-popup" id="myForm">
+      <form action="" class="form-container">
+        <h6>客服將會盡快回覆，請留下訊息</h6>
+
+        <label for="msg"><b>Message</b></label>
+        <textarea placeholder="Type message.." name="msg" required></textarea>
+
+        <button type="submit" class="btn">Send</button>
+        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+      </form>
+    </div>
+
+  </div>
+
+
+  <script src="./js/index.js"></script>
+
 </body>
 
 </html>
