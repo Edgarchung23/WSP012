@@ -11,7 +11,6 @@ $(document).ready(function () {
     $(this).addClass("active");
   });
 });
-
 async function getUsername() {
   let httpResponse = await fetch("/username");
   let result;
