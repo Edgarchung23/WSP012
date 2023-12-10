@@ -1,26 +1,16 @@
 window.onload = () => {
-  getUsername() 
-}
+  getUsername();
+};
 
+$(document).ready(function () {
+  $(".color-choose input").on("click", function () {
+    const ballColor = $(this).attr("data-image");
 
-
-
-
-$(document).ready(function() {
-
-    $('.color-choose input').on('click', function() {
-        const ballColor = $(this).attr('data-image');
-  
-        $('.active').removeClass('active');
-        $('.left-column img[data-image = ' + ballColor + ']').addClass('active');
-        $(this).addClass('active');
-    });
-  
+    $(".active").removeClass("active");
+    $(".left-column img[data-image = " + ballColor + "]").addClass("active");
+    $(this).addClass("active");
   });
-  
-
-
-
+});
 
 async function getUsername() {
   let httpResponse = await fetch("/username");
@@ -40,19 +30,17 @@ async function getUsername() {
     ).innerHTML = `<button class="btn btn-outline-secondary" onclick="logout()">
       Log out 
       </button>`;
-  
-      addLogoutEventListener();
-    } else {
-      result = await httpResponse.json();
 
-    }
+    addLogoutEventListener();
+  } else {
+    result = await httpResponse.json();
   }
-  
-  async function logout() {
-    console.log("trying logout");
-  
-    await fetch("/logout");
-  
-    window.location.reload();
-  }
-  
+}
+
+async function logout() {
+  console.log("trying logout");
+
+  await fetch("/logout");
+
+  window.location.reload();
+}
