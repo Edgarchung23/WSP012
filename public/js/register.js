@@ -3,6 +3,7 @@ document
   .addEventListener("submit", async (e) => {
     e.preventDefault();
     let formData = new FormData(e.target);
+
     let res = await fetch("/register", {
       method: "POST",
       headers: {
@@ -14,7 +15,7 @@ document
     if (res.status == 200) {
       Swal.fire({
         icon: "success",
-        title: "registration Success.",
+        title: "Registered",
       }).then((result) => {
         if (result.isConfirmed) {
           // console.log("redirect to login page");
@@ -24,16 +25,15 @@ document
     } else {
       let result = await res.json();
 
-      console.log(result);
+      // console.log(result);
 
       Swal.fire({
         icon: "error",
-        title: "Failed.",
+        title: " Error",
         text: result.message,
       });
     }
   });
-
 //<---CHAT----------------------------------------------------------------------------------------------------------->
 function openForm() {
   document.getElementById("myForm").style.display = "block";
