@@ -11,6 +11,7 @@ $(document).ready(function () {
     $(this).addClass("active");
   });
 });
+
 async function getUsername() {
   let httpResponse = await fetch("/username");
   let result;
@@ -22,7 +23,7 @@ async function getUsername() {
 
     document.querySelector(
       "#username-display"
-    ).innerHTML = `<button class=btn btn-out line-success" type="submit"> Welcome ${result.data} </button>`;
+    ).innerHTML = `<button class=btn btn-out line-success" type="submit"><img src="../image/user-interface.png" id="user-loginedlogo" ;> Welcome ${result.data} </button>`;
 
     document.querySelector(
       "#logout-area"

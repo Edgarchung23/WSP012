@@ -39,16 +39,23 @@ async function getUsername() {
 
     document.querySelector(
       "#username-display"
-    ).innerHTML = `<button class=btn btn-out line-success" type="submit"> Welcome ${result.data} </button>`;
+    ).innerHTML = `<button class=btn btn-out line-success" type="submit"><img src="../image/user-interface.png" id="user-loginedlogo" ;> Welcome ${result.data} </button>`;
 
     document.querySelector(
       "#logout-area"
-    ).innerHTML = `<button class="btn btn-outline-secondary" onclick="logout()">
-      Log out 
-      </button>`;
+    ).innerHTML = `<button class="btn btn-outline-secondary" onclick="logout()"><img src="../image/logout.png" id="logout-logo" ;>
+    Log out 
+    </button>`;
 
     addLogoutEventListener();
   } else {
     result = await httpResponse.json();
   }
+}
+async function logout() {
+  console.log("trying logout");
+
+  await fetch("/logout");
+
+  window.location.reload();
 }
