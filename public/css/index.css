@@ -144,17 +144,23 @@ body {
   flex-wrap: wrap;
 }
 .btn {
-  border: solid 1px;
+  /* border: solid 1px; */
   color: rgb(0, 0, 0);
-  background-color: #ece9e6;
+  /* background-color: #ece9e6; */
+  border-width: 0px;
 }
 
 .btn:hover {
-  background-color: #e3e3e3;
+  color: rgb(0, 0, 0);
+  background-color: #ece9e6;
+  /* border: solid 0px; */
+}
+.btn-outline-secondary {
+  border: solid 0px;
 }
 .btn-outline-secondary:hover {
   background-color: e3e3e;
-  color: black;
+  /* color: black; */
 }
 .card {
   border: solid 10px rgb(255, 255, 255);
@@ -244,8 +250,8 @@ img {
 }
 
 #shoppingCart {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   margin-top: 15px;
 }
 
@@ -255,8 +261,8 @@ img {
 }
 
 #user-loginedlogo {
-  width: 25px;
-  height: 25px;
+  width: 28px;
+  height: 28px;
 }
 
 #logout-logo {

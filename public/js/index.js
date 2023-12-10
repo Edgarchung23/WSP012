@@ -35,7 +35,7 @@ async function getUsername() {
 
     document.querySelector(
       "#username-display"
-    ).innerHTML = `<button class=btn btn-out line-success" type="submit"><img src="../image/user-interface.png" id="user-loginedlogo" ;> Welcome ${result.data} </button>`;
+    ).innerHTML = `<button class=btn btn-outline-success" type="submit"><img src="../image/user-interface.png" id="user-loginedlogo" ;> ${result.data} </button>`;
 
     document.querySelector(
       "#logout-area"

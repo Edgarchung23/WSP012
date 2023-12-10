@@ -152,7 +152,7 @@ app.post("/register", async (req, res) => {
 
         // res.redirect("/register");
         // res.redirect("/login");
-        res.json({ message: "register success" });
+        res.json({ message: "Register success" });
       }
     }
   }
@@ -184,10 +184,10 @@ app.post("/login", async (req, res) => {
       req.session["username"] = queryResult.rows[0].username;
       res.json({ message: "login success" });
     } else {
-      res.status(400).json({ message: "password is incorrect" });
+      res.status(400).json({ message: "Password is incorrect" });
     }
   } else {
-    res.status(400).json({ message: "username is incorrect" });
+    res.status(400).json({ message: "Email is incorrect" });
   }
 });
 
