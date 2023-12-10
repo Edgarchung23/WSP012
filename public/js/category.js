@@ -15,11 +15,9 @@ window.onload = async (req, res) => {
     <img src="${entry.image}" class="product_img_1"/>
     <div class="productBoxBody">
     <h5 class="product_title"> ${entry.name}</h5>
-    <p class="product_text"> ${entry.brand}
-    ${entry.category_id}
-    $${entry.unit_price}
-    ${entry.material}</p>
-    <a href="/product.html" class="btn btn-primary">Go to order</a>
+    <h5 class="product_text">
+    $${entry.unit_price}</h5>
+    <a href="/product.html" class="btn btn-primary">Add to cart</a>
     </div>
     </div>
     `;

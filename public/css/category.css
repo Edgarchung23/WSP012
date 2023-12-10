@@ -1,3 +1,13 @@
+a {
+  color: black;
+}
+a:hover {
+  color: #c0604f;
+}
+
+h5 {
+  font-size: 15px;
+}
 .product_Area {
   display: flex;
   flex-wrap: wrap;
@@ -14,9 +24,18 @@
   display: flex;
   flex-wrap: wrap;
   width: 250px;
-  margin: 10px;
+  margin: 5px;
 }
 
+.productBoxBody {
+  width: 200px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
 .btn-primary {
-  background-color: aliceblue;
+  background-color: rgb(249, 217, 76);
+}
+.btn-primary:hover {
+  background-color: #c0604f;
 }

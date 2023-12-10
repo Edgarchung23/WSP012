@@ -113,7 +113,7 @@ async function insertProduct() {
       material: "矽膠",
       category_id: productCategory_Massagegun,
       unit_price: 888,
-      image: "gun-1-blue.webp",
+      image: "gun-1-blue.png",
     },
     {
       name: "燈光版Smart-Hit深度筋膜按摩槍",
@@ -121,7 +121,7 @@ async function insertProduct() {
       material: "矽膠",
       category_id: productCategory_Massagegun,
       unit_price: 1688,
-      image: "gun-2-grey.webp",
+      image: "gun-2-grey.png",
     },
     {
       name: "M1專業級深層冷熱敷高頻筋膜槍",
@@ -129,7 +129,7 @@ async function insertProduct() {
       material: "磨砂",
       category_id: productCategory_Massagegun,
       unit_price: 688,
-      image: "gun-3-grey.webp",
+      image: "gun-3-grey.png",
     },
     {
       name: "方形M2升級筋膜按摩槍",
@@ -137,7 +137,7 @@ async function insertProduct() {
       material: "磨砂",
       category_id: productCategory_Massagegun,
       unit_price: 688,
-      image: "gun-4-black.webp",
+      image: "gun-4-black.png",
     },
     {
       name: "T型深度筋膜按摩槍",
@@ -145,7 +145,7 @@ async function insertProduct() {
       material: "矽膠",
       category_id: productCategory_Massagegun,
       unit_price: 688,
-      image: "gun-5-silver.webp",
+      image: "gun-5-silver.png",
     },
     //<---YOGA BALL------------------------------------------------------------------------------>
     {
@@ -154,7 +154,7 @@ async function insertProduct() {
       material: "矽膠",
       category_id: productCategory_Massageball,
       unit_price: 388,
-      image: "massage_ball_1_blue.webp",
+      image: "massage_ball_1_blue.png",
     },
     {
       name: "深層肌肉按摩筋膜球",
@@ -162,7 +162,7 @@ async function insertProduct() {
       material: "矽膠",
       category_id: productCategory_Massageball,
       unit_price: 168,
-      image: "massage_ball_2_red.webp",
+      image: "massage_ball_2_red.png",
     },
     {
       name: "深層肌肉按摩球",
@@ -170,7 +170,7 @@ async function insertProduct() {
       material: "矽膠",
       category_id: productCategory_Massageball,
       unit_price: 168,
-      image: "massage_ball_3_yellow.webp",
+      image: "massage_ball_3_yellow.png",
     },
     {
       name: "電動瑜伽肌肉按摩筋膜花生球",
@@ -178,7 +178,7 @@ async function insertProduct() {
       material: "矽膠",
       category_id: productCategory_Massageball,
       unit_price: 388,
-      image: "massage_ball_4_blue.webp",
+      image: "massage_ball_4_blue.png",
     },
     {
       name: "德國電動深層按摩球",
@@ -186,7 +186,7 @@ async function insertProduct() {
       material: "矽膠、ABS樹脂",
       category_id: productCategory_Massageball,
       unit_price: 588,
-      image: "massage_ball_5_black.webp",
+      image: "massage_ball_5_black.png",
     },
     //<---YOGA MAT------------------------------------------------------------------------------>
     {
@@ -195,7 +195,7 @@ async function insertProduct() {
       material: "環保TPE",
       category_id: productCategory_Yogamat,
       unit_price: 488,
-      image: "yoga_mat_1.webp",
+      image: "yoga_mat_1.png",
     },
     {
       name: "天然橡膠瑜伽墊 | 純淨版(紫色)",
@@ -203,7 +203,7 @@ async function insertProduct() {
       material: "天然橡膠、PU",
       category_id: productCategory_Yogamat,
       unit_price: 488,
-      image: "yoga_mat_2.webp",
+      image: "yoga_mat_2.png",
     },
     {
       name: "天然橡膠瑜伽墊 | 體位線版",
@@ -211,7 +211,7 @@ async function insertProduct() {
       material: "天然橡膠、PU",
       category_id: productCategory_Yogamat,
       unit_price: 588,
-      image: "yoga_mat_3.webp",
+      image: "yoga_mat_3.png",
     },
     {
       name: "天然橡膠瑜伽墊 | 水波狀紋理版",
@@ -219,7 +219,7 @@ async function insertProduct() {
       material: "純天然橡膠",
       category_id: productCategory_Yogamat,
       unit_price: 1688,
-      image: "yoga_mat_4.webp",
+      image: "yoga_mat_4.png",
     },
     {
       name: "天然橡膠瑜伽墊 | 純淨版(綠色",
@@ -227,7 +227,7 @@ async function insertProduct() {
       material: "彩色純天然橡膠",
       category_id: productCategory_Yogamat,
       unit_price: 1588,
-      image: "yoga_mat_5.webp",
+      image: "yoga_mat_5.png",
     },
     //<---YOGA MAT------------------------------------------------------------------------------>
     {
@@ -236,7 +236,7 @@ async function insertProduct() {
       material: "PE環保物料",
       category_id: productCategory_Yogaball,
       unit_price: 688,
-      image: "yoga_ball_1.webp",
+      image: "yoga_ball_1.png",
     },
     {
       name: "防爆瑜伽普拉提球",
@@ -244,7 +244,7 @@ async function insertProduct() {
       material: "PVC",
       category_id: productCategory_Yogaball,
       unit_price: 388,
-      image: "yoga_ball_2.webp",
+      image: "yoga_ball_2.png",
     },
     {
       name: "防爆迷你瑜伽普拉提球",
@@ -252,7 +252,7 @@ async function insertProduct() {
       material: "PVC",
       category_id: productCategory_Yogaball,
       unit_price: 188,
-      image: "yoga_ball_3.webp",
+      image: "yoga_ball_3.png",
     },
   ];
   for (let entry of productDetails) {
