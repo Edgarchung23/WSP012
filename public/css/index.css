@@ -11,7 +11,7 @@ body {
   width: 1300px;
   flex-wrap: wrap;
   display: flex;
-  justify-content:flex-end;
+  justify-content: flex-end;
 }
 
 #username-display {
@@ -230,16 +230,16 @@ img {
 }
 
 #loginButton {
-  width: 40px;
-  height: 40px;
-  margin-top: 15px;
-  margin-right: 20px;
+  width: 43px;
+  height: 43px;
+  margin-top: 25px;
+  margin-right: 10px;
 }
 
 #shoppingCart {
   width: 40px;
   height: 40px;
-  margin-top: 5px;
+  margin-top: 15px;
 }
 
 .Title {
@@ -248,12 +248,12 @@ img {
 }
 
 #user-loginedlogo {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
 }
 
 #logout-logo {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   background-color: #ece9e6;
 }

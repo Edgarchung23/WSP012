@@ -27,7 +27,7 @@ async function getUsername() {
 
     document.querySelector(
       "#logout-area"
-    ).innerHTML = `<button class="btn btn-outline-secondary" onclick="logout()">
+    ).innerHTML = `<button class="btn btn-outline-secondary" onclick="logout()"><img src="../image/logout.png" id="logout-logo" ;>
       Log out 
       </button>`;
 
