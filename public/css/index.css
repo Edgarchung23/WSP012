@@ -16,9 +16,9 @@ a:hover {
 
 .Title {
   width: 1300px;
-  flex-wrap: wrap;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
 }
 
 #username-display {
@@ -250,11 +250,6 @@ img {
   width: 30px;
   height: 30px;
   margin-top: 15px;
-}
-
-.Title {
-  display: flex;
-  align-items: center;
 }
 
 #user-loginedlogo {

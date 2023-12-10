@@ -6,7 +6,6 @@ async function getProducts() {
 }
 
 window.onload = async (req, res) => {
-  //   console.log(`check js-10`);
   let data = await getProducts();
   let allProduct = "";
   for (let entry of data) {
@@ -56,4 +55,13 @@ async function logout() {
   await fetch("/logout");
 
   window.location.reload();
+}
+
+//<---CHAT----------------------------------------------------------------------------------------------------------->
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
 }

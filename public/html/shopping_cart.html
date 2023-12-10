@@ -21,15 +21,15 @@
         <div class="Title">
             <div class="Title">
                 <div id="username-display">
-                  <a href="./login.html"><img src="../image/login.png" ; id="loginButton"></a></p>
+                    <a href="./login.html"><img src="../image/login.png" ; id="loginButton"></a></p>
                 </div>
                 <div id="logout-area">
-                  <!-- <a class="btn btn-outline-secondary" href="./register.html" role="button" id="registerButton">Create Account</a> -->
+                    <!-- <a class="btn btn-outline-secondary" href="./register.html" role="button" id="registerButton">Create Account</a> -->
                 </div>
                 <div id="cart-display">
-                  <a href=""><img src="../image//shopping-cart.png" id="shoppingCart" ;></a></p>
+                    <a href=""><img src="../image//shopping-cart.png" id="shoppingCart" ;></a></p>
                 </div>
-              </div>
+            </div>
         </div>
         <p
             style="font-size: 70px;font-variant-caps: small-caps;letter-spacing: 3rem;display: flex;justify-content:center;">
@@ -216,6 +216,19 @@
                 </div>
             </div>
         </div>
+    </div>
+    <button class="open-button" onclick="openForm()"><img src="../image/chat (1).png" id="chatLogo"></button>
+
+    <div class="chat-popup" id="myForm">
+        <form action="" class="form-container">
+            <h6>客服將會盡快回覆，請留下訊息</h6>
+
+            <label for="msg"><b>Message</b></label>
+            <textarea placeholder="Type message.." name="msg" required></textarea>
+
+            <button type="submit" class="btn">Send</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
     </div>
     <script src="./index.js"></script>
 </body>

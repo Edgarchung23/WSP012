@@ -83,6 +83,10 @@ app.get("/category", async (req, res) => {
   let queryResult = await pgClient.query("SELECT * FROM category ");
   res.json(queryResult.rows);
 });
+// app.get("/category/product", async(req,res) => {
+// let queryResult = await pgClient.query("SELECT * FROM product WHERE category_id = $1", (req.query.id))
+// res.json(queryResult.rows)
+// })
 
 app.get("/product", async (req, res) => {
   let queryResult = await pgClient.query("SELECT * FROM product ");

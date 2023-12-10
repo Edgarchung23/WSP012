@@ -33,9 +33,15 @@ document
       });
     }
   });
-// <----------------------------------------------------------------------------------------------------------------------->
 
-// <----------------------------------------------------------------------------------------------------------------------->
+//<---CHAT----------------------------------------------------------------------------------------------------------->
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
 
 // function overrideLoginDefaultAction() {
 //   let target = document.querySelector("#login-form");
