@@ -1,3 +1,11 @@
+window.onload = () => {
+  getUsername() 
+}
+
+
+
+
+
 $(document).ready(function() {
 
     $('.color-choose input').on('click', function() {
@@ -36,6 +44,7 @@ async function getUsername() {
       addLogoutEventListener();
     } else {
       result = await httpResponse.json();
+
     }
   }
   
