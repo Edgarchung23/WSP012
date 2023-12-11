@@ -19,10 +19,34 @@
 
 <body>
     <div id="mobile-bar">
+        <!--------------------------------- login & logout ---------------------------------->
+        <div class="Title">
+            <div id="username-display">
+                <a href="./login.html"><img src="../image/login.png" ; id="loginButton"></a></p>
+            </div>
+
+            <div id="logout-area"></div>
+
+            <div id="cart-display">
+                <a href="./shopping_cart.html"><img src="../image//shopping-cart.png" id="shoppingCart" ;></a></p>
+            </div>
+        </div>
+
+
         <!--------------------------------- shopName ---------------------------------->
-        <p
-            style="font-size: 70px;font-variant-caps: small-caps;letter-spacing: 3rem;display: flex;justify-content:center;">
-            Yoga Oasis</p>
+        <div cla="shopName" href="http://localhost:8080/">
+            <p style="
+            font-size: 70px;
+            font-variant-caps: small-caps;
+            letter-spacing: 3rem;
+            display: flex;
+            justify-content: center
+            ;align-items: center;
+          ">
+                Yoga Oasis
+            </p>
+        </div>
+
 
 
         <!--------------------------------- navBar ---------------------------------->
@@ -67,31 +91,31 @@
                     <form action="register" id="register-form" method="post">
                         <div class="user-details">
                             <div class="input-box">
-                                <span class="details">Full Name</span>
+                                <span class="details">Full Name*</span>
                                 <input type="fullname" name="fullname" placeholder="Enter your name" required>
                             </div>
                             <div class="input-box">
-                                <span class="details">Username</span>
+                                <span class="details">Username*</span>
                                 <input type="username" name="username" placeholder="Enter your username" required>
                             </div>
                             <div class="input-box">
-                                <span class="details">Email</span>
-                                <input type="email" value="1232123@gmail.com" name="email"
+                                <span class="details">Email*</span>
+                                <input type="email" placeholder="Enter your uemail" name="email"
                                     placeholder="Enter your email" required>
                             </div>
                             <div class="input-box">
-                                <span class="details">Phone Number</span>
-                                <input type="phonenumber" value="00000000" name="phonenumber"
+                                <span class="details">Phone Number*</span>
+                                <input type="phonenumber" placeholder="Enter your phonenumber" name="phonenumber"
                                     placeholder="Enter your number" required>
                             </div>
                             <div class="input-box">
-                                <span class="details">Password</span>
-                                <input type="passwordInput1" value="123" name="passwordInput1"
+                                <span class="details">Password*</span>
+                                <input type="passwordInput1" placeholder="Enter your password" name="passwordInput1"
                                     placeholder="Enter your password" required>
                             </div>
                             <div class="input-box">
-                                <span class="details">Confirm Password</span>
-                                <input type="passwordInput2" value="123" name="passwordInput2"
+                                <span class="details">Confirm Password*</span>
+                                <input type="passwordInput2" placeholder="Confirm password" name="passwordInput2"
                                     placeholder="Confirm your password" required>
                             </div>
                         </div>
