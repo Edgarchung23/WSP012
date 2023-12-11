@@ -37,7 +37,7 @@ async function renderProducts(id) {
     <img src="${entry.image}" class="product_img_1"/>
     <div class="productBoxBody">
     <h5 class="product_title"> ${entry.name}</h5>
-    <h5 class="product_text">
+    <h5 class="product_text" fontcolor="red">
     $${entry.unit_price}</h5>
     <a href='/product.html?id=${entry.id}' class="btn btn-primary">More Details</a>
     </div>

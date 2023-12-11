@@ -83,13 +83,19 @@ async function renderProductDetails() {
   console.log("hihihi2");
   console.log(result);
 
+  let categoryres = await fetch(`/category`);
+  let categoryresult = await categoryres.json();
+
   document.querySelector(
     ".product-description"
-  ).innerHTML = `  <span>按摩用品</span>
-   <h1>${result[0].name}</h1>
-   <p>${result[0].description}<br>
+  ).innerHTML = `  <h5>${categoryresult[0]}<br>
+   <h2>${result[0].name}</h2><br><br>
+   <h5>${result[0].description}<br><br><br><br>
+   <h5>Brand : ${result[0].brand}</h5>
+   <h5>Material : ${result[0].material}</h5>  
+<h2 class="product_text">Price : $${result[0].unit_price}</h2>
    
-   </p>`;
+   </h5>`;
 
   processedData = await getProductVariant();
 
