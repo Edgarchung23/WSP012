@@ -62,7 +62,7 @@ async function insertProductVariant() {
       thickness: 5,
       unit_price: 588,
       storage_count: 8,
-      image: "yoga_mat_3.webp",
+      image: "yoga_mat_3.png",
     },
     {
       product_id: productVariant_id,
@@ -71,7 +71,7 @@ async function insertProductVariant() {
       thickness: 5,
       unit_price: 590,
       storage_count: 0,
-      image: "yoga_mat_3_lightpurple.webp",
+      image: "yoga_mat_3_lightpurple.png",
     },
     {
       product_id: productVariant_id,
@@ -80,7 +80,7 @@ async function insertProductVariant() {
       thickness: 5,
       unit_price: 480,
       storage_count: 10,
-      image: "yoga_mat_3_lightpurple.webp",
+      image: "yoga_mat_3_lightpurple.png",
     },
   ];
 

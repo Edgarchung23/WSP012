@@ -2,6 +2,7 @@ window.onload = () => {
   getUsername();
 };
 
+// <!---------------------------getUsername----------------------------------------------->
 async function getUsername() {
   let httpResponse = await fetch("/username");
   let result;

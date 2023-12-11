@@ -38,10 +38,10 @@ create table product (
 
 create table shopping_cart(
     id SERial primary key,
-    user_id integer not null,
-    product_id integer not null,
-    product_variant_id integer not null,
-    quantity varchar not null,
+    user_id integer ,
+    product_id integer ,
+    product_variant_id integer ,
+    quantity varchar ,
     created_at timestamp default NOW(),
     updated_at timestamp default NOW(),
     FOREIGN KEY (user_id) REFERENCES users(id)

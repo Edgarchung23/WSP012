@@ -94,8 +94,29 @@ app.get("/category", async (req, res) => {
 });
 
 app.get("/product", async (req, res) => {
-  let queryResult = await pgClient.query("SELECT * FROM product ");
-  res.json(queryResult.rows);
+  if (req.query.id) {
+    let queryResult = await pgClient.query(
+      "SELECT * FROM product WHERE id = $1",
+      [req.query.id]
+    );
+    res.json(queryResult.rows);
+  } else {
+    let queryResult = await pgClient.query("SELECT * FROM product ");
+    res.json(queryResult.rows);
+  }
+});
+
+app.get("/product_variant", async (req, res) => {
+  if (req.query.id) {
+    let queryResult = await pgClient.query(
+      "SELECT * from product_variant WHERE product_id = $1",
+      [req.query.id]
+    );
+
+    // console.log(queryResult.rows);
+
+    res.json({ data: queryResult.rows });
+  }
 });
 
 app.get("/product/image", async (req, res) => {
@@ -206,7 +227,7 @@ app.post("/login", async (req, res) => {
 app.post("/addToCart", async (req, res) => {
   console.log(req.body.product_id, req.session.email);
   await pgClient.query(
-    `insert in to shopping_carts (user_id, product_id, product_variant_id, quantity) VALUES ($1,(SELECT id FROM users WHERE email_address = $2),1 )`,
+    `insert into shopping_cart (user_id, product_id, product_variant_id, quantity) VALUES ($1,(SELECT id FROM users WHERE email = $2),$3,$4 )`,
     [req.body.product_id, req.session.email]
   );
   res.json({ message: "added to shoppingCart" });

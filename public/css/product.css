@@ -118,6 +118,13 @@ body {
   background-color: #323232;
 }
 
+.color-choose input[type="radio"]#pink + label span {
+  background-color: #e79199;
+}
+.color-choose input[type="radio"]#purple + label span {
+  background-color: rgb(124, 101, 219);
+}
+
 .color-choose input[type="radio"]:checked + label span {
   background-image: url(../image/check-icn.svg);
   background-repeat: no-repeat;
