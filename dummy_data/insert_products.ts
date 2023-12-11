@@ -18,7 +18,7 @@ async function main() {
   await client.end();
 }
 
-// <--INSERT PRODUCT TYPE------------------------------------------------------------------------------------------->
+// <---------------------------------------INSERT PRODUCT TYPE------------------------------------------>
 type insertProductType = {
   name: string;
   description: string;
@@ -37,7 +37,7 @@ type insertProductVariantType = {
   product_id: number;
   image: string;
 };
-// <--INSERT CATEGROY------------------------------------------------------------------------------------------->
+// <---------------------------------------INSERT CATEGROY---------------------------------------->
 
 async function insertCategory() {
   await client.query(
@@ -48,7 +48,7 @@ async function insertCategory() {
   );
 }
 
-// <--INSERT PRODUCTVARIANT------------------------------------------------------------------------------------------->
+// <---------------------------------------INSERT PRODUCTVARIANT------------------------------------------------------>
 async function insertProductVariant() {
   const result = await client.query(`SELECT * FROM product WHERE name = $1`, [
     "天然橡膠瑜伽墊 | 體位線版",
@@ -100,7 +100,7 @@ async function insertProductVariant() {
   }
 }
 
-// <--INSERT PRODUCTT------------------------------------------------------------------------------------------->
+// <---------------------------------------------------INSERT PRODUCTT---------------------------------------------------------->
 async function insertProduct() {
   const result = await client.query(
     `SELECT * FROM category WHERE name = $1 OR name = $2 OR name = $3 OR name = $4`,
@@ -162,7 +162,7 @@ async function insertProduct() {
       image: "gun-5-silver.png",
     },
 
-    //<---YOGA BALL------------------------------------------------------------------------------>
+    //<---------------------------------------------------------YOGA BALL--------------------------------------------------------->
     {
       name: "電動瑜伽肌肉按摩筋膜球",
       description:
@@ -214,7 +214,7 @@ async function insertProduct() {
       image: "massage_ball_5_black.png",
     },
 
-    //<---YOGA MAT------------------------------------------------------------------------------>
+    //<--------------------------------------------------------YOGA MAT----------------------------------------------------------->
     {
       name: "家用加厚靜音減震瑜伽跳繩墊｜體位線版",
       description:
@@ -266,7 +266,7 @@ async function insertProduct() {
       image: "yoga_mat_5.png",
     },
 
-    //<---YOGA MAT------------------------------------------------------------------------------>
+    //<-----------------------------------YOGA MAT---------------------------------------------->
     {
       name: "瑜伽平衡健身半圓平衡球",
       description:
