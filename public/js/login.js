@@ -2,6 +2,7 @@ window.onload = () => {
   submitEventHandle();
 };
 
+// <!---------------------------submitEventHandle----------------------------------------------->
 function submitEventHandle() {
   document
     .querySelector("#login-form")
@@ -42,7 +43,7 @@ function submitEventHandle() {
     });
 }
 
-//<---CHAT----------------------------------------------------------------------------------------------------------->
+// <!---------------------------chat----------------------------------------------->
 function openForm() {
   document.getElementById("myForm").style.display = "block";
 }

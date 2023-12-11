@@ -19,12 +19,10 @@ window.onload = () => {
     dots[slideIndex - 1].className += " active";
     setTimeout(showSlides, 3000); // Change image every 2 seconds
   }
-
   getUsername();
 };
 
-//<------------------------------------------------------------------------------------------------------------------>
-//<------------------------------------------------------------------------------------------------------------------>
+// <!---------------------------getUsername----------------------------------------------->
 async function getUsername() {
   let httpResponse = await fetch("/username");
   let result;
@@ -50,6 +48,7 @@ async function getUsername() {
   }
 }
 
+// <!---------------------------logout----------------------------------------------->
 async function logout() {
   console.log("trying logout");
 
@@ -57,7 +56,8 @@ async function logout() {
 
   window.location.reload();
 }
-//<---CHAT----------------------------------------------------------------------------------------------------------->
+
+// <!---------------------------chat----------------------------------------------->
 function openForm() {
   document.getElementById("myForm").style.display = "block";
 }

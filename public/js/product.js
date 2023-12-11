@@ -5,13 +5,13 @@ window.onload = () => {
 $(document).ready(function () {
   $(".color-choose input").on("click", function () {
     const ballColor = $(this).attr("data-image");
-
     $(".active").removeClass("active");
     $(".left-column img[data-image = " + ballColor + "]").addClass("active");
     $(this).addClass("active");
   });
 });
 
+// <!---------------------------getUsername----------------------------------------------->
 async function getUsername() {
   let httpResponse = await fetch("/username");
   let result;
@@ -37,6 +37,7 @@ async function getUsername() {
   }
 }
 
+// <!---------------------------logout----------------------------------------------->
 async function logout() {
   console.log("trying logout");
 
@@ -45,7 +46,8 @@ async function logout() {
   window.location.reload();
 }
 
-//<---CHAT----------------------------------------------------------------------------------------------------------->
+// <!---------------------------chat----------------------------------------------->
+
 function openForm() {
   document.getElementById("myForm").style.display = "block";
 }

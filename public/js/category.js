@@ -13,14 +13,8 @@ async function getProducts() {
   console.log(result);
   return result;
 }
-// async function getProducts_variant() {
-//   let params = new URLSearchParams(location.search);
-//   let res = await fetch("product/id?id=" + params.get("id"));
-//   let result = await res.json();
-//   return result;
-// }
 
-//<---GET PRODUCTS----------------------------------------------------------------------------------------------------------->
+// <!---------------------------getProducts----------------------------------------------->
 async function getProducts(id) {
   if (id) {
     let httpRes = await fetch(`/category?id=${id}`);
@@ -32,7 +26,8 @@ async function getProducts(id) {
     return resp.data;
   }
 }
-//<---RENDER PRODUCTS----------------------------------------------------------------------------------------------------------->
+
+// <!---------------------------renderProducts----------------------------------------------->
 async function renderProducts(id) {
   let data = await getProducts(id);
   console.log("check data", data);
@@ -40,12 +35,12 @@ async function renderProducts(id) {
   for (let entry of data) {
     allProduct += `
     <div class="productBox1">
-    <img src="${entry.image}" class="product_img_1"/>按摩波
+    <img src="${entry.image}" class="product_img_1"/>
     <div class="productBoxBody">
     <h5 class="product_title"> ${entry.name}</h5>
     <h5 class="product_text">
     $${entry.unit_price}</h5>
-    <a href='/product.html?id=${entry.id}' class="btn btn-primary">Add to cart</a>
+    <a href='/product.html?id=${entry.id}' class="btn btn-primary">More Details</a>
     </div>
     </div>
     `;
@@ -53,7 +48,8 @@ async function renderProducts(id) {
   document.querySelector(".product_Area").innerHTML = allProduct;
   getUsername();
 }
-//<---GET USERNAME----------------------------------------------------------------------------------------------------------->
+
+// <!---------------------------get username----------------------------------------------->
 async function getUsername() {
   let httpResponse = await fetch("/username");
   let result;
@@ -77,7 +73,8 @@ async function getUsername() {
     result = await httpResponse.json();
   }
 }
-//<---LOG OUT----------------------------------------------------------------------------------------------------------->
+
+// <!---------------------------log out----------------------------------------------->
 async function logout() {
   console.log("trying logout");
 
@@ -86,7 +83,7 @@ async function logout() {
   window.location.reload();
 }
 
-//<---CHAT----------------------------------------------------------------------------------------------------------->
+// <!---------------------------chat----------------------------------------------->
 
 function openForm() {
   document.getElementById("myForm").style.display = "block";
