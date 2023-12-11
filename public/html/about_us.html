@@ -15,9 +15,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
-<body>
 
+<body>
     <div id="mobile-bar">
+        <!--------------------------------- login & logout ---------------------------------->
         <div class="Title">
             <div id="username-display">
                 <a href="./login.html"><img src="../image/login.png" ; id="loginButton"></a></p>
@@ -30,6 +31,8 @@
             </div>
         </div>
 
+
+        <!--------------------------------- shopName ---------------------------------->
         <div class="shopName" href="http://localhost:8080/">
             <p style="
               font-size: 70px;
@@ -42,39 +45,43 @@
                 Yoga Oasis
             </p>
         </div>
+
+
+        <!--------------------------------- navBar ---------------------------------->
         <div class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                  <a class="nav-link" href="http://localhost:8080/" id="font">　　主頁　　 </a>
+                    <a class="nav-link" href="http://localhost:8080/" id="font">　　主頁　　 </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="./category.html" id="font">　　所有貨品　　 </a>
+                    <a class="nav-link" href="./category.html" id="font">　　所有貨品　　 </a>
                 </li>
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    　　按摩用品　　</a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="./category.html">按摩槍</a>
-                    <a class="dropdown-item" href="./category.html">按摩波</a>
-                  </div>
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        　　按摩用品　　</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="./category.html?id=1">按摩槍</a>
+                        <a class="dropdown-item" href="./category.html?id=2">按摩波</a>
+                    </div>
                 </li>
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    　　瑜珈用品　　</a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="./category.html">瑜珈墊</a>
-                    <a class="dropdown-item" href="./category.html">瑜珈波</a>
-                  </div>
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        　　瑜珈用品　　</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="./category.html?id=3">瑜珈墊</a>
+                        <a class="dropdown-item" href="./category.html?id=4">瑜珈波</a>
+                    </div>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="./404.html" id="font">　　聯絡我們　　 </a>
+                    <a class="nav-link" href="./404.html" id="font">　　聯絡我們　　 </a>
                 </li>
-              </ul>
-
+            </ul>
         </div>
 
+
+        <!-------------------------------------------------------------------------------->
         <div class="row" data-gutter="60">
             <div class="col-sm-3 footer-col">
                 <h3 class="footer-main-standard-title text-uppercase">FIT MART</h3>
@@ -106,7 +113,7 @@
 
 
 
-
+        <!--------------------------------- payMent Logo area ---------------------------------->
         <div class="Footer_payment_icon ant-col-md-24" id="footer_payment">
             <div class="Footer_payment_icona">
                 <div>
@@ -219,7 +226,23 @@
                 </div>
             </div>
         </div>
+
+
+    </div><!--------------------------mobile bar------------------------------------>
+
+
+    <!--------------------------------chatBox---------------------------------------->
+    <button class="open-button" onclick="openForm()"><img src="../image/chat (1).png" id="chatLogo"></button>
+    <div class="chat-popup" id="myForm">
+        <form action="" class="form-container">
+            <h6>請留下訊息，客服將會盡快回覆</h6>
+            <label for="msg"><b>Message</b></label>
+            <textarea placeholder="Type message.." name="msg" required></textarea>
+            <button type="submit" class="btn">Send</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
     </div>
+
     <script src="./index.js"></script>
 </body>
 

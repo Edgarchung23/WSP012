@@ -22,7 +22,7 @@
 </head>
 
 <body>
-  <!-- <-------------------------------login button area---------------------------------------------------------------- -->
+  <!--------------------------------- login & logout ---------------------------------->
   <div id="mobile-bar">
     <div class="Title">
       <div id="username-display">
@@ -35,9 +35,24 @@
         <a href="./shopping_cart.html"><img src="../image//shopping-cart.png" id="shoppingCart" ;></a></p>
       </div>
     </div>
-    <!-- <-------------------------------------------------------------------------------------------------- -->
-    <p style="font-size: 70px;font-variant-caps: small-caps;letter-spacing: 3rem;display: flex;justify-content:center;">
-      Yoga Oasis</p>
+
+
+    <!--------------------------------- shopName ---------------------------------->
+    <div cla="shopName" href="http://localhost:8080/">
+      <p style="
+          font-size: 70px;
+          font-variant-caps: small-caps;
+          letter-spacing: 3rem;
+          display: flex;
+          justify-content: center
+          ;align-items: center;
+        ">
+        Yoga Oasis
+      </p>
+    </div>
+
+
+    <!--------------------------------- navBar ---------------------------------->
     <div class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
       <ul class="navbar-nav">
         <li class="nav-item">
@@ -71,7 +86,7 @@
 
     </div>
 
-    <!-- <---------------------------Product content-------------------------------------------------------------------- -->
+    <!---------------------------Product content----------------------------------------------->
     <main class="container">
 
       <!-- Left Column / massageball Image -->
@@ -146,8 +161,7 @@
     <script src="../js/product.js" charset="utf-8"></script>
 
 
-    <!-- <----------------------------------------------------------------------------------------------- -->
-
+    <!----------------------------------------------------------------------------->
     <div class="row" data-gutter="60">
       <div class="col-sm-3 footer-col">
         <h3 class="footer-main-standard-title text-uppercase">FIT MART</h3>
@@ -175,21 +189,9 @@
         <p>使用FACEBOOK或INSTAGRAM追蹤我們，可隨時獲取更多優惠及最新消息。</p>
       </div>
     </div>
-    <button class="open-button" onclick="openForm()"><img src="../image/chat (1).png" id="chatLogo"></button>
-
-    <div class="chat-popup" id="myForm">
-      <form action="" class="form-container">
-        <h6>請留下訊息，客服將會盡快回覆</h6>
-
-        <label for="msg"><b>Message</b></label>
-        <textarea placeholder="Type message.." name="msg" required></textarea>
-
-        <button type="submit" class="btn">Send</button>
-        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-      </form>
-    </div>
 
 
+    <!--------------------------------- payMent Logo area ---------------------------------->
     <div class="Footer_payment_icon ant-col-md-24" id="footer_payment">
       <div class="Footer_payment_icona">
         <div>
@@ -301,7 +303,20 @@
         </div>
       </div>
     </div>
+  </div><!--------------------------mobile bar------------------------------------>
+
+  <!--------------------------------chatBox---------------------------------------->
+  <button class="open-button" onclick="openForm()"><img src="../image/chat (1).png" id="chatLogo"></button>
+  <div class="chat-popup" id="myForm">
+    <form action="" class="form-container">
+      <h6>請留下訊息，客服將會盡快回覆</h6>
+      <label for="msg"><b>Message</b></label>
+      <textarea placeholder="Type message.." name="msg" required></textarea>
+      <button type="submit" class="btn">Send</button>
+      <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+    </form>
   </div>
+
   <script src="../js/product.js"></script>
   <!-- <script src="../js/index.js"></script> -->
 

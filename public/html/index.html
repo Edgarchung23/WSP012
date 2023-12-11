@@ -12,14 +12,16 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
+
 <body>
   <div id="mobile-bar">
+    <!--------------------------------- login & logout ---------------------------------->
     <div class="Title">
       <div id="username-display">
         <a href="./login.html"><img src="../image/login.png" ; id="loginButton"></a></p>
       </div>
-      <div id="logout-area">
-      </div>
+
+      <div id="logout-area"></div>
 
       <div id="cart-display">
         <a href="./shopping_cart.html"><img src="../image//shopping-cart.png" id="shoppingCart" ;></a></p>
@@ -27,6 +29,7 @@
     </div>
 
 
+    <!--------------------------------- shopName ---------------------------------->
     <div cla="shopName" href="http://localhost:8080/">
       <p style="
           font-size: 70px;
@@ -39,6 +42,9 @@
         Yoga Oasis
       </p>
     </div>
+
+
+    <!--------------------------------- navBar ---------------------------------->
     <div class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
       <ul class="navbar-nav">
         <li class="nav-item">
@@ -70,7 +76,9 @@
         </li>
       </ul>
     </div>
-    <!-- photosSlider -->
+
+
+    <!--------------------------------- photosSlider ---------------------------------->
     <div class="slideshow-container">
       <div class="mySlides fade">
         <div class="numbertext"></div>
@@ -91,14 +99,14 @@
       </div>
     </div>
     <br />
-
     <div style="text-align: center">
       <span class="dot"></span>
       <span class="dot"></span>
       <span class="dot"></span>
     </div>
 
-    <!-- photosBox -->
+
+    <!--------------------------------- photosBox ---------------------------------->
     <div class="photosBox">
       <div class="text141">
         <a>熱賣產品</a>
@@ -123,6 +131,7 @@
 
     </div>
 
+    <!----------------------------------------------------------------------------->
     <div class="aboutUs">
       <a>致力為香港推動智能健康生活，提升香港人的生活平台、身體健康質素。</a>
     </div>
@@ -158,6 +167,9 @@
         <p>使用FACEBOOK或INSTAGRAM追蹤我們，可隨時獲取更多優惠及最新消息。</p>
       </div>
     </div>
+
+
+    <!--------------------------------- payMent Logo area ---------------------------------->
     <div class="Footer_payment_icon ant-col-md-24" id="footer_payment">
       <div class="Footer_payment_icona">
         <div>
@@ -271,25 +283,23 @@
     </div>
 
 
-    <button class="open-button" onclick="openForm()"><img src="../image/chat (1).png" id="chatLogo"></button>
 
-    <div class="chat-popup" id="myForm">
-      <form action="" class="form-container">
-        <h6>請留下訊息，客服將會盡快回覆</h6>
 
-        <label for="msg"><b>Message</b></label>
-        <textarea placeholder="Type message.." name="msg" required></textarea>
+  </div><!--------------------------mobile bar------------------------------------>
 
-        <button type="submit" class="btn">Send</button>
-        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-      </form>
-    </div>
-
+  <!--------------------------------chatBox---------------------------------------->
+  <button class="open-button" onclick="openForm()"><img src="../image/chat (1).png" id="chatLogo"></button>
+  <div class="chat-popup" id="myForm">
+    <form action="" class="form-container">
+      <h6>請留下訊息，客服將會盡快回覆</h6>
+      <label for="msg"><b>Message</b></label>
+      <textarea placeholder="Type message.." name="msg" required></textarea>
+      <button type="submit" class="btn">Send</button>
+      <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+    </form>
   </div>
 
-
   <script src="./js/index.js"></script>
-
 </body>
 
 </html>
