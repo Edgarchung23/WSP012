@@ -25,6 +25,7 @@ create table category(
 create table product (
     id SERial primary key,
     name varchar(255)not null UNIQUE,
+    description varchar(255) not null,
     brand varchar(255)not null,
     category_id integer not null,
     unit_price varchar(255)not null,
