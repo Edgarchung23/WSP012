@@ -74,14 +74,11 @@ var reverseDict = {
   purple: "淺紫色",
 };
 async function renderProductDetails() {
-  console.log("hihihi1");
   const urlParams = new URLSearchParams(window.location.search);
   const targetId = urlParams.get("id");
 
   let res = await fetch(`/product?id=${targetId}`);
   let result = await res.json();
-  console.log("hihihi2");
-  console.log(result);
 
   let categoryres = await fetch(`/category`);
   let categoryresult = await categoryres.json();
