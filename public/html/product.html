@@ -32,293 +32,278 @@
         <!-- <a class="btn btn-outline-secondary" href="./register.html" role="button" id="registerButton">Create Account</a> -->
       </div>
       <div id="cart-display">
-        <a href=""><img src="../image//shopping-cart.png" id="shoppingCart" ;></a></p>
+        <a href="./shopping_cart.html"><img src="../image//shopping-cart.png" id="shoppingCart" ;></a></p>
       </div>
     </div>
     <!-- <-------------------------------------------------------------------------------------------------- -->
-    <div id="mobile-bar">
-      <div class="Title">
+    <p style="font-size: 70px;font-variant-caps: small-caps;letter-spacing: 3rem;display: flex;justify-content:center;">
+      Yoga Oasis</p>
+    <div class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="http://localhost:8080/" id="font">　　主頁　　 </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./category.html" id="font">　　所有貨品　　 </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            　　按摩用品　　</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="./category.html">按摩槍</a>
+            <a class="dropdown-item" href="./category.html">按摩波</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            　　瑜珈用品　　</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="./category.html">瑜珈墊</a>
+            <a class="dropdown-item" href="./category.html">瑜珈波</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./404.html" id="font">　　聯絡我們　　 </a>
+        </li>
+      </ul>
 
+    </div>
+
+    <!-- <---------------------------Product content-------------------------------------------------------------------- -->
+    <main class="container">
+
+      <!-- Left Column / massageball Image -->
+      <div class="left-column">
+        <img data-image="black" src="../image/massage_ball/massage_ball_5_black.png" alt="">
+        <img data-image="blue" src="../image/massage_ball/massage_ball_1_blue.png" alt="">
+        <img data-image="red" class="active" src="../image/massage_ball/massage_ball_2_red.png">
       </div>
-      <p
-        style="font-size: 70px;font-variant-caps: small-caps;letter-spacing: 3rem;display: flex;justify-content:center;">
-        Yoga Oasis</p>
-      <div class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="http://localhost:8080/" id="font">　　主頁　　 </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./category.html" id="font">　　所有貨品　　 </a>
-          </li>
 
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-              data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              　　按摩用品　　</a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="./category.html">按摩槍</a>
-              <a class="dropdown-item" href="./category.html">按摩波</a>
+
+      <!-- Right Column -->
+      <div class="right-column">
+
+        <!-- Product Description -->
+        <div class="product-description">
+          <span>按摩用品</span>
+          <h1>按摩球</h1>
+          <p>運動後需要放鬆肌肉（腳底、背部、腿部...）嗎？這款按摩球可輕鬆放入包包中，是一款小巧、理想的有效按摩工具。<br>
+            <br>
+            這款按摩球專為運動後自主按摩所設計。能對肌肉和激痛點進行深層按摩。
+          </p>
+        </div>
+
+        <!-- Product Configuration -->
+        <div class="product-configuration">
+
+          <!-- Product Color -->
+          <div class="product-color">
+            <span>顏色</span>
+
+            <div class="color-choose">
+              <div>
+                <input data-image="red" type="radio" id="red" name="color" value="red" checked>
+                <label for="red"><span></span></label>
+              </div>
+              <div>
+                <input data-image="blue" type="radio" id="blue" name="color" value="blue">
+                <label for="blue"><span></span></label>
+              </div>
+              <div>
+                <input data-image="black" type="radio" id="black" name="color" value="black">
+                <label for="black"><span></span></label>
+              </div>
             </div>
 
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-              data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              　　瑜珈用品　　</a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="./category.html">瑜珈墊</a>
-              <a class="dropdown-item" href="./category.html">瑜珈波</a>
+          </div>
+
+          <!-- Size Configuration -->
+          <div class="size-config">
+            <span>Size</span>
+
+            <div class="size-choose">
+              <button>S</button>
+              <button>M</button>
+              <button>L</button>
             </div>
 
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-              data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              　　健身用品　　</a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="./product.html">健身繩</a>
-              <a class="dropdown-item" href="./product.html">健身球</a>
-            </div>
-          <li class=" nav-item">
-            <a class="nav-link" href="" id="font">　　聯絡我們　　 </a>
-          </li>
+            <a href="#">How to choose your size</a>
+          </div>
+        </div>
+
+        <!-- Product Pricing -->
+        <div class="product-price">
+          <span>$148</span>
+          <a href="#" class="cart-btn">Add to cart</a>
+        </div>
+      </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" charset="utf-8"></script>
+    <script src="../js/product.js" charset="utf-8"></script>
+
+
+    <!-- <----------------------------------------------------------------------------------------------- -->
+
+    <div class="row" data-gutter="60">
+      <div class="col-sm-3 footer-col">
+        <h3 class="footer-main-standard-title text-uppercase">FIT MART</h3>
+        <p>致力為香港推動智能健康生活，如消閒肌肉槍、筋膜按摩、居家輕健身和智能運動生活產品。</p>
+      </div>
+      <div class="col-sm-3 footer-col">
+        <h3 class="footer-main-standard-title text-uppercase">其他資訊</h3>
+        <ul class="footer-main-standard-links">
+          <li><a href="">關於我們</a></li>
+          <li><a href="">付款方式</a></li>
+          <li><a href="">聯絡我們</a></li>
         </ul>
-
       </div>
+      <div class="col-sm-3 footer-col">
+        <h3 class="footer-main-standard-title text-uppercase">條款政策</h3>
+        <ul class="footer-main-standard-links">
+          <li><a href="">運送政策</a></li>
+          <li><a href="">退款政策</a></li>
+          <li><a href="">隱私政策</a></li>
+          <li><a href="">服務條款</a></li>
+        </ul>
+      </div>
+      <div class="col-sm-3 footer-col">
+        <h3 class="footer-main-standard-title text-uppercase">追蹤我們</h3>
+        <p>使用FACEBOOK或INSTAGRAM追蹤我們，可隨時獲取更多優惠及最新消息。</p>
+      </div>
+    </div>
+    <button class="open-button" onclick="openForm()"><img src="../image/chat (1).png" id="chatLogo"></button>
 
-      <!-- <---------------------------Product content-------------------------------------------------------------------- -->
-      <main class="container">
+    <div class="chat-popup" id="myForm">
+      <form action="" class="form-container">
+        <h6>請留下訊息，客服將會盡快回覆</h6>
 
-        <!-- Left Column / massageball Image -->
-        <div class="left-column">
-          <img data-image="black" src="../image/massage_ball/massage_ball_5_black.png" alt="">
-          <img data-image="blue" src="../image/massage_ball/massage_ball_1_blue.png" alt="">
-          <img data-image="red" class="active" src="../image/massage_ball/massage_ball_2_red.png">
-        </div>
+        <label for="msg"><b>Message</b></label>
+        <textarea placeholder="Type message.." name="msg" required></textarea>
+
+        <button type="submit" class="btn">Send</button>
+        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+      </form>
+    </div>
 
 
-        <!-- Right Column -->
-        <div class="right-column">
-
-          <!-- Product Description -->
-          <div class="product-description">
-            <span>按摩用品</span>
-            <h1>按摩球</h1>
-            <p>運動後需要放鬆肌肉（腳底、背部、腿部...）嗎？這款按摩球可輕鬆放入包包中，是一款小巧、理想的有效按摩工具。<br>
-              <br>
-              這款按摩球專為運動後自主按摩所設計。能對肌肉和激痛點進行深層按摩。
-            </p>
+    <div class="Footer_payment_icon ant-col-md-24" id="footer_payment">
+      <div class="Footer_payment_icona">
+        <div>
+          <div class="Image_withoutRatio_13u">
+            <img
+              src="https://cdn.shopify.com/shopifycloud/shopify/assets/payment_icons/visa-319d545c6fd255c9aad5eeaad21fd6f7f7b4fdbdb1a35ce83b89cca12a187f00.svg"
+              class="Footer_imageCopyright_3MJ" alt="visa card" style="width: 60px; margin: 5px" />
           </div>
-
-          <!-- Product Configuration -->
-          <div class="product-configuration">
-
-            <!-- Product Color -->
-            <div class="product-color">
-              <span>顏色</span>
-
-              <div class="color-choose">
-                <div>
-                  <input data-image="red" type="radio" id="red" name="color" value="red" checked>
-                  <label for="red"><span></span></label>
-                </div>
-                <div>
-                  <input data-image="blue" type="radio" id="blue" name="color" value="blue">
-                  <label for="blue"><span></span></label>
-                </div>
-                <div>
-                  <input data-image="black" type="radio" id="black" name="color" value="black">
-                  <label for="black"><span></span></label>
-                </div>
-              </div>
-
-            </div>
-
-            <!-- Size Configuration -->
-            <div class="size-config">
-              <span>Size</span>
-
-              <div class="size-choose">
-                <button>S</button>
-                <button>M</button>
-                <button>L</button>
-              </div>
-
-              <a href="#">How to choose your size</a>
-            </div>
-          </div>
-
-          <!-- Product Pricing -->
-          <div class="product-price">
-            <span>$148</span>
-            <a href="#" class="cart-btn">Add to cart</a>
-          </div>
-        </div>
-      </main>
-
-      <!-- Scripts -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" charset="utf-8"></script>
-      <script src="../js/product.js" charset="utf-8"></script>
-
-
-      <!-- <----------------------------------------------------------------------------------------------- -->
-
-      <div class="row" data-gutter="60">
-        <div class="col-sm-3 footer-col">
-          <h3 class="footer-main-standard-title text-uppercase">FIT MART</h3>
-          <p>致力為香港推動智能健康生活，如消閒肌肉槍、筋膜按摩、居家輕健身和智能運動生活產品。</p>
-        </div>
-        <div class="col-sm-3 footer-col">
-          <h3 class="footer-main-standard-title text-uppercase">其他資訊</h3>
-          <ul class="footer-main-standard-links">
-            <li><a href="">關於我們</a></li>
-            <li><a href="">付款方式</a></li>
-            <li><a href="">聯絡我們</a></li>
-          </ul>
-        </div>
-        <div class="col-sm-3 footer-col">
-          <h3 class="footer-main-standard-title text-uppercase">條款政策</h3>
-          <ul class="footer-main-standard-links">
-            <li><a href="">運送政策</a></li>
-            <li><a href="">退款政策</a></li>
-            <li><a href="">隱私政策</a></li>
-            <li><a href="">服務條款</a></li>
-          </ul>
-        </div>
-        <div class="col-sm-3 footer-col">
-          <h3 class="footer-main-standard-title text-uppercase">追蹤我們</h3>
-          <p>使用FACEBOOK或INSTAGRAM追蹤我們，可隨時獲取更多優惠及最新消息。</p>
         </div>
       </div>
-      <button class="open-button" onclick="openForm()"><img src="../image/chat (1).png" id="chatLogo"></button>
-
-      <div class="chat-popup" id="myForm">
-        <form action="" class="form-container">
-          <h6>請留下訊息，客服將會盡快回覆</h6>
-
-          <label for="msg"><b>Message</b></label>
-          <textarea placeholder="Type message.." name="msg" required></textarea>
-
-          <button type="submit" class="btn">Send</button>
-          <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-        </form>
+      <div class="Footer_payment_icona">
+        <div>
+          <div class="Image_withoutRatio_13u">
+            <img
+              src="https://cdn.shopify.com/shopifycloud/shopify/assets/payment_icons/master-173035bc8124581983d4efa50cf8626e8553c2b311353fbf67485f9c1a2b88d1.svg"
+              class="Footer_imageCopyright_3MJ Image_image_1Rs" alt="master card" style="width: 60px; margin: 5px" />
+          </div>
+        </div>
+      </div>
+      <div class="Footer_payment_icona">
+        <div>
+          <div class="Image_withoutRatio_13u">
+            <img
+              src="https://cdn.shopify.com/shopifycloud/shopify/assets/payment_icons/american_express-2264c9b8b57b23b0b0831827e90cd7bcda2836adc42a912ebedf545dead35b20.svg"
+              class="Footer_imageCopyright_3MJ Image_image_1Rs" alt="amex card" style="width: 60px; margin: 5px" />
+          </div>
+        </div>
+      </div>
+      <div class="Footer_payment_icona">
+        <div>
+          <div class="Image_withoutRatio_13u">
+            <img
+              src="https://cdn.shopify.com/shopifycloud/shopify/assets/payment_icons/apple_pay-f6db0077dc7c325b436ecbdcf254239100b35b70b1663bc7523d7c424901fa09.svg"
+              class="Footer_imageCopyright_3MJ Image_image_1Rs" alt="apple pay" style="width: 60px; margin: 5px" />
+          </div>
+        </div>
       </div>
 
+      <div class="Footer_payment_icona">
+        <div>
+          <div class="Image_withoutRatio_13u">
+            <img
+              src="https://cdn.shopify.com/shopifycloud/shopify/assets/payment_icons/google_pay-c66a29c63facf2053bf69352982c958e9675cabea4f2f7ccec08d169d1856b31.svg"
+              class="Footer_imageCopyright_3MJ Image_image_1Rs" alt="google pay" style="width: 60px; margin: 5px" />
+          </div>
+        </div>
+      </div>
 
-      <div class="Footer_payment_icon ant-col-md-24" id="footer_payment">
-        <div class="Footer_payment_icona">
-          <div>
-            <div class="Image_withoutRatio_13u">
-              <img
-                src="https://cdn.shopify.com/shopifycloud/shopify/assets/payment_icons/visa-319d545c6fd255c9aad5eeaad21fd6f7f7b4fdbdb1a35ce83b89cca12a187f00.svg"
-                class="Footer_imageCopyright_3MJ" alt="visa card" style="width: 60px; margin: 5px" />
-            </div>
+      <div class="Footer_payment_icona">
+        <div>
+          <div class="Image_withoutRatio_13u">
+            <img
+              src="https://cdn.shopify.com/shopifycloud/shopify/assets/payment_icons/alipay_hk-d0e8325d855b0b78e7377ad25344fd710ab0e211dd9fa759ff1beb3076f21c58.svg"
+              class="Footer_imageCopyright_3MJ Image_image_1Rs" alt="alipay hk" style="width: 60px; margin: 5px" />
           </div>
         </div>
-        <div class="Footer_payment_icona">
-          <div>
-            <div class="Image_withoutRatio_13u">
-              <img
-                src="https://cdn.shopify.com/shopifycloud/shopify/assets/payment_icons/master-173035bc8124581983d4efa50cf8626e8553c2b311353fbf67485f9c1a2b88d1.svg"
-                class="Footer_imageCopyright_3MJ Image_image_1Rs" alt="master card" style="width: 60px; margin: 5px" />
-            </div>
+      </div>
+      <div class="Footer_payment_icona">
+        <div>
+          <div class="Image_withoutRatio_13u">
+            <img
+              src="https://cdn.shopify.com/shopifycloud/shopify/assets/payment_icons/wechatpay-dd2bf2476057628209c6b0142cd8cc7a4b5af17bd02af04fba67326a8838056f.svg"
+              class="Footer_imageCopyright_3MJ Image_image_1Rs" alt="wechat pay hk" style="width: 60px; margin: 5px" />
           </div>
         </div>
-        <div class="Footer_payment_icona">
-          <div>
-            <div class="Image_withoutRatio_13u">
-              <img
-                src="https://cdn.shopify.com/shopifycloud/shopify/assets/payment_icons/american_express-2264c9b8b57b23b0b0831827e90cd7bcda2836adc42a912ebedf545dead35b20.svg"
-                class="Footer_imageCopyright_3MJ Image_image_1Rs" alt="amex card" style="width: 60px; margin: 5px" />
-            </div>
+      </div>
+      <div class="Footer_payment_icona">
+        <div>
+          <div class="Image_withoutRatio_13u">
+            <img
+              src="https://cdn.shopify.com/shopifycloud/shopify/assets/payment_icons/unionpay-8aedb760a6bde56bc2e3bbfd40bc008f1b0967a9f5863ecfbe855d54bde81ea6.svg"
+              class="Footer_imageCopyright_3MJ Image_image_1Rs" alt="union pay" style="width: 60px; margin: 5px" />
           </div>
         </div>
-        <div class="Footer_payment_icona">
-          <div>
-            <div class="Image_withoutRatio_13u">
-              <img
-                src="https://cdn.shopify.com/shopifycloud/shopify/assets/payment_icons/apple_pay-f6db0077dc7c325b436ecbdcf254239100b35b70b1663bc7523d7c424901fa09.svg"
-                class="Footer_imageCopyright_3MJ Image_image_1Rs" alt="apple pay" style="width: 60px; margin: 5px" />
-            </div>
+      </div>
+      <div class="Footer_payment_icona">
+        <div>
+          <div class="Image_withoutRatio_13u">
+            <img
+              src="https://cdn.shopify.com/shopifycloud/shopify/assets/payment_icons/payme-534eded9f52cf4a14428409a809293b5b95475374c3f85c95e943590262a22b1.svg"
+              class="Footer_imageCopyright_3MJ Image_image_1Rs" alt="payme" style="width: 60px; margin: 5px" />
           </div>
         </div>
+      </div>
+      <div class="Footer_payment_icona">
+        <div>
+          <div class="Image_withoutRatio_13u">
+            <img
+              src="https://cdn.shopify.com/shopifycloud/shopify/assets/payment_icons/fps-38615d4d8a5964e6985aa9fbf523b8e689fcd5a0af9a052f99ea36d6db2ba7cb.svg"
+              class="Footer_imageCopyright_3MJ Image_image_1Rs" alt="fps" style="width: 60px; margin: 5px" />
+          </div>
+        </div>
+      </div>
+      <div class="Footer_payment_icona">
+        <div>
+          <div class="Image_withoutRatio_13u">
+            <img src="https://cdn.shopify.com/s/files/1/0550/5853/0481/files/logo_octopus_fotter.svg?v=1646643360"
+              class="Footer_imageCopyright_3MJ Image_image_1Rs" alt="octopus" style="width: 60px; margin: 5px" />
+          </div>
+        </div>
+      </div>
 
-        <div class="Footer_payment_icona">
-          <div>
-            <div class="Image_withoutRatio_13u">
-              <img
-                src="https://cdn.shopify.com/shopifycloud/shopify/assets/payment_icons/google_pay-c66a29c63facf2053bf69352982c958e9675cabea4f2f7ccec08d169d1856b31.svg"
-                class="Footer_imageCopyright_3MJ Image_image_1Rs" alt="google pay" style="width: 60px; margin: 5px" />
-            </div>
-          </div>
-        </div>
-
-        <div class="Footer_payment_icona">
-          <div>
-            <div class="Image_withoutRatio_13u">
-              <img
-                src="https://cdn.shopify.com/shopifycloud/shopify/assets/payment_icons/alipay_hk-d0e8325d855b0b78e7377ad25344fd710ab0e211dd9fa759ff1beb3076f21c58.svg"
-                class="Footer_imageCopyright_3MJ Image_image_1Rs" alt="alipay hk" style="width: 60px; margin: 5px" />
-            </div>
-          </div>
-        </div>
-        <div class="Footer_payment_icona">
-          <div>
-            <div class="Image_withoutRatio_13u">
-              <img
-                src="https://cdn.shopify.com/shopifycloud/shopify/assets/payment_icons/wechatpay-dd2bf2476057628209c6b0142cd8cc7a4b5af17bd02af04fba67326a8838056f.svg"
-                class="Footer_imageCopyright_3MJ Image_image_1Rs" alt="wechat pay hk"
-                style="width: 60px; margin: 5px" />
-            </div>
-          </div>
-        </div>
-        <div class="Footer_payment_icona">
-          <div>
-            <div class="Image_withoutRatio_13u">
-              <img
-                src="https://cdn.shopify.com/shopifycloud/shopify/assets/payment_icons/unionpay-8aedb760a6bde56bc2e3bbfd40bc008f1b0967a9f5863ecfbe855d54bde81ea6.svg"
-                class="Footer_imageCopyright_3MJ Image_image_1Rs" alt="union pay" style="width: 60px; margin: 5px" />
-            </div>
-          </div>
-        </div>
-        <div class="Footer_payment_icona">
-          <div>
-            <div class="Image_withoutRatio_13u">
-              <img
-                src="https://cdn.shopify.com/shopifycloud/shopify/assets/payment_icons/payme-534eded9f52cf4a14428409a809293b5b95475374c3f85c95e943590262a22b1.svg"
-                class="Footer_imageCopyright_3MJ Image_image_1Rs" alt="payme" style="width: 60px; margin: 5px" />
-            </div>
-          </div>
-        </div>
-        <div class="Footer_payment_icona">
-          <div>
-            <div class="Image_withoutRatio_13u">
-              <img
-                src="https://cdn.shopify.com/shopifycloud/shopify/assets/payment_icons/fps-38615d4d8a5964e6985aa9fbf523b8e689fcd5a0af9a052f99ea36d6db2ba7cb.svg"
-                class="Footer_imageCopyright_3MJ Image_image_1Rs" alt="fps" style="width: 60px; margin: 5px" />
-            </div>
-          </div>
-        </div>
-        <div class="Footer_payment_icona">
-          <div>
-            <div class="Image_withoutRatio_13u">
-              <img src="https://cdn.shopify.com/s/files/1/0550/5853/0481/files/logo_octopus_fotter.svg?v=1646643360"
-                class="Footer_imageCopyright_3MJ Image_image_1Rs" alt="octopus" style="width: 60px; margin: 5px" />
-            </div>
-          </div>
-        </div>
-
-        <div class="Footer_payment_icona">
-          <div>
-            <div class="Image_withoutRatio_13u">
-              <img src="https://cdn.shopify.com/s/files/1/0598/8650/2077/files/tag_go.png?v=1653141581"
-                class="Footer_imageCopyright_3MJ Image_image_1Rs" alt="tagandgo" style="width: 60px; margin: 5px" />
-            </div>
+      <div class="Footer_payment_icona">
+        <div>
+          <div class="Image_withoutRatio_13u">
+            <img src="https://cdn.shopify.com/s/files/1/0598/8650/2077/files/tag_go.png?v=1653141581"
+              class="Footer_imageCopyright_3MJ Image_image_1Rs" alt="tagandgo" style="width: 60px; margin: 5px" />
           </div>
         </div>
       </div>
     </div>
-    <script src="../js/product.js"></script>
-    <!-- <script src="../js/index.js"></script> -->
+  </div>
+  <script src="../js/product.js"></script>
+  <!-- <script src="../js/index.js"></script> -->
 
 </body>
 

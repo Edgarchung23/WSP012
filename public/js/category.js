@@ -1,3 +1,12 @@
+window.onload = async (req, res) => {
+  // getProducts_variant();
+  let urlParams = new URLSearchParams(window.location.search);
+  let targetId = urlParams.get("id");
+  console.log(targetId);
+  renderProducts(targetId);
+  getUsername();
+};
+
 async function getProducts() {
   let res = await fetch("/product");
   let result = await res.json();
@@ -11,9 +20,22 @@ async function getProducts() {
 //   return result;
 // }
 
-window.onload = async (req, res) => {
-  // getProducts_variant();
-  let data = await getProducts();
+//<---GET PRODUCTS----------------------------------------------------------------------------------------------------------->
+async function getProducts(id) {
+  if (id) {
+    let httpRes = await fetch(`/category?id=${id}`);
+    let resp = await httpRes.json();
+    return resp.data;
+  } else {
+    let httpRes = await fetch(`/category`);
+    let resp = await httpRes.json();
+    return resp.data;
+  }
+}
+//<---RENDER PRODUCTS----------------------------------------------------------------------------------------------------------->
+async function renderProducts(id) {
+  let data = await getProducts(id);
+  console.log("check data", data);
   let allProduct = "";
   for (let entry of data) {
     allProduct += `
@@ -23,15 +45,15 @@ window.onload = async (req, res) => {
     <h5 class="product_title"> ${entry.name}</h5>
     <h5 class="product_text">
     $${entry.unit_price}</h5>
-    <a href="/product.html" class="btn btn-primary">Add to cart</a>
+    <a href='/product.html?id=${entry.id}' class="btn btn-primary">Add to cart</a>
     </div>
     </div>
     `;
   }
   document.querySelector(".product_Area").innerHTML = allProduct;
   getUsername();
-};
-
+}
+//<---GET USERNAME----------------------------------------------------------------------------------------------------------->
 async function getUsername() {
   let httpResponse = await fetch("/username");
   let result;
@@ -50,16 +72,26 @@ async function getUsername() {
     ).innerHTML = `<button class="btn btn-outline-secondary" onclick="logout()"><img src="../image/logout.png" id="logout-logo" ;>
     Log out 
     </button>`;
-
     addLogoutEventListener();
   } else {
     result = await httpResponse.json();
   }
 }
+//<---LOG OUT----------------------------------------------------------------------------------------------------------->
 async function logout() {
   console.log("trying logout");
 
   await fetch("/logout");
 
   window.location.reload();
+}
+
+//<---CHAT----------------------------------------------------------------------------------------------------------->
+
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
 }

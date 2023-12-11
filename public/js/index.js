@@ -32,7 +32,7 @@ async function getUsername() {
   if (httpResponse.status == 200) {
     result = await httpResponse.json();
 
-    console.log("username", result);
+    // console.log("username", result);
 
     document.querySelector(
       "#username-display"

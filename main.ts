@@ -80,15 +80,18 @@ app.get("/register", (req, res) => {
 });
 
 app.get("/category", async (req, res) => {
-  let queryResult = await pgClient.query("SELECT * FROM category ");
-  res.json(queryResult.rows);
-});
-
-app.get("/product/id", async (req, res) => {
-  let queryResult = await pgClient.query(
-    "SELECT * FROM product WHERE category_id = $1"
-  );
-  res.json(queryResult.rows);
+  // let queryResult = await pgClient.query("SELECT * FROM category ");
+  // res.json(queryResult.rows);
+  if (req.query.id) {
+    let allResult = await pgClient.query(
+      "SELECT * FROM product WHERE product.category_id = $1",
+      [req.query.id]
+    );
+    res.json({ data: allResult.rows });
+  } else {
+    let allResult = await pgClient.query("SELECT * FROM product");
+    res.json({ data: allResult.rows });
+  }
 });
 
 app.get("/product", async (req, res) => {
@@ -102,7 +105,6 @@ app.get("/product/image", async (req, res) => {
 });
 
 app.get("/username", (req, res) => {
-  // console.log("hihihi", req.session.username);
   if (req.session.username)
     res.json({ message: "success", data: req.session.username });
   else res.status(400).json({ message: "you are not logged in" });
