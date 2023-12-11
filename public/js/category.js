@@ -40,7 +40,7 @@ async function renderProducts(id) {
   for (let entry of data) {
     allProduct += `
     <div class="productBox1">
-    <img src="${entry.image}" class="product_img_1"/>
+    <img src="${entry.image}" class="product_img_1"/>按摩波
     <div class="productBoxBody">
     <h5 class="product_title"> ${entry.name}</h5>
     <h5 class="product_text">

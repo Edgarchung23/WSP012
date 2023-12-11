@@ -150,6 +150,7 @@ async function insertProduct() {
       unit_price: 688,
       image: "gun-5-silver.png",
     },
+
     //<---YOGA BALL------------------------------------------------------------------------------>
     {
       name: "電動瑜伽肌肉按摩筋膜球",
@@ -191,6 +192,7 @@ async function insertProduct() {
       unit_price: 588,
       image: "massage_ball_5_black.png",
     },
+
     //<---YOGA MAT------------------------------------------------------------------------------>
     {
       name: "家用加厚靜音減震瑜伽跳繩墊｜體位線版",
@@ -232,6 +234,7 @@ async function insertProduct() {
       unit_price: 1588,
       image: "yoga_mat_5.png",
     },
+
     //<---YOGA MAT------------------------------------------------------------------------------>
     {
       name: "瑜伽平衡健身半圓平衡球",
@@ -259,7 +262,6 @@ async function insertProduct() {
     },
   ];
 
-  // <--INSERT PRODUCTTDETAILS------------------------------------------------------------------------------------------->
   for (let entry of productDetails) {
     await client.query(
       `INSERT INTO product(category_id,name,brand,material,image,unit_price)VALUES($1,$2,$3,$4,$5,$6)`,
