@@ -30,8 +30,6 @@ async function getUsername() {
   if (httpResponse.status == 200) {
     result = await httpResponse.json();
 
-    // console.log("username", result);
-
     document.querySelector(
       "#username-display"
     ).innerHTML = `<button class=btn btn-outline-success" type="submit"><img src="../image/user-interface.png" id="user-loginedlogo" ;> ${result.data} </button>`;
@@ -46,6 +44,18 @@ async function getUsername() {
   } else {
     result = await httpResponse.json();
   }
+}
+
+// <!---------------------------getUsername----------------------------------------------->
+async function addToCart(product_id) {
+  console.log("check id", product_id);
+  await fetch("/addTocart", {
+    method: "post",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ product_id: product_id }),
+  });
 }
 
 // <!---------------------------logout----------------------------------------------->

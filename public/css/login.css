@@ -233,3 +233,8 @@ input[type="text"]:placeholder {
 .btn-outline-secondary:hover {
   background-color: white;
 }
+
+#user-loginedlogo {
+  width: 28px;
+  height: 28px;
+}

@@ -17,6 +17,7 @@ declare module "express-session" {
   interface SessionData {
     username?: string;
     grant?: any;
+    email?: string;
   }
 }
 //<-------------------------------------------------------------------------------------------------------------------->
@@ -80,8 +81,6 @@ app.get("/register", (req, res) => {
 });
 
 app.get("/category", async (req, res) => {
-  // let queryResult = await pgClient.query("SELECT * FROM category ");
-  // res.json(queryResult.rows);
   if (req.query.id) {
     let allResult = await pgClient.query(
       "SELECT * FROM product WHERE product.category_id = $1",
@@ -169,6 +168,7 @@ app.post("/register", async (req, res) => {
     }
   }
 });
+
 app.post("/login", async (req, res) => {
   // req.body.username ,find matching row from db,extract the hashed
   // use checkPassword  compare req.body.password with hashed
@@ -203,6 +203,14 @@ app.post("/login", async (req, res) => {
   }
 });
 
+app.post("/addToCart", async (req, res) => {
+  console.log(req.body.product_id, req.session.email);
+  await pgClient.query(
+    `insert in to shopping_carts (user_id, product_id, product_variant_id, quantity) VALUES ($1,(SELECT id FROM users WHERE email_address = $2),1 )`,
+    [req.body.product_id, req.session.email]
+  );
+  res.json({ message: "added to shoppingCart" });
+});
 //<------------------------------------------------------------------------------------------------------------------>
 
 //<----404----------------------------------------------------------------------------------------------------------->

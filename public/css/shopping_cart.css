@@ -24,3 +24,13 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+.btn-warning:hover {
+  background-color: #c0604f;
+}
+
+#user-loginedlogo {
+  width: 28px;
+  height: 28px;
+  margin-right: 4px;
+}

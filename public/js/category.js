@@ -1,5 +1,4 @@
 window.onload = async (req, res) => {
-  // getProducts_variant();
   let urlParams = new URLSearchParams(window.location.search);
   let targetId = urlParams.get("id");
   console.log(targetId);

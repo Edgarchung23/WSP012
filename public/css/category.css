@@ -39,3 +39,9 @@ h5 {
 .btn-primary:hover {
   background-color: #c0604f;
 }
+
+#user-loginedlogo {
+  width: 28px;
+  height: 28px;
+  margin-right: 4px;
+}

@@ -141,3 +141,8 @@ form .button input:hover {
   justify-content: center;
   margin-top: 30px;
 }
+
+#user-loginedlogo {
+  width: 28px;
+  height: 28px;
+}
