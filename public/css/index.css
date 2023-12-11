@@ -13,7 +13,9 @@ a {
 a:hover {
   color: #c0604f;
 }
-
+p {
+  color: black;
+}
 .Title {
   width: 1300px;
   display: flex;
