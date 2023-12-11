@@ -4,8 +4,15 @@ async function getProducts() {
   console.log(result);
   return result;
 }
+// async function getProducts_variant() {
+//   let params = new URLSearchParams(location.search);
+//   let res = await fetch("product/id?id=" + params.get("id"));
+//   let result = await res.json();
+//   return result;
+// }
 
 window.onload = async (req, res) => {
+  // getProducts_variant();
   let data = await getProducts();
   let allProduct = "";
   for (let entry of data) {
@@ -55,13 +62,4 @@ async function logout() {
   await fetch("/logout");
 
   window.location.reload();
-}
-
-//<---CHAT----------------------------------------------------------------------------------------------------------->
-function openForm() {
-  document.getElementById("myForm").style.display = "block";
-}
-
-function closeForm() {
-  document.getElementById("myForm").style.display = "none";
 }

@@ -83,10 +83,13 @@ app.get("/category", async (req, res) => {
   let queryResult = await pgClient.query("SELECT * FROM category ");
   res.json(queryResult.rows);
 });
-// app.get("/category/product", async(req,res) => {
-// let queryResult = await pgClient.query("SELECT * FROM product WHERE category_id = $1", (req.query.id))
-// res.json(queryResult.rows)
-// })
+
+app.get("/product/id", async (req, res) => {
+  let queryResult = await pgClient.query(
+    "SELECT * FROM product WHERE category_id = $1"
+  );
+  res.json(queryResult.rows);
+});
 
 app.get("/product", async (req, res) => {
   let queryResult = await pgClient.query("SELECT * FROM product ");
@@ -105,6 +108,9 @@ app.get("/username", (req, res) => {
   else res.status(400).json({ message: "you are not logged in" });
 });
 
+app.get("/shopping_cart", async (req, res) => {
+  res.redirect("/");
+});
 //<---APP.POST------------------------------------------------------------------------------------------------------------>
 app.post("/register", async (req, res) => {
   console.log(req.body.email, req.body.passwordInput1);
