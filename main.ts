@@ -127,7 +127,11 @@ app.get("/username", (req, res) => {
 });
 
 app.get("/shopping_cart", async (req, res) => {
-  res.redirect("/");
+  let result = await pgClient.query(
+    "SELECT * from shopping_cart join product_variant on product_variant_id = product_variant.id JOIN product on product_variant.product_id = product.id WHERE user_id = (SELECT id from user where email = $1)",
+    [req.session.email]
+  );
+  res.json(result.rows);
 });
 
 //<---APP.POST------------------------------------------------------------------------------------------------------------>
