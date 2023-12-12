@@ -26,10 +26,7 @@ declare module "express-session" {
 // app.use(loggerMiddleware);
 app.use(express.static("public/html/"));
 app.use(express.static("public/image"));
-// app.use(express.static("public/image/yoga_mat"));
-// app.use(express.static("public/image/yoga_ball"));
-// app.use(express.static("public/image/massage_gun"));
-// app.use(express.static("public/image/massage_ball"));
+
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -100,7 +97,7 @@ app.get("/product", async (req, res) => {
   if (req.query.id) {
     let queryResult = await pgClient.query(
       "SELECT product.name as product_name,image,description,brand,material,unit_price,category.name as category_name FROM product join category on product.category_id = category.id WHERE product.id = $1",
-      [req.query.id] //                                                          product.image as product_image  FROM product_variant join product on product.image = category.image   );
+      [req.query.id]
     );
     res.json(queryResult.rows);
   } else {

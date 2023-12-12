@@ -31,7 +31,6 @@ async function renderProducts(id) {
   let data = await getProducts(id);
   let allProduct = "";
   for (let entry of data) {
-    console.log("hi", entry);
     allProduct += `
     <div class="productBox1">
     <img src="${entry.category_name}/${entry.image}" class="product_img_1"/>

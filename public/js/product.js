@@ -96,7 +96,7 @@ async function renderProductDetails() {
   let result = await res.json();
 
   document.querySelector(".left-column").innerHTML = `
-    <img src="/${result[0].category_name}/${result[0].image}" class="product_var"/>`;
+    <img src= "/${result[0].category_name}/${result[0].image}" class="product_var"/>`;
 
   document.querySelector(".product-description").innerHTML = `
   <h5>${result[0].category_name}<br>
@@ -170,6 +170,7 @@ async function renderSize(key) {
   }
   document.querySelector(".size-choose").innerHTML = finalHTML;
 }
+
 function logSelectedProductVariantId(targetId) {
   selectedProductVariantId = targetId;
   console.log("js-184-Check variant id =", selectedProductVariantId);
