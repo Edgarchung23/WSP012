@@ -54,9 +54,26 @@ function closeForm() {
   document.getElementById("myForm").style.display = "none";
 }
 
-document.querySelector(".cart-btn").onclick = function () {
-  console.log("test button");
+// document.querySelector(".cart-btn").onclick = function () {
+// console.log("test button");
+let addToCartBtn = document.querySelector(".cart-btn");
+
+let opt = {
+  initialText: "Add to Cart",
+  textOnClick: "Item Added",
+  interval: 2000,
 };
+
+let setAddToCartText = () => {
+  addToCartBtn.innerHTML = opt.textOnClick;
+  let init = () => {
+    addToCartBtn.innerHTML = opt.initialText;
+  };
+  setTimeout(init, opt.interval);
+};
+
+addToCartBtn.addEventListener("click", setAddToCartText);
+// };
 
 // <!--------------------------- get product details ----------------------------------------------->
 
@@ -69,6 +86,7 @@ var reverseDict = {
   pink: "粉紅色",
   purple: "淺紫色",
 };
+
 async function renderProductDetails() {
   const urlParams = new URLSearchParams(window.location.search);
   const targetId = urlParams.get("id");
@@ -77,8 +95,8 @@ async function renderProductDetails() {
   let result = await res.json();
 
   document.querySelector(".left-column").innerHTML = `
-    <img src="${result.image}" class="product_var"/>
-`;
+    <img src="${result[0].image}" class="product_var"/>`;
+
   document.querySelector(".product-description").innerHTML = `
   <h5>${result[0].category_name}<br>
    <h2>${result[0].product_name}</h2><br><br>
@@ -93,10 +111,10 @@ async function renderProductDetails() {
 
   `;
 
-  console.log("check processed", processedData);
+  console.log("js-114-Check processed", processedData);
 
   for (let key in processedData) {
-    console.log("key", key, "dict", colorDict[key]);
+    console.log("js-117-", key, "dict", colorDict[key]);
     document.querySelector(".color-choose").innerHTML += `
     <div   id='${colorDict[key]}-button'>
       <input data-image="${colorDict[key]}" type="radio" id="${colorDict[key]}" name="color" value="${colorDict[key]}" onclick="renderSize('${colorDict[key]}')">
@@ -115,7 +133,7 @@ async function getProductVariant() {
   let res = await fetch(`/product_variant?id=${targetId}`);
 
   let result = await res.json();
-  console.log("check result 2", result);
+  console.log("js-136-Check result 2", result);
 
   return combineColors(result.data);
   // return result;
@@ -142,19 +160,19 @@ async function combineColors(input) {
           unit_price: entry.unit_price,
         },
       ];
-      console.log("color added just now ");
+      console.log("js-163-Check color added just now ");
     }
   }
 
-  console.log(final);
+  console.log("js-167-Check", final);
   return final;
 }
 
 async function renderSize(key) {
-  console.log("gg", key, reverseDict[key]);
+  console.log("js-172-", key, reverseDict[key]);
   let finalHTML = "";
   for (let entry of processedData[reverseDict[key]]) {
-    console.log("hihi3333", entry);
+    console.log("js-175-", entry);
 
     finalHTML += `<button onclick="logSelectedProductVariantId(${entry.product_variant_id})">${entry.size}</button>`;
   }
@@ -163,12 +181,12 @@ async function renderSize(key) {
 
 function logSelectedProductVariantId(targetId) {
   selectedProductVariantId = targetId;
-  console.log(selectedProductVariantId);
+  console.log("js-184-Check variant id =", selectedProductVariantId);
 }
 
 // <!--------------------------- add to cart ----------------------------------------------->
 async function addCart() {
-  console.log("ggggggggg");
+  console.log("js-189-Checked add to cart");
   // handle if not select product variant
   let res = await fetch("/addToCart", {
     method: "post",
