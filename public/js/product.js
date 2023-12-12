@@ -10,6 +10,7 @@ let processedData;
 let selectedProductVariantId;
 
 // <!---------------------------getUsername----------------------------------------------->
+
 async function getUsername() {
   let httpResponse = await fetch("/username");
   let result;
@@ -36,6 +37,7 @@ async function getUsername() {
 }
 
 // <!---------------------------logout----------------------------------------------->
+
 async function logout() {
   console.log("trying logout");
 
@@ -54,10 +56,9 @@ function closeForm() {
   document.getElementById("myForm").style.display = "none";
 }
 
-// document.querySelector(".cart-btn").onclick = function () {
-// console.log("test button");
-let addToCartBtn = document.querySelector(".cart-btn");
+// <!---------------------------addToCartBtn----------------------------------------------->
 
+let addToCartBtn = document.querySelector(".cart-btn");
 let opt = {
   initialText: "Add to Cart",
   textOnClick: "Item Added",
@@ -95,7 +96,7 @@ async function renderProductDetails() {
   let result = await res.json();
 
   document.querySelector(".left-column").innerHTML = `
-    <img src="${result[0].image}" class="product_var"/>`;
+    <img src="/${result[0].category_name}/${result[0].image}" class="product_var"/>`;
 
   document.querySelector(".product-description").innerHTML = `
   <h5>${result[0].category_name}<br>
@@ -107,20 +108,15 @@ async function renderProductDetails() {
 
   processedData = await getProductVariant();
 
-  document.querySelector(".color-choose").innerHTML = `
-
-  `;
-
+  document.querySelector(".color-choose").innerHTML = ` `;
   console.log("js-114-Check processed", processedData);
-
   for (let key in processedData) {
     console.log("js-117-", key, "dict", colorDict[key]);
     document.querySelector(".color-choose").innerHTML += `
     <div   id='${colorDict[key]}-button'>
       <input data-image="${colorDict[key]}" type="radio" id="${colorDict[key]}" name="color" value="${colorDict[key]}" onclick="renderSize('${colorDict[key]}')">
       <label for="${colorDict[key]}"><span></span></label>
-    </div>
-    `;
+    </div>`;
   }
 }
 
@@ -129,19 +125,16 @@ async function renderProductDetails() {
 async function getProductVariant() {
   const urlParams = new URLSearchParams(window.location.search);
   const targetId = urlParams.get("id");
-
   let res = await fetch(`/product_variant?id=${targetId}`);
-
   let result = await res.json();
-  console.log("js-136-Check result 2", result);
-
+  console.log("js-136-Check result ", result);
   return combineColors(result.data);
-  // return result;
 }
+
+// <!--------------------------- combineColors ----------------------------------------------->
 
 async function combineColors(input) {
   let final = {};
-
   for (let entry of input) {
     if (final[entry.color] != undefined) {
       console.log("color added already");
@@ -163,22 +156,20 @@ async function combineColors(input) {
       console.log("js-163-Check color added just now ");
     }
   }
-
   console.log("js-167-Check", final);
   return final;
 }
+// <!--------------------------- renderSize ----------------------------------------------->
 
 async function renderSize(key) {
   console.log("js-172-", key, reverseDict[key]);
   let finalHTML = "";
   for (let entry of processedData[reverseDict[key]]) {
     console.log("js-175-", entry);
-
     finalHTML += `<button onclick="logSelectedProductVariantId(${entry.product_variant_id})">${entry.size}</button>`;
   }
   document.querySelector(".size-choose").innerHTML = finalHTML;
 }
-
 function logSelectedProductVariantId(targetId) {
   selectedProductVariantId = targetId;
   console.log("js-184-Check variant id =", selectedProductVariantId);

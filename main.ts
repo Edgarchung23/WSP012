@@ -25,10 +25,11 @@ declare module "express-session" {
 //<---APP.USE--------------------------------------------------------------------------------------------------------->
 // app.use(loggerMiddleware);
 app.use(express.static("public/html/"));
-app.use(express.static("public/image/yoga_mat"));
-app.use(express.static("public/image/yoga_ball"));
-app.use(express.static("public/image/massage_gun"));
-app.use(express.static("public/image/massage_ball"));
+app.use(express.static("public/image"));
+// app.use(express.static("public/image/yoga_mat"));
+// app.use(express.static("public/image/yoga_ball"));
+// app.use(express.static("public/image/massage_gun"));
+// app.use(express.static("public/image/massage_ball"));
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -83,12 +84,14 @@ app.get("/register", (req, res) => {
 app.get("/category", async (req, res) => {
   if (req.query.id) {
     let allResult = await pgClient.query(
-      "SELECT * FROM product WHERE product.category_id = $1",
+      "SELECT product.name as product_name,category.name as category_name , image,unit_price,product.id FROM product join category on product.category_id = category.id WHERE product.category_id = $1 ",
       [req.query.id]
     );
     res.json({ data: allResult.rows });
   } else {
-    let allResult = await pgClient.query("SELECT * FROM product");
+    let allResult = await pgClient.query(
+      "SELECT * FROM product join category on product.category_id = category.id"
+    );
     res.json({ data: allResult.rows });
   }
 });
