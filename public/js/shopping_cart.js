@@ -25,16 +25,25 @@ async function getUsername() {
     result = await httpResponse.json();
   }
 }
+// <!---------------------------getCartProduct----------------------------------------------->
+async function getCartProducts() {
+  let res = await fetch("/addToCart");
+  let result = await res.json();
+  console.log(result);
+  return result;
+}
 
-// <!---------------------------getUsername----------------------------------------------->
-document.querySelector(".color-choose").innerHTML = ` `;
-
-console.log("js-114-Check processed", processedData);
-for (let key in processedData) {
-  console.log("js-117-", key, "dict", colorDict[key]);
-  document.querySelector(".color-choose").innerHTML += `
-    <div   id='${colorDict[key]}-button'>
-      <input data-image="${colorDict[key]}" type="radio" id="${colorDict[key]}" name="color" value="${colorDict[key]}" onclick="renderSize('${colorDict[key]}')">
-      <label for="${colorDict[key]}"><span></span></label>
-    </div>`;
+// <!---------------------------renderCartProducts----------------------------------------------->
+async function renderCartProducts(id) {
+  let data = await getCartProducts(id);
+  let cartProduct = "";
+  for (let entry of data) {
+    cartProduct += `
+    <h5 class="product_title"> ${entry.id}</h5>
+    <h5 class="product_text">$${333}</h5><a href='/product.html?id=${222}' class="btn btn-primary">More Details</a>
+    </div>
+    </div>
+    `;
+  }
+  document.querySelector(".col-10").innerHTML = cartProduct;
 }

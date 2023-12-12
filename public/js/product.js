@@ -97,9 +97,9 @@ async function renderProductDetails() {
   document.querySelector(".product-description").innerHTML = `
   <h5>${result[0].category_name}<br>
    <h2>${result[0].product_name}</h2><br><br>
-   <h5>${result[0].description}<br><br><br><br>
-   <h5>Brand : ${result[0].brand}</h5>
-   <h5>Material : ${result[0].material}</h5>  
+   <h5>${result[0].description}<br><br>
+   <h6>Brand : ${result[0].brand}</h6>
+   <h6>Material : ${result[0].material}</h6><br><br><br>
 <h2 class="product_text">Price : $${result[0].unit_price}</h2></h5>`;
 
   processedData = await getProductVariant();
@@ -116,7 +116,7 @@ async function renderProductDetails() {
     </div>`;
     }
   } else {
-    document.querySelector(".option-area").innerHTML = `only 1 option`;
+    document.querySelector(".option-area").innerHTML = ``;
 
     selectedProductVariantId = processedData[0].id;
   }
