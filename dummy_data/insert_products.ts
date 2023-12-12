@@ -51,11 +51,11 @@ async function insertCategory() {
 // <---------------------------------------INSERT PRODUCTVARIANT------------------------------------------------------>
 async function insertProductVariant() {
   const result = await client.query(
-    `SELECT * FROM product WHERE name = $1`, // OR name = $2
-    ["天然橡膠瑜伽墊 | 體位線版"] //, "家用加厚靜音減震瑜伽跳繩墊｜體位線版"
+    `SELECT * FROM product WHERE name = $1 OR name = $2`, //
+    ["天然橡膠瑜伽墊 | 體位線版", "家用加厚靜音減震瑜伽跳繩墊｜體位線版"] //
   );
   let productVariant_id = result.rows[0].id;
-  // let productVariant_2_id = result.rows[1].id;
+  let productVariant_2_id = result.rows[1].id;
   const productVariantData: insertProductVariantType[] = [
     {
       product_id: productVariant_id,
@@ -84,15 +84,15 @@ async function insertProductVariant() {
       storage_count: 10,
       image: "yoga_mat_3_lightpurple.png",
     },
-    // {
-    //   product_id: productVariant_2_id,
-    //   color: "淺紫色",
-    //   size: "100 x 68cm",
-    //   thickness: 5,
-    //   unit_price: 480,
-    //   storage_count: 10,
-    //   image: "yoga_mat_3_lightpurple.png",
-    // },
+    {
+      product_id: productVariant_2_id,
+      color: "淺紫色",
+      size: "100 x 68cm",
+      thickness: 5,
+      unit_price: 480,
+      storage_count: 10,
+      image: "yoga_mat_3_lightpurple.png",
+    },
   ];
 
   for (let entry of productVariantData) {

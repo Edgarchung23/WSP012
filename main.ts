@@ -160,14 +160,11 @@ app.post("/register", async (req, res) => {
     if (queryResult.rowCount != 0) {
       res.status(400).json({ message: "Username already exists" });
     } else {
-      // check email ? duplicate
       let checkEmail = await pgClient.query(
         `SELECT email FROM users WHERE email= $1`,
         [req.body.email]
       );
       if (checkEmail.rowCount != 0) {
-        // console.log("hihihi", checkEmail.rowCount);
-        // console.log("email already exists");
         res.status(400).json({ message: "Email already exists" });
       } else {
         let hashed = await hashPassword(req.body.passwordInput1);
