@@ -125,9 +125,9 @@ a {
 }
 
 .color-choose input[type="radio"]:checked + label span {
-  background-image: url(../image/check-icn.svg);
-  background-repeat: no-repeat;
-  background-position: center;
+  /* background-color: #e79199; */
+  border-width: 5px;
+  border-color: rgb(175, 168, 168);
 }
 
 /* Size Configuration */

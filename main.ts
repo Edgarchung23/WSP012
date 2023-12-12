@@ -96,7 +96,7 @@ app.get("/category", async (req, res) => {
 app.get("/product", async (req, res) => {
   if (req.query.id) {
     let queryResult = await pgClient.query(
-      "SELECT * FROM product WHERE id = $1",
+      "SELECT product.name as product_name,description,brand,material,unit_price,category.name as category_name FROM product join category on product.category_id = category.id WHERE product.id = $1",
       [req.query.id]
     );
     res.json(queryResult.rows);
@@ -213,7 +213,7 @@ app.post("/login", async (req, res) => {
 
     if (compareResult) {
       console.log(req.body.email);
-
+      req.session["email"] = req.body.email;
       req.session["username"] = queryResult.rows[0].username;
       res.json({ message: "login success" });
     } else {
@@ -225,15 +225,14 @@ app.post("/login", async (req, res) => {
 });
 
 app.post("/addToCart", async (req, res) => {
-  console.log(req.body.product_id, req.session.email);
+  console.log(req.body.product_variant_id, req.session.email);
   await pgClient.query(
-    `insert into shopping_cart (user_id, product_id, product_variant_id, quantity) VALUES ($1,(SELECT id FROM users WHERE email = $2),$3,$4 )`,
-    [req.body.product_id, req.session.email]
+    `insert into shopping_cart (user_id, product_variant_id, quantity) VALUES ((SELECT id FROM users WHERE email = $1),$2,1)`,
+    [req.session.email, req.body.product_variant_id]
   );
   res.json({ message: "added to shoppingCart" });
 });
 //<------------------------------------------------------------------------------------------------------------------>
-
 //<----404----------------------------------------------------------------------------------------------------------->
 app.use((req: Request, res: Response) => {
   res.status(404).sendFile(resolve("public/html/404.html"));
