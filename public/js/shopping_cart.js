@@ -29,7 +29,6 @@ async function getUsername() {
 // <!---------------------------getUsername----------------------------------------------->
 document.querySelector(".color-choose").innerHTML = ` `;
 
-
 console.log("js-114-Check processed", processedData);
 for (let key in processedData) {
   console.log("js-117-", key, "dict", colorDict[key]);
