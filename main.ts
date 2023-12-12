@@ -20,15 +20,12 @@ declare module "express-session" {
     email?: string;
   }
 }
-//<-------------------------------------------------------------------------------------------------------------------->
 
 //<---APP.USE--------------------------------------------------------------------------------------------------------->
 // app.use(loggerMiddleware);
 app.use(express.static("public/html/"));
-app.use(express.static("public/image/yoga_mat"));
-app.use(express.static("public/image/yoga_ball"));
-app.use(express.static("public/image/massage_gun"));
-app.use(express.static("public/image/massage_ball"));
+app.use(express.static("public/image"));
+
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -83,12 +80,14 @@ app.get("/register", (req, res) => {
 app.get("/category", async (req, res) => {
   if (req.query.id) {
     let allResult = await pgClient.query(
-      "SELECT * FROM product WHERE product.category_id = $1",
+      "SELECT product.name as product_name,category.name as category_name , image,unit_price,product.id FROM product join category on product.category_id = category.id WHERE product.category_id = $1 ",
       [req.query.id]
     );
     res.json({ data: allResult.rows });
   } else {
-    let allResult = await pgClient.query("SELECT * FROM product");
+    let allResult = await pgClient.query(
+      "SELECT product.name as product_name,category.name as category_name , image,unit_price,product.id  FROM product join category on product.category_id = category.id"
+    );
     res.json({ data: allResult.rows });
   }
 });
@@ -96,7 +95,7 @@ app.get("/category", async (req, res) => {
 app.get("/product", async (req, res) => {
   if (req.query.id) {
     let queryResult = await pgClient.query(
-      "SELECT product.name as product_name,description,brand,material,unit_price,category.name as category_name FROM product join category on product.category_id = category.id WHERE product.id = $1",
+      "SELECT product.name as product_name,image,description,brand,material,unit_price,category.name as category_name FROM product join category on product.category_id = category.id WHERE product.id = $1",
       [req.query.id]
     );
     res.json(queryResult.rows);
@@ -112,9 +111,6 @@ app.get("/product_variant", async (req, res) => {
       "SELECT * from product_variant WHERE product_id = $1",
       [req.query.id]
     );
-
-    // console.log(queryResult.rows);
-
     res.json({ data: queryResult.rows });
   }
 });
@@ -133,6 +129,7 @@ app.get("/username", (req, res) => {
 app.get("/shopping_cart", async (req, res) => {
   res.redirect("/");
 });
+
 //<---APP.POST------------------------------------------------------------------------------------------------------------>
 app.post("/register", async (req, res) => {
   console.log(req.body.email, req.body.passwordInput1);
@@ -160,14 +157,11 @@ app.post("/register", async (req, res) => {
     if (queryResult.rowCount != 0) {
       res.status(400).json({ message: "Username already exists" });
     } else {
-      // check email ? duplicate
       let checkEmail = await pgClient.query(
         `SELECT email FROM users WHERE email= $1`,
         [req.body.email]
       );
       if (checkEmail.rowCount != 0) {
-        // console.log("hihihi", checkEmail.rowCount);
-        // console.log("email already exists");
         res.status(400).json({ message: "Email already exists" });
       } else {
         let hashed = await hashPassword(req.body.passwordInput1);
@@ -195,8 +189,6 @@ app.post("/login", async (req, res) => {
   // use checkPassword  compare req.body.password with hashed
   // on return true,login success
   // on return false,login failed
-
-  // console.log(req.body.email, req.body.password);
 
   let queryResult = await pgClient.query(
     "SELECT username,password from users WHERE email = $1",
@@ -232,7 +224,7 @@ app.post("/addToCart", async (req, res) => {
   );
   res.json({ message: "added to shoppingCart" });
 });
-//<------------------------------------------------------------------------------------------------------------------>
+
 //<----404----------------------------------------------------------------------------------------------------------->
 app.use((req: Request, res: Response) => {
   res.status(404).sendFile(resolve("public/html/404.html"));

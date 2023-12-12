@@ -1,8 +1,6 @@
 window.onload = () => {
   getUsername();
   renderProductDetails();
-
-  document.querySelector(".cart-btn").addEventListener("click", addCart);
 };
 
 // Global variable
@@ -10,6 +8,7 @@ let processedData;
 let selectedProductVariantId;
 
 // <!---------------------------getUsername----------------------------------------------->
+
 async function getUsername() {
   let httpResponse = await fetch("/username");
   let result;
@@ -36,6 +35,7 @@ async function getUsername() {
 }
 
 // <!---------------------------logout----------------------------------------------->
+
 async function logout() {
   console.log("trying logout");
 
@@ -54,9 +54,26 @@ function closeForm() {
   document.getElementById("myForm").style.display = "none";
 }
 
-document.querySelector(".cart-btn").onclick = function () {
-  console.log("test button");
+// <!---------------------------addToCartBtn----------------------------------------------->
+
+let addToCartBtn = document.querySelector(".cart-btn");
+let opt = {
+  initialText: "Add to Cart",
+  textOnClick: "Item Added",
+  interval: 2000,
 };
+
+let setAddToCartText = () => {
+  addToCartBtn.innerHTML = opt.textOnClick;
+  let init = () => {
+    addToCartBtn.innerHTML = opt.initialText;
+  };
+  setTimeout(init, opt.interval);
+};
+
+addToCartBtn.addEventListener("click", setAddToCartText);
+
+// };
 
 // <!--------------------------- get product details ----------------------------------------------->
 
@@ -69,6 +86,7 @@ var reverseDict = {
   pink: "粉紅色",
   purple: "淺紫色",
 };
+
 async function renderProductDetails() {
   const urlParams = new URLSearchParams(window.location.search);
   const targetId = urlParams.get("id");
@@ -76,36 +94,28 @@ async function renderProductDetails() {
   let res = await fetch(`/product?id=${targetId}`);
   let result = await res.json();
 
-  // let categoryRes = await fetch(`/category`);
-  // let categoryResult = await categoryRes.json();
+  document.querySelector(".left-column").innerHTML = `
+    <img src= "/${result[0].category_name}/${result[0].image}" class="product_var"/>`;
 
-  document.querySelector(
-    ".product-description"
-  ).innerHTML = `  <h5>${result[0].category_name}<br>
+  document.querySelector(".product-description").innerHTML = `
+  <h5>${result[0].category_name}<br>
    <h2>${result[0].product_name}</h2><br><br>
    <h5>${result[0].description}<br><br><br><br>
    <h5>Brand : ${result[0].brand}</h5>
    <h5>Material : ${result[0].material}</h5>  
-<h2 class="product_text">Price : $${result[0].unit_price}</h2>
-   
-   </h5>`;
+<h2 class="product_text">Price : $${result[0].unit_price}</h2></h5>`;
 
   processedData = await getProductVariant();
 
-  document.querySelector(".color-choose").innerHTML = `
-
-  `;
-
-  console.log("check processed", processedData);
-
+  document.querySelector(".color-choose").innerHTML = ` `;
+  console.log("js-114-Check processed", processedData);
   for (let key in processedData) {
-    console.log("key", key, "dict", colorDict[key]);
+    console.log("js-117-", key, "dict", colorDict[key]);
     document.querySelector(".color-choose").innerHTML += `
     <div   id='${colorDict[key]}-button'>
       <input data-image="${colorDict[key]}" type="radio" id="${colorDict[key]}" name="color" value="${colorDict[key]}" onclick="renderSize('${colorDict[key]}')">
       <label for="${colorDict[key]}"><span></span></label>
-    </div>
-    `;
+    </div>`;
   }
 }
 
@@ -114,19 +124,16 @@ async function renderProductDetails() {
 async function getProductVariant() {
   const urlParams = new URLSearchParams(window.location.search);
   const targetId = urlParams.get("id");
-
   let res = await fetch(`/product_variant?id=${targetId}`);
-
   let result = await res.json();
-  console.log("check result 2", result);
-
+  console.log("js-136-Check result ", result);
   return combineColors(result.data);
-  // return result;
 }
+
+// <!--------------------------- combineColors ----------------------------------------------->
 
 async function combineColors(input) {
   let final = {};
-
   for (let entry of input) {
     if (final[entry.color] != undefined) {
       console.log("color added already");
@@ -145,20 +152,19 @@ async function combineColors(input) {
           unit_price: entry.unit_price,
         },
       ];
-      console.log("color added just now ");
+      console.log("js-163-Check color added just now ");
     }
   }
-
-  console.log(final);
+  console.log("js-167-Check", final);
   return final;
 }
+// <!--------------------------- renderSize ----------------------------------------------->
 
 async function renderSize(key) {
-  console.log("gg", key, reverseDict[key]);
+  console.log("js-172-", key, reverseDict[key]);
   let finalHTML = "";
   for (let entry of processedData[reverseDict[key]]) {
-    console.log("hihi3333", entry);
-
+    console.log("js-175-", entry);
     finalHTML += `<button onclick="logSelectedProductVariantId(${entry.product_variant_id})">${entry.size}</button>`;
   }
   document.querySelector(".size-choose").innerHTML = finalHTML;
@@ -166,13 +172,14 @@ async function renderSize(key) {
 
 function logSelectedProductVariantId(targetId) {
   selectedProductVariantId = targetId;
-  console.log(selectedProductVariantId);
+  console.log("js-184-Check variant id =", selectedProductVariantId);
 }
 
 // <!--------------------------- add to cart ----------------------------------------------->
+
 async function addCart() {
-  console.log("ggggggggg");
-  // handle if not select product variant
+  console.log("js-189-Checked add to cart");
+
   let res = await fetch("/addToCart", {
     method: "post",
     headers: {
@@ -181,3 +188,4 @@ async function addCart() {
     body: JSON.stringify({ product_variant_id: selectedProductVariantId }),
   });
 }
+document.querySelector(".cart-btn").addEventListener("click", addCart);

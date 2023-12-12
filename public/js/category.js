@@ -33,9 +33,9 @@ async function renderProducts(id) {
   for (let entry of data) {
     allProduct += `
     <div class="productBox1">
-    <img src="${entry.image}" class="product_img_1"/>
+    <img src="${entry.category_name}/${entry.image}" class="product_img_1"/>
     <div class="productBoxBody">
-    <h5 class="product_title"> ${entry.name}</h5>
+    <h5 class="product_title"> ${entry.product_name}</h5>
     <h5 class="product_text">$${entry.unit_price}</h5><a href='/product.html?id=${entry.id}' class="btn btn-primary">More Details</a>
     </div>
     </div>
