@@ -54,7 +54,7 @@ function closeForm() {
   document.getElementById("myForm").style.display = "none";
 }
 
-// <!---------------------------addToCartBtn----------------------------------------------->
+// <!---------------------------addToCartBtn Hover----------------------------------------------->
 
 let addToCartBtn = document.querySelector(".cart-btn");
 let opt = {
@@ -62,7 +62,6 @@ let opt = {
   textOnClick: "Item Added",
   interval: 2000,
 };
-
 let setAddToCartText = () => {
   addToCartBtn.innerHTML = opt.textOnClick;
   let init = () => {
@@ -72,8 +71,6 @@ let setAddToCartText = () => {
 };
 
 addToCartBtn.addEventListener("click", setAddToCartText);
-
-// };
 
 // <!--------------------------- get product details ----------------------------------------------->
 
