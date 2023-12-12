@@ -20,7 +20,6 @@ declare module "express-session" {
     email?: string;
   }
 }
-//<-------------------------------------------------------------------------------------------------------------------->
 
 //<---APP.USE--------------------------------------------------------------------------------------------------------->
 // app.use(loggerMiddleware);
@@ -87,7 +86,7 @@ app.get("/category", async (req, res) => {
     res.json({ data: allResult.rows });
   } else {
     let allResult = await pgClient.query(
-      "SELECT * FROM product join category on product.category_id = category.id"
+      "SELECT product.name as product_name,category.name as category_name , image,unit_price,product.id  FROM product join category on product.category_id = category.id"
     );
     res.json({ data: allResult.rows });
   }
@@ -112,9 +111,6 @@ app.get("/product_variant", async (req, res) => {
       "SELECT * from product_variant WHERE product_id = $1",
       [req.query.id]
     );
-
-    // console.log(queryResult.rows);
-
     res.json({ data: queryResult.rows });
   }
 });
@@ -133,6 +129,7 @@ app.get("/username", (req, res) => {
 app.get("/shopping_cart", async (req, res) => {
   res.redirect("/");
 });
+
 //<---APP.POST------------------------------------------------------------------------------------------------------------>
 app.post("/register", async (req, res) => {
   console.log(req.body.email, req.body.passwordInput1);
@@ -227,7 +224,7 @@ app.post("/addToCart", async (req, res) => {
   );
   res.json({ message: "added to shoppingCart" });
 });
-//<------------------------------------------------------------------------------------------------------------------>
+
 //<----404----------------------------------------------------------------------------------------------------------->
 app.use((req: Request, res: Response) => {
   res.status(404).sendFile(resolve("public/html/404.html"));
