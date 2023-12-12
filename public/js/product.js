@@ -74,22 +74,25 @@ var reverseDict = {
   purple: "淺紫色",
 };
 async function renderProductDetails() {
-  console.log("hihihi1");
   const urlParams = new URLSearchParams(window.location.search);
   const targetId = urlParams.get("id");
 
   let res = await fetch(`/product?id=${targetId}`);
   let result = await res.json();
-  console.log("hihihi2");
-  console.log(result);
+
+  let categoryRes = await fetch(`/category`);
+  let categoryResult = await categoryRes.json();
 
   document.querySelector(
     ".product-description"
-  ).innerHTML = `  <span>按摩用品</span>
-   <h1>${result[0].name}</h1>
-   <p>${result[0].description}<br>
+  ).innerHTML = `  <h5>${categoryResult[0]}<br>
+   <h2>${result[0].name}</h2><br><br>
+   <h5>${result[0].description}<br><br><br><br>
+   <h5>Brand : ${result[0].brand}</h5>
+   <h5>Material : ${result[0].material}</h5>  
+<h2 class="product_text">Price : $${result[0].unit_price}</h2>
    
-   </p>`;
+   </h5>`;
 
   processedData = await getProductVariant();
 

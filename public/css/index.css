@@ -13,6 +13,13 @@ a {
 a:hover {
   color: #c0604f;
 }
+p {
+  color: black;
+}
+
+.product_text {
+  color: #d71345;
+}
 
 .Title {
   width: 1300px;
@@ -41,7 +48,7 @@ a:hover {
   justify-content: space-between;
 }
 .navbar {
-  width: 3000px;
+  width: 100%;
   background-color: #c0604f !important;
   font-weight: bold;
   display: flex;
@@ -129,6 +136,7 @@ a:hover {
   height: 250px;
   width: 1500px;
   align-items: center;
+  margin-top: 50px;
 }
 .productcol {
   width: 290px;
@@ -271,7 +279,7 @@ img {
   cursor: pointer;
   opacity: 0.8;
   position: fixed;
-  bottom: 25px;
+  bottom: 100px;
   right: 50px;
   width: 150px;
   border-radius: 20px;
