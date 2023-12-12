@@ -1,17 +1,13 @@
 window.onload = () => {
   getUsername();
   renderProductDetails();
+
+  document.querySelector(".cart-btn").addEventListener("click", addCart);
 };
 
+// Global variable
 let processedData;
-$(document).ready(function () {
-  $(".color-choose input").on("click", function () {
-    const ballColor = $(this).attr("data-image");
-    $(".active").removeClass("active");
-    $(".left-column img[data-image = " + ballColor + "]").addClass("active");
-    $(this).addClass("active");
-  });
-});
+let selectedProductVariantId;
 
 // <!---------------------------getUsername----------------------------------------------->
 async function getUsername() {
@@ -105,8 +101,8 @@ async function renderProductDetails() {
   for (let key in processedData) {
     console.log("key", key, "dict", colorDict[key]);
     document.querySelector(".color-choose").innerHTML += `
-    <div onclick="renderSize('${colorDict[key]}')">
-      <input data-image="${colorDict[key]}" type="radio" id="${colorDict[key]}" name="color" value="${colorDict[key]}" checked>
+    <div   id='${colorDict[key]}-button'>
+      <input data-image="${colorDict[key]}" type="radio" id="${colorDict[key]}" name="color" value="${colorDict[key]}" onclick="renderSize('${colorDict[key]}')">
       <label for="${colorDict[key]}"><span></span></label>
     </div>
     `;
@@ -159,10 +155,29 @@ async function combineColors(input) {
 
 async function renderSize(key) {
   console.log("gg", key, reverseDict[key]);
-
+  let finalHTML = "";
   for (let entry of processedData[reverseDict[key]]) {
-    console.log(entry);
+    console.log("hihi3333", entry);
+
+    finalHTML += `<button onclick="logSelectedProductVariantId(${entry.product_variant_id})">${entry.size}</button>`;
   }
+  document.querySelector(".size-choose").innerHTML = finalHTML;
+}
+
+function logSelectedProductVariantId(targetId) {
+  selectedProductVariantId = targetId;
+  console.log(selectedProductVariantId);
 }
 
 // <!--------------------------- add to cart ----------------------------------------------->
+async function addCart() {
+  console.log("ggggggggg");
+  // handle if not select product variant
+  let res = await fetch("/addToCart", {
+    method: "post",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ product_variant_id: selectedProductVariantId }),
+  });
+}

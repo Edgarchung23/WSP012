@@ -36,16 +36,6 @@ create table product (
     FOREIGN KEY (category_id) REFERENCES category(id)
 );
 
-create table shopping_cart(
-    id SERial primary key,
-    user_id integer ,
-    product_id integer ,
-    product_variant_id integer ,
-    quantity varchar ,
-    created_at timestamp default NOW(),
-    updated_at timestamp default NOW(),
-    FOREIGN KEY (user_id) REFERENCES users(id)
-);
 
 create table product_variant(
     id SERial primary key,
@@ -60,6 +50,18 @@ create table product_variant(
     updated_at timestamp default NOW(),
     FOREIGN KEY (product_id) REFERENCES product(id)
 );
+
+create table shopping_cart(
+    id SERial primary key,
+    user_id integer ,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    product_variant_id integer ,
+    FOREIGN KEY (product_variant_id) REFERENCES product_variant(id),
+    quantity varchar,
+    created_at timestamp default NOW(),
+    updated_at timestamp default NOW()
+);
+
 
 create table receipt(
     id SERial primary key,
