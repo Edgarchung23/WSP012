@@ -80,13 +80,13 @@ async function renderProductDetails() {
   let res = await fetch(`/product?id=${targetId}`);
   let result = await res.json();
 
-  let categoryRes = await fetch(`/category`);
-  let categoryResult = await categoryRes.json();
+  // let categoryRes = await fetch(`/category`);
+  // let categoryResult = await categoryRes.json();
 
   document.querySelector(
     ".product-description"
-  ).innerHTML = `  <h5>${categoryResult[0]}<br>
-   <h2>${result[0].name}</h2><br><br>
+  ).innerHTML = `  <h5>${result[0].category_name}<br>
+   <h2>${result[0].product_name}</h2><br><br>
    <h5>${result[0].description}<br><br><br><br>
    <h5>Brand : ${result[0].brand}</h5>
    <h5>Material : ${result[0].material}</h5>  

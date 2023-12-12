@@ -96,7 +96,7 @@ app.get("/category", async (req, res) => {
 app.get("/product", async (req, res) => {
   if (req.query.id) {
     let queryResult = await pgClient.query(
-      "SELECT * FROM product WHERE id = $1",
+      "SELECT product.name as product_name,description,brand,material,unit_price,category.name as category_name FROM product join category on product.category_id = category.id WHERE product.id = $1",
       [req.query.id]
     );
     res.json(queryResult.rows);
