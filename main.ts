@@ -96,8 +96,8 @@ app.get("/category", async (req, res) => {
 app.get("/product", async (req, res) => {
   if (req.query.id) {
     let queryResult = await pgClient.query(
-      "SELECT product.name as product_name,description,brand,material,unit_price,category.name as category_name FROM product join category on product.category_id = category.id WHERE product.id = $1",
-      [req.query.id]
+      "SELECT product.name as product_name,image,description,brand,material,unit_price,category.name as category_name FROM product join category on product.category_id = category.id WHERE product.id = $1",
+      [req.query.id] //                                                          product.image as product_image  FROM product_variant join product on product.image = category.image   );
     );
     res.json(queryResult.rows);
   } else {
@@ -195,8 +195,6 @@ app.post("/login", async (req, res) => {
   // use checkPassword  compare req.body.password with hashed
   // on return true,login success
   // on return false,login failed
-
-  // console.log(req.body.email, req.body.password);
 
   let queryResult = await pgClient.query(
     "SELECT username,password from users WHERE email = $1",

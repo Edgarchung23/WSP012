@@ -76,19 +76,16 @@ async function renderProductDetails() {
   let res = await fetch(`/product?id=${targetId}`);
   let result = await res.json();
 
-  // let categoryRes = await fetch(`/category`);
-  // let categoryResult = await categoryRes.json();
-
-  document.querySelector(
-    ".product-description"
-  ).innerHTML = `<h5>${result[0].category_name}<br>
+  document.querySelector(".left-column").innerHTML = `
+    <img src="${result.image}" class="product_var"/>
+`;
+  document.querySelector(".product-description").innerHTML = `
+  <h5>${result[0].category_name}<br>
    <h2>${result[0].product_name}</h2><br><br>
    <h5>${result[0].description}<br><br><br><br>
    <h5>Brand : ${result[0].brand}</h5>
    <h5>Material : ${result[0].material}</h5>  
-<h2 class="product_text">Price : $${result[0].unit_price}</h2>
-   
-   </h5>`;
+<h2 class="product_text">Price : $${result[0].unit_price}</h2></h5>`;
 
   processedData = await getProductVariant();
 

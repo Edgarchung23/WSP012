@@ -50,9 +50,10 @@ async function insertCategory() {
 
 // <---------------------------------------INSERT PRODUCTVARIANT------------------------------------------------------>
 async function insertProductVariant() {
-  const result = await client.query(`SELECT * FROM product WHERE name = $1`, [
-    "天然橡膠瑜伽墊 | 體位線版",
-  ]);
+  const result = await client.query(
+    `SELECT * FROM product WHERE name = $1 OR name = $2`,
+    ["天然橡膠瑜伽墊 | 體位線版", "家用加厚靜音減震瑜伽跳繩墊｜體位線版"]
+  );
   let productVariant_id = result.rows[0].id;
   const productVariantData: insertProductVariantType[] = [
     {
@@ -80,7 +81,7 @@ async function insertProductVariant() {
       thickness: 5,
       unit_price: 480,
       storage_count: 10,
-      image: "yoga_mat_3_lightpurple.png",
+      image: "yoga_mat_4.png",
     },
   ];
 

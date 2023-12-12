@@ -33,6 +33,7 @@ h5 {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
+  margin-bottom: 10px;
 }
 .btn-primary {
   background-color: rgb(249, 217, 76);
@@ -45,4 +46,8 @@ h5 {
   width: 28px;
   height: 28px;
   margin-right: 4px;
+}
+
+.product_title {
+  height: 40px;
 }
