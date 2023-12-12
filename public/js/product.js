@@ -1,8 +1,6 @@
 window.onload = () => {
   getUsername();
   renderProductDetails();
-
-  document.querySelector(".cart-btn").addEventListener("click", addCart);
 };
 
 // Global variable
@@ -74,6 +72,7 @@ let setAddToCartText = () => {
 };
 
 addToCartBtn.addEventListener("click", setAddToCartText);
+
 // };
 
 // <!--------------------------- get product details ----------------------------------------------->
@@ -177,9 +176,10 @@ function logSelectedProductVariantId(targetId) {
 }
 
 // <!--------------------------- add to cart ----------------------------------------------->
+
 async function addCart() {
   console.log("js-189-Checked add to cart");
-  // handle if not select product variant
+
   let res = await fetch("/addToCart", {
     method: "post",
     headers: {
@@ -188,3 +188,4 @@ async function addCart() {
     body: JSON.stringify({ product_variant_id: selectedProductVariantId }),
   });
 }
+document.querySelector(".cart-btn").addEventListener("click", addCart);
