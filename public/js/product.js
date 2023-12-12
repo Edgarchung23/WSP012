@@ -103,16 +103,22 @@ async function renderProductDetails() {
 <h2 class="product_text">Price : $${result[0].unit_price}</h2></h5>`;
 
   processedData = await getProductVariant();
-
-  document.querySelector(".color-choose").innerHTML = ` `;
-  console.log("js-114-Check processed", processedData);
-  for (let key in processedData) {
-    console.log("js-117-", key, "dict", colorDict[key]);
-    document.querySelector(".color-choose").innerHTML += `
+  console.log(Object.keys(processedData).length);
+  if (Object.keys(processedData).length > 1) {
+    document.querySelector(".color-choose").innerHTML = ` `;
+    console.log("js-114-Check processed", processedData);
+    for (let key in processedData) {
+      console.log("js-117-", key, "dict", colorDict[key]);
+      document.querySelector(".color-choose").innerHTML += `
     <div   id='${colorDict[key]}-button'>
       <input data-image="${colorDict[key]}" type="radio" id="${colorDict[key]}" name="color" value="${colorDict[key]}" onclick="renderSize('${colorDict[key]}')">
       <label for="${colorDict[key]}"><span></span></label>
     </div>`;
+    }
+  } else {
+    document.querySelector(".option-area").innerHTML = `only 1 option`;
+
+    selectedProductVariantId = processedData[0].id;
   }
 }
 
@@ -124,7 +130,16 @@ async function getProductVariant() {
   let res = await fetch(`/product_variant?id=${targetId}`);
   let result = await res.json();
   console.log("js-136-Check result ", result);
-  return combineColors(result.data);
+
+  if (result.data.length > 1) {
+    console.log(result.data.length);
+    console.log(result.data);
+    return combineColors(result.data);
+  } else {
+    console.log(result.data.length);
+    console.log(result.data);
+    return result.data;
+  }
 }
 
 // <!--------------------------- combineColors ----------------------------------------------->

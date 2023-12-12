@@ -54,11 +54,11 @@ async function insertProductVariant() {
     `SELECT * FROM product WHERE name = $1 `, //OR name = $2
     ["天然橡膠瑜伽墊 | 體位線版"] // "家用加厚靜音減震瑜伽跳繩墊｜體位線版"
   );
-  let productVariant_id = result.rows[1].id;
+  let product_id = result.rows[0].id;
   // let productVariant_2_id = result.rows[0].id;
   const productVariantData: insertProductVariantType[] = [
     {
-      product_id: productVariant_id,
+      product_id: product_id,
       color: "粉紅色",
       size: "183 x 68cm",
       thickness: 5,
@@ -67,7 +67,7 @@ async function insertProductVariant() {
       image: "yoga_mat_3.png",
     },
     {
-      product_id: productVariant_id,
+      product_id: product_id,
       color: "淺紫色",
       size: "183 x 68cm",
       thickness: 5,
@@ -87,6 +87,27 @@ async function insertProductVariant() {
         entry.thickness,
         entry.unit_price,
         entry.storage_count,
+        entry.image,
+      ]
+    );
+  }
+
+  let result2 = await client.query(`SELECT * from product where id != $1 `, [
+    result.rows[0].id,
+  ]);
+
+  console.log(result2.rows);
+
+  for (let entry of result2.rows) {
+    await client.query(
+      `INSERT INTO product_variant (product_id,color,size,thickness,unit_price,storage_count,image) VALUES ($1,$2,$3,$4,$5,$6,$7)`,
+      [
+        entry.id,
+        "only 1 option",
+        "only 1 size",
+        0,
+        entry.unit_price,
+        10,
         entry.image,
       ]
     );
