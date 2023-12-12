@@ -81,7 +81,7 @@ async function renderProductDetails() {
 
   document.querySelector(
     ".product-description"
-  ).innerHTML = `  <h5>${result[0].category_name}<br>
+  ).innerHTML = `<h5>${result[0].category_name}<br>
    <h2>${result[0].product_name}</h2><br><br>
    <h5>${result[0].description}<br><br><br><br>
    <h5>Brand : ${result[0].brand}</h5>
