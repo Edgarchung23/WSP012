@@ -4,15 +4,15 @@ body {
   justify-content: center;
 }
 
-a {
-  color: black;
-  display: inline-block;
-  text-decoration: none;
-  font-weight: 400;
-}
-
 .loginForm {
   margin: 50px;
+}
+
+a {
+  color: black;
+}
+a:hover {
+  color: #c0604f;
 }
 
 /* STRUCTURE */
@@ -39,9 +39,6 @@ a {
   -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
   box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
   text-align: center;
-}
-#loginbutton {
-  color: black;
 }
 
 #formFooter {
@@ -213,4 +210,31 @@ input[type="text"]:placeholder {
 
 #icon {
   width: 60%;
+}
+
+#loginRegisterbutton {
+  font-size: 30px;
+  display: flex;
+  margin-top: 20px;
+  color: black;
+  width: 200px;
+  height: 40px;
+  align-items: center;
+}
+
+#loginRegisterbutton:hover {
+  color: #c0604f;
+}
+
+.btn-dark:hover {
+  background-color: #c0604f !important;
+}
+
+.btn-outline-secondary:hover {
+  background-color: white;
+}
+
+#user-loginedlogo {
+  width: 28px;
+  height: 28px;
 }

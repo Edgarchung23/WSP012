@@ -2,6 +2,7 @@ window.onload = () => {
   submitEventHandle();
 };
 
+// <!---------------------------submitEventHandle----------------------------------------------->
 function submitEventHandle() {
   document
     .querySelector("#login-form")
@@ -22,24 +23,31 @@ function submitEventHandle() {
         }),
       });
 
-      console.log(res);
-
       if (res.status != 200) {
         let result = await res.json();
         console.log(result.message);
         Swal.fire({
           icon: "error",
-          title: "Oops...",
+          title: "Login Faild",
           text: result.message,
         });
       } else {
         Swal.fire({
           icon: "success",
           title: "Login Success",
-          text: "Login Success",
+          text: "",
         }).then(() => {
           window.location.href = "/";
         });
       }
     });
+}
+
+// <!---------------------------chat----------------------------------------------->
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
 }

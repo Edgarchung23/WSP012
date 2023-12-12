@@ -6,11 +6,6 @@
   border-radius: 5px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
 }
-.container .title {
-  font-size: 25px;
-  font-weight: 500;
-  position: relative;
-}
 
 .container .title::before {
   content: "";
@@ -132,15 +127,22 @@ form .button input:hover {
 .content {
   padding-top: 50px;
   padding-bottom: 20px;
+  width: 800px;
 }
 
 #registerbutton {
   color: black;
   background-color: #c0604f;
+  width: 800px;
 }
 
 .register {
   display: flex;
   justify-content: center;
   margin-top: 30px;
+}
+
+#user-loginedlogo {
+  width: 28px;
+  height: 28px;
 }

@@ -17,6 +17,7 @@ declare module "express-session" {
   interface SessionData {
     username?: string;
     grant?: any;
+    email?: string;
   }
 }
 //<-------------------------------------------------------------------------------------------------------------------->
@@ -80,25 +81,58 @@ app.get("/register", (req, res) => {
 });
 
 app.get("/category", async (req, res) => {
-  let queryResult = await pgClient.query("SELECT * FROM category ");
-  res.json(queryResult.rows);
+  if (req.query.id) {
+    let allResult = await pgClient.query(
+      "SELECT * FROM product WHERE product.category_id = $1",
+      [req.query.id]
+    );
+    res.json({ data: allResult.rows });
+  } else {
+    let allResult = await pgClient.query("SELECT * FROM product");
+    res.json({ data: allResult.rows });
+  }
 });
+
 app.get("/product", async (req, res) => {
-  let queryResult = await pgClient.query("SELECT * FROM product ");
-  res.json(queryResult.rows);
+  if (req.query.id) {
+    let queryResult = await pgClient.query(
+      "SELECT * FROM product WHERE id = $1",
+      [req.query.id]
+    );
+    res.json(queryResult.rows);
+  } else {
+    let queryResult = await pgClient.query("SELECT * FROM product ");
+    res.json(queryResult.rows);
+  }
 });
+
+app.get("/product_variant", async (req, res) => {
+  if (req.query.id) {
+    let queryResult = await pgClient.query(
+      "SELECT * from product_variant WHERE product_id = $1",
+      [req.query.id]
+    );
+
+    // console.log(queryResult.rows);
+
+    res.json({ data: queryResult.rows });
+  }
+});
+
 app.get("/product/image", async (req, res) => {
   let queryResult = await pgClient.query("SELECT * FROM product ");
   res.json(queryResult.rows);
 });
 
 app.get("/username", (req, res) => {
-  // console.log("hihihi", req.session.username);
   if (req.session.username)
     res.json({ message: "success", data: req.session.username });
   else res.status(400).json({ message: "you are not logged in" });
 });
 
+app.get("/shopping_cart", async (req, res) => {
+  res.redirect("/");
+});
 //<---APP.POST------------------------------------------------------------------------------------------------------------>
 app.post("/register", async (req, res) => {
   console.log(req.body.email, req.body.passwordInput1);
@@ -150,11 +184,12 @@ app.post("/register", async (req, res) => {
 
         // res.redirect("/register");
         // res.redirect("/login");
-        res.json({ message: "register success" });
+        res.json({ message: "Register success" });
       }
     }
   }
 });
+
 app.post("/login", async (req, res) => {
   // req.body.username ,find matching row from db,extract the hashed
   // use checkPassword  compare req.body.password with hashed
@@ -182,17 +217,22 @@ app.post("/login", async (req, res) => {
       req.session["username"] = queryResult.rows[0].username;
       res.json({ message: "login success" });
     } else {
-      res.status(400).json({ message: "password is incorrect" });
+      res.status(400).json({ message: "Password is incorrect" });
     }
   } else {
-    res.status(400).json({ message: "username is incorrect" });
+    res.status(400).json({ message: "Email is incorrect" });
   }
 });
 
+app.post("/addToCart", async (req, res) => {
+  console.log(req.body.product_id, req.session.email);
+  await pgClient.query(
+    `insert into shopping_cart (user_id, product_id, product_variant_id, quantity) VALUES ($1,(SELECT id FROM users WHERE email = $2),$3,$4 )`,
+    [req.body.product_id, req.session.email]
+  );
+  res.json({ message: "added to shoppingCart" });
+});
 //<------------------------------------------------------------------------------------------------------------------>
-
-
-
 
 //<----404----------------------------------------------------------------------------------------------------------->
 app.use((req: Request, res: Response) => {

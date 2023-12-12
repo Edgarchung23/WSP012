@@ -17,13 +17,12 @@ window.onload = () => {
     }
     slides[slideIndex - 1].style.display = "block";
     dots[slideIndex - 1].className += " active";
-    setTimeout(showSlides, 6000); // Change image every 2 seconds
+    setTimeout(showSlides, 3000); // Change image every 2 seconds
   }
-
   getUsername();
 };
 
-//<------------------------------------------------------------------------------------------------------------------>
+// <!---------------------------getUsername----------------------------------------------->
 async function getUsername() {
   let httpResponse = await fetch("/username");
   let result;
@@ -31,17 +30,15 @@ async function getUsername() {
   if (httpResponse.status == 200) {
     result = await httpResponse.json();
 
-    console.log("username", result);
-
     document.querySelector(
       "#username-display"
-    ).innerHTML = `<button class=btn btn-out line-success" type="submit"> Welcome ${result.data} </button>`;
+    ).innerHTML = `<button class=btn btn-outline-success" type="submit"><img src="../image/user-interface.png" id="user-loginedlogo" ;> ${result.data} </button>`;
 
     document.querySelector(
       "#logout-area"
-    ).innerHTML = `<button class="btn btn-outline-secondary" onclick="logout()">
-    Log out 
-    </button>`;
+    ).innerHTML = `<button class="btn btn-outline-secondary" onclick="logout()"><img src="../image/logout.png" id="logout-logo" ;>
+        Log out 
+        </button>`;
 
     addLogoutEventListener();
   } else {
@@ -49,6 +46,19 @@ async function getUsername() {
   }
 }
 
+// <!---------------------------getUsername----------------------------------------------->
+async function addToCart(product_id) {
+  console.log("check id", product_id);
+  await fetch("/addTocart", {
+    method: "post",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ product_id: product_id }),
+  });
+}
+
+// <!---------------------------logout----------------------------------------------->
 async function logout() {
   console.log("trying logout");
 
@@ -57,4 +67,11 @@ async function logout() {
   window.location.reload();
 }
 
+// <!---------------------------chat----------------------------------------------->
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
 
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
