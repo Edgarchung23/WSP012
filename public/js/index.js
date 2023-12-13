@@ -1,4 +1,5 @@
 window.onload = () => {
+  getUsername();
   let slideIndex = 0;
   showSlides();
   function showSlides() {
@@ -19,7 +20,6 @@ window.onload = () => {
     dots[slideIndex - 1].className += " active";
     setTimeout(showSlides, 3000); // Change image every 2 seconds
   }
-  getUsername();
 };
 
 // <!---------------------------getUsername----------------------------------------------->
