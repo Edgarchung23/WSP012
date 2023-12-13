@@ -16,7 +16,7 @@ async function getUsername() {
   if (httpResponse.status == 200) {
     result = await httpResponse.json();
 
-    console.log("username", result);
+    // console.log("username", result);
 
     document.querySelector(
       "#username-display"
@@ -25,8 +25,8 @@ async function getUsername() {
     document.querySelector(
       "#logout-area"
     ).innerHTML = `<button class="btn btn-outline-secondary" onclick="logout()"><img src="../image/icon/logout.png" id="logout-logo" ;>
-      Log out 
-      </button>`;
+          Log out 
+          </button>`;
 
     addLogoutEventListener();
   } else {

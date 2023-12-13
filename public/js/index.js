@@ -42,7 +42,7 @@ async function getUsername() {
 
     addLogoutEventListener();
   } else {
-    result = await httpResponse.json();
+    console.log("check username failed");
   }
 }
 
@@ -74,4 +74,9 @@ function openForm() {
 
 function closeForm() {
   document.getElementById("myForm").style.display = "none";
+}
+
+// <!---------------------------tmp----------------------------------------------->
+function addLogoutEventListener() {
+  console.log("logout");
 }

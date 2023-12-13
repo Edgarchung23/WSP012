@@ -96,8 +96,6 @@ async function insertProductVariant() {
     result.rows[0].id,
   ]);
 
-  console.log(result2.rows);
-
   for (let entry of result2.rows) {
     await client.query(
       `INSERT INTO product_variant (product_id,color,size,thickness,unit_price,storage_count,image) VALUES ($1,$2,$3,$4,$5,$6,$7)`,

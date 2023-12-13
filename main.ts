@@ -128,12 +128,23 @@ app.get("/username", (req, res) => {
 
 app.get("/shopping_cart", async (req, res) => {
   let result = await pgClient.query(
-    "SELECT * from shopping_cart join product_variant on product_variant_id = product_variant.id JOIN product on product_variant.product_id = product.id WHERE user_id = (SELECT id from user where email = $1)",
+    "SELECT * from shopping_cart join product_variant on product_variant_id = product_variant.id JOIN product on product_variant.product_id = product.id WHERE user_id = (SELECT id from users where email = $1)",
     [req.session.email]
   );
   res.json(result.rows);
 });
 
+app.get("/addToCart", async (req, res) => {
+  let result = await pgClient.query(
+    `SELECT * 
+    from shopping_cart 
+    join product_variant on product_variant_id = product_variant.id 
+    JOIN product on product_variant.product_id = product.id 
+    WHERE user_id = (SELECT id from users where email = $1)`,
+    [req.session.email]
+  );
+  res.json(result.rows);
+});
 //<---APP.POST------------------------------------------------------------------------------------------------------------>
 app.post("/register", async (req, res) => {
   console.log(req.body.email, req.body.passwordInput1);
@@ -179,9 +190,6 @@ app.post("/register", async (req, res) => {
             hashed,
           ]
         );
-
-        // res.redirect("/register");
-        // res.redirect("/login");
         res.json({ message: "Register success" });
       }
     }

@@ -31,6 +31,7 @@ async function getUsername() {
 
 async function renderCartProducts() {
   let res = await fetch("/addToCart");
+  console.log(res);
   let data = await res.json();
   let cartProduct = "";
 
@@ -41,11 +42,11 @@ async function renderCartProducts() {
         <div class="row d-flex justify-content-between align-items-center">
             <div class="col-md-2 col-lg-2 col-xl-2">
                 <img src="${entry.image}" class="img-fluid rounded-3"
-                    alt="Cotton T-shirt">
+                    alt="">
             </div>
             <div class="col-md-3 col-lg-3 col-xl-3">
-                <p class="lead fw-normal mb-2">Test4</p>
-                <p><span class="text-muted">Size: </span>${entry.name}<span class="text-muted">Color:
+                <p class="lead fw-normal mb-2">${entry.name}</p>
+                <p><span class="text-muted">Size: </span>M <span class="text-muted">Color:
                     </span>Grey</p>
             </div>
             <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
@@ -63,14 +64,14 @@ async function renderCartProducts() {
                 </button>
             </div>
             <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                <h5 class="mb-0">$400.00</h5>
+                <h5 class="mb-0">${entry.unit_price}</h5>
             </div>
             <div class="col-md-1 col-lg-1 col-xl-1 text-end">
                 <a href="#!" class="text-danger"><i class="fas fa-trash fa-lg"></i></a>
             </div>
         </div>
     </div>
-</div>
+    </div>
     `;
   }
   document.querySelector(".col-10").innerHTML = cartProduct;
