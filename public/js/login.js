@@ -44,6 +44,7 @@ function submitEventHandle() {
 }
 
 // <!---------------------------chat----------------------------------------------->
+// <!---------------------------chat----------------------------------------------->
 function openForm() {
   document.getElementById("myForm").style.display = "block";
 }
