@@ -47,7 +47,6 @@ async function getUsername() {
 }
 
 // <!---------------------------getUsername----------------------------------------------->
-// <!---------------------------getUsername----------------------------------------------->
 async function addToCart(product_id) {
   console.log("check id", product_id);
   await fetch("/addTocart", {

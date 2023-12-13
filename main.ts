@@ -135,6 +135,7 @@ app.get("/shopping_cart", async (req, res) => {
 });
 
 app.get("/addToCart", async (req, res) => {
+  console.log("check");
   let result = await pgClient.query(
     `SELECT * 
     from shopping_cart 
