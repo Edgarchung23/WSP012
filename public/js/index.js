@@ -1,5 +1,4 @@
 window.onload = () => {
-  getUsername();
   let slideIndex = 0;
   showSlides();
   function showSlides() {
@@ -20,6 +19,7 @@ window.onload = () => {
     dots[slideIndex - 1].className += " active";
     setTimeout(showSlides, 3000); // Change image every 2 seconds
   }
+  getUsername();
 };
 
 // <!---------------------------getUsername----------------------------------------------->
@@ -46,7 +46,6 @@ async function getUsername() {
   }
 }
 
-// <!---------------------------getUsername----------------------------------------------->
 // <!---------------------------getUsername----------------------------------------------->
 async function addToCart(product_id) {
   console.log("check id", product_id);

@@ -41,12 +41,12 @@ async function renderCartProducts() {
     <div class="card-body p-4">
         <div class="row d-flex justify-content-between align-items-center">
             <div class="col-md-2 col-lg-2 col-xl-2">
-                <img src="${entry.quantity}" class="img-fluid rounded-3"
+                <img src="${entry.image}" class="img-fluid rounded-3"
                     alt="">
             </div>
             <div class="col-md-3 col-lg-3 col-xl-3">
                 <p class="lead fw-normal mb-2">${entry.name}</p>
-                <p><span class="text-muted">Size: </span>${entry.size}<span class="text-muted">Color:
+                <p><span class="text-muted">Size: </span>M <span class="text-muted">Color:
                     </span>Grey</p>
             </div>
             <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
@@ -71,7 +71,7 @@ async function renderCartProducts() {
             </div>
         </div>
     </div>
-</div>
+
     `;
   }
   document.querySelector(".col-10").innerHTML = cartProduct;
