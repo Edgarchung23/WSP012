@@ -71,7 +71,7 @@ async function renderCartProducts() {
             </div>
         </div>
     </div>
-
+    </div>
     `;
   }
   document.querySelector(".col-10").innerHTML = cartProduct;

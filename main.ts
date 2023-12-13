@@ -37,10 +37,6 @@ app.use(
   })
 );
 
-// app.get("/login", (req, res) =>
-//   res.sendFile(__dirname + "/public/html/login.html")
-// );
-
 //<---APP.GET--------------------------------------------------------------------------------------------------------->
 app.get("/", (req, res) => {
   res.send("hello world");
