@@ -9,9 +9,12 @@ declare module "express-session" {
 }
 export function isLoggedIn(req: Request, res: Response, next: NextFunction) {
   if (req.session["username"]) {
+    console.log("you are authorized")
     next();
   } else {
-    res.redirect("/");
+    console.log("you are not authorized")
+
+    res.status(401).json({message:"you have to log in"});
   }
 }
 
@@ -19,6 +22,6 @@ export function isAdmin(req: Request, res: Response, next: NextFunction) {
   if (req.session["isAdmin"] == true) {
     next();
   } else {
-    res.redirect("/");
+    res.status(401).json({message:"you are not admin"});
   }
 }

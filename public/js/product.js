@@ -1,11 +1,45 @@
+// Global variable
+let processedData;
+let selectedProductVariantId;
+
 window.onload = () => {
   getUsername();
   renderProductDetails();
 };
 
-// Global variable
-let processedData;
-let selectedProductVariantId;
+
+
+
+let addToCartBtn = document.querySelector(".cart-btn");
+
+addToCartBtn.addEventListener("click", setAddToCartText);
+
+
+addToCartBtn.addEventListener("click", addCart);
+
+
+async function addCart() {
+  console.log("js-189-Checked add to cart");
+
+  let res = await fetch("/addToCart", {
+    method: "post",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ product_variant_id: selectedProductVariantId }),
+  });
+
+  console.log(res.status)
+
+  if (res.status == 401) {
+    Swal.fire({
+      icon: "error",
+      title: "You haven't log in",
+    });
+  }
+
+}
+
 
 // <!---------------------------getUsername----------------------------------------------->
 
@@ -57,21 +91,18 @@ function closeForm() {
 
 // <!---------------------------addToCartBtn Hover----------------------------------------------->
 
-let addToCartBtn = document.querySelector(".cart-btn");
 let opt = {
   initialText: "Add to Cart",
   textOnClick: "Item Added",
   interval: 2000,
 };
-let setAddToCartText = () => {
+function setAddToCartText() {
   addToCartBtn.innerHTML = opt.textOnClick;
   let init = () => {
     addToCartBtn.innerHTML = opt.initialText;
   };
   setTimeout(init, opt.interval);
 };
-
-addToCartBtn.addEventListener("click", setAddToCartText);
 
 // <!--------------------------- get product details ----------------------------------------------->
 
@@ -190,15 +221,3 @@ function logSelectedProductVariantId(targetId) {
 
 // <!--------------------------- add to cart ----------------------------------------------->
 
-async function addCart() {
-  console.log("js-189-Checked add to cart");
-
-  let res = await fetch("/addToCart", {
-    method: "post",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ product_variant_id: selectedProductVariantId }),
-  });
-}
-document.querySelector(".cart-btn").addEventListener("click", addCart);
