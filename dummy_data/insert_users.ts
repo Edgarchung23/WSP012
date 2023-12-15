@@ -6,6 +6,7 @@ type UserType = {
   email: string;
   phonenumber: string;
   password: string;
+  isAdmin: boolean;
 };
 
 async function insertUser() {
@@ -16,6 +17,7 @@ async function insertUser() {
       email: "edgar2023@gmail.com",
       phonenumber: "99999999",
       password: "1234",
+      isAdmin: false,
     },
     {
       fullname: "navy",
@@ -23,6 +25,7 @@ async function insertUser() {
       email: "navy2023@gmail.com",
       phonenumber: "00000000",
       password: "1234",
+      isAdmin: true,
     },
   ];
 
@@ -31,8 +34,15 @@ async function insertUser() {
   for (let entry of UserArray) {
     let hashed = await hashPassword(entry.password);
     await pgClient.query(
-      "INSERT INTO users (fullname,username,email,phonenumber,password) VALUES ($1,$2,$3,$4,$5)",
-      [entry.fullname, entry.username, entry.email, entry.phonenumber, hashed]
+      "INSERT INTO users (fullname,username,email,phonenumber,password,isAdmin) VALUES ($1,$2,$3,$4,$5,$6)",
+      [
+        entry.fullname,
+        entry.username,
+        entry.email,
+        entry.phonenumber,
+        hashed,
+        entry.isAdmin,
+      ]
     );
   }
 
