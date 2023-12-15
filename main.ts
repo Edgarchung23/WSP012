@@ -14,6 +14,12 @@ export type UserListType = Array<{ username: string; password: string }>;
 const app = express();
 const port = 8080;
 
+app.use((req, res, next) => {
+  console.log(req.url);
+
+  next();
+});
+
 pgClient.connect();
 //<-------------------------------------------------------------------------------------------------------------------->
 

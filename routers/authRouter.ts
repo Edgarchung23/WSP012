@@ -114,9 +114,11 @@ async function login(req: Request, res: Response) {
 }
 
 async function getUsername(req: Request, res: Response) {
-  if (req.session.username)
+  console.log("get session username");
+  if (req.session.username) {
+    console.log(req.session.username);
     res.json({ message: "success", data: req.session.username });
-  else res.status(400).json({ message: "you are not logged in" });
+  } else res.status(400).json({ message: "you are not logged in" });
 }
 
 async function logout(req: Request, res: Response) {

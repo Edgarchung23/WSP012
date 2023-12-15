@@ -8,3 +8,4 @@ export const pgClient = new pg.Client({
   user: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
 });
+`

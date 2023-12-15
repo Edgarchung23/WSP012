@@ -25,10 +25,9 @@ window.onload = () => {
 // <!---------------------------getUsername----------------------------------------------->
 async function getUsername() {
   let httpResponse = await fetch("/username");
-  let result;
 
   if (httpResponse.status == 200) {
-    result = await httpResponse.json();
+    let result = await httpResponse.json();
 
     document.querySelector(
       "#username-display"
