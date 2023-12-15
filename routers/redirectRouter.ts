@@ -13,3 +13,4 @@ redirectRouter.get("/login", async (req, res) => {
 redirectRouter.get("/register", (req, res) => {
   res.redirect("/register.html");
 });
+  

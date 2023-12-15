@@ -37,17 +37,16 @@ async function renderCartProducts() {
 
   for (let entry of data) {
     cartProduct += `
-    <div class="pcard">
-    <div class="card-body p-4">
-        <div class="row d-flex justify-content-between align-items-center">
+    <div class = cartBody>
+        <div class="cartRow d-flex justify-content-between align-items-center">
             <div class="col-md-2 col-lg-2 col-xl-2">
-                <img src="${entry.image}" class="img-fluid rounded-3"
+                <img src="${entry.category_name}/${entry.image}" class="img-fluid rounded-3"
                     alt="">
             </div>
             <div class="col-md-3 col-lg-3 col-xl-3">
-                <p class="lead fw-normal mb-2">${entry.name}</p>
-                <p><span class="text-muted">Size: </span>M <span class="text-muted">Color:
-                    </span>Grey</p>
+                <p class="lead fw-normal mb-2">${entry.product_name}</p>
+                <p><span class="text-muted">Size: </span> ${entry.size}<span class="text-muted">  Color:
+                    </span>${entry.color}</p>
             </div>
             <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
                 <button class="btn btn-link px-2"
@@ -70,8 +69,8 @@ async function renderCartProducts() {
                 <a href="#!" class="text-danger"><i class="fas fa-trash fa-lg"></i></a>
             </div>
         </div>
-    </div>
-    </div>
+
+
     `;
   }
   document.querySelector(".col-10").innerHTML = cartProduct;
