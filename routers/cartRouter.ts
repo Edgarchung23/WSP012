@@ -1,7 +1,6 @@
 import { Router } from "express";
 import { pgClient } from "../pgClient";
 import { isLoggedIn } from "../middleware";
-
 export const cartRouter = Router();
 
 cartRouter.get("/shopping_cart", async (req, res) => {
@@ -36,3 +35,5 @@ cartRouter.post("/addToCart", isLoggedIn, async (req, res) => {
   );
   res.json({ message: "added to shoppingCart" });
 });
+
+//<---APP.DELECT------------------------------------------------------------------------------------------------------------>

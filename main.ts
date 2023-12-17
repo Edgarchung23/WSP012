@@ -1,5 +1,4 @@
-import express from "express";
-import { Request, Response } from "express";
+import express, { Request, Response } from "express";
 import { resolve } from "path";
 import { pgClient } from "./pgClient";
 import expressSession from "express-session";
@@ -43,6 +42,19 @@ app.use(redirectRouter);
 app.use(authRouter);
 app.use(productRouter);
 app.use(cartRouter);
+
+//<---DELETE PRODUCT-------------------------------------------------------------------------------------------------->
+app.delete("/deleteProduct/:productId", (req: Request, res: Response) => {
+  try {
+    const productId = req.params.productId;
+    console.log(productId);
+    res.status(200).json({ message: "商品已成功刪除" });
+  } catch (error) {
+    console.error("刪除商品錯誤：", error);
+    res.status(500).json({ error: "刪除商品時出現錯誤" });
+  }
+});
+
 //<----404----------------------------------------------------------------------------------------------------------->
 app.use((req: Request, res: Response) => {
   res.status(404).sendFile(resolve("public/html/404.html"));
@@ -52,3 +64,5 @@ app.use((req: Request, res: Response) => {
 app.listen(port, () => {
   console.log(`Example app listening on http://localhost:${port}`);
 });
+
+//<------------------------------------------------------------------------------------------------------------------>

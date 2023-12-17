@@ -1,6 +1,7 @@
 window.onload = () => {
   getUsername();
   renderCartProducts();
+  addDeleteEventListener();
 };
 
 // <!---------------------------getUsername----------------------------------------------->
@@ -28,7 +29,6 @@ async function getUsername() {
 }
 
 // <!---------------------------renderCartProducts----------------------------------------------->
-
 async function renderCartProducts() {
   let res = await fetch("/addToCart");
   console.log(res);
@@ -54,7 +54,7 @@ async function renderCartProducts() {
                     <i class="fas fa-minus"></i>
                 </button>
 
-                <input id="form1" min="0" name="quantity" value="2" type="number"
+                <input id="form1" min="0" name="quantity" value="1" type="number"
                     class="form-control form-control-sm" />
 
                 <button class="btn btn-link px-2"
@@ -66,12 +66,39 @@ async function renderCartProducts() {
                 <h5 class="mb-0">${entry.unit_price}</h5>
             </div>
             <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                <a href="#!" class="text-danger"><i class="fas fa-trash fa-lg"></i></a>
+                <a href="#!" class="text-danger delete-icon" data-product-id="${entry.product_id}"><i class="fas fa-trash fa-lg"></i></a>
             </div>
         </div>
-
-
     `;
   }
+
   document.querySelector(".col-10").innerHTML = cartProduct;
 }
+// <!---------------------------deleteProducts----------------------------------------------->
+
+async function deleteProduct(productId) {
+  try {
+    const response = await fetch(`/deleteProduct/${productId}`, {
+      method: "DELETE",
+    });
+
+    if (response.status === 200) {
+      renderCartProducts();
+    } else {
+      console.error("刪除商品錯誤");
+    }
+  } catch (error) {
+    console.error("刪除商品錯誤：", error);
+  }
+}
+
+function addDeleteEventListener() {
+  const deleteIcons = document.querySelectorAll(".delete-icon");
+  deleteIcons.forEach((deleteIcon) => {
+    deleteIcon.addEventListener("click", () => {
+      const productId = deleteIcon.dataset.productId;
+      deleteProduct(productId);
+    });
+  });
+}
+// <!------------------------------------------------------------------------------------>
