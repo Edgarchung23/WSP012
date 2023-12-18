@@ -96,7 +96,7 @@ function addDeleteEventListener() {
   const deleteIcons = document.querySelectorAll(".delete-icon");
   deleteIcons.forEach((deleteIcon) => {
     deleteIcon.addEventListener("click", () => {
-      const productId = deleteIcon.dataset.productId;
+      const productId = deleteIcon.data.productId;
       deleteProduct(productId);
     });
   });
